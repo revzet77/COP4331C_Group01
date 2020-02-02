@@ -6,15 +6,10 @@ For gamers that are sick of basic point and shoot survivor games, this product o
 
 # Team Members
 
-revzet77 (Jacqueline Godier)
-LynchJ13 (John Lynch)
-wa299600 (Wallace Borges)
-MagicPuffDragon (Lars Gustaf Jiborn)
-
-
-# Trello Board
-
-https://trello.com/b/zZGtiT6a/poop-project
+- revzet77 (Jacqueline Godier)
+- LynchJ13 (John Lynch)
+- wa299600 (Wallace Borges)
+- MagicPuffDragon (Lars Gustaf Jiborn)
 
 # Sprint 1
 
