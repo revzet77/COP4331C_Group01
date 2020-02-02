@@ -2,10 +2,11 @@
 
 | Requirement ID | User Story ID | Requirement | Status |
 |----------------|---------------|-------------|--------|
-|            000 |           001 | Each entry in the product backlog shall have a unique ID | Verified |
-|            001 |           001 | Each entry in the product backlog shall have a textual description | Verified |
-|            002 |           001 | Each entry in the product backlog shall have a priority | Verified |
-|            003 |           001 | Each entry in the product backlog shall have an estimation of effort | Verified |
-|            004 |           001 | Each entry in the product backlog shall have a validation criteria | Verified |
-|            005 |           001 | Each entry in the product backlog shall have a status that can be one of NOT STARTED, WORKING, or DONE | Verified |
-|            005 |           001 | The product backlog shall be displayed as a table with one entry per row | Verified |
+|            000 |           000 | Have working 3rd person player | Verified |
+|            001 |           001 | Have working level | Verified |
+|            002 |           002 | Have enemies | Verified |
+|            003 |           003 | Have game manager | Verified |
+|            004 |           004 | Have 3 different guns (short, mid, long range) | Verified |
+|            005 |           005 | Have working path finding AI for enemies | Verified |
+|            006 |           006 | Have working adaptive AI for enemies | Verified |
+|            007 |           007 | Establish win/lose scenario for wave-based game | Verified |
