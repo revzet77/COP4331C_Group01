@@ -10,4 +10,5 @@
 | 005 | As a gamer, I want to tell how much health an enemy has left so I know how much progress I've made | 10 | 5 | create a health system for enemies | WORKING |
 | 006 | As a gamer, I want to toggle different weapons | 5 | 4 | Weapons system is functioning | WORKING |
 | 007 | As a gamer, I want to have interesting enemies that behave naturally so I am immersed in the game | 20 | 3 | Add functional AI to enemies | WORKING |
-| 008 | As a gamer, I want to know when I have succeeded or failed so the game feels rewardding | 7 | 6 | create win/lose criteria | WORKING |
+| 008 | As a gamer, I want to know when I have succeeded or failed so the game feels rewarding | 7 | 6 | create win/lose criteria | WORKING |
+| 009 | As an inexperienced unity user, I want to research and learn how to use unity, so that I can successfully work on the project.| 4 |  1 | research unity | WORKING |
