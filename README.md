@@ -6,10 +6,10 @@ For gamers that are sick of basic point and shoot survivor games, this product o
 
 # Team Members
 
-revzet77 - Jacqueline Godier
-LynchJ13 - John Lynch
-wa299600 - Wallace Borges
-MagicPuffDragon - Lars Gustaf Jiborn
+revzet77 (Jacqueline Godier)
+LynchJ13 (John Lynch)
+wa299600 (Wallace Borges)
+MagicPuffDragon (Lars Gustaf Jiborn)
 
 
 # Trello Board
