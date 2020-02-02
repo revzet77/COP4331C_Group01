@@ -18,7 +18,7 @@ For gamers that are sick of basic point and shoot survivor games, this product o
 - [Requirements](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/requirements.md)
 - [Trello Board](https://trello.com/b/zZGtiT6a/poop-project)
 - [Burndown Chart](https://github.com/revzet77/COP4331C_Group01)
-- [Velocity Chart](https://github.com/revzet77/COP4331C_Group01)
+- [Velocity Chart](https://docs.google.com/spreadsheets/d/1PBGYJGqDjQs_RxtNOGaMVTs6idsIJfqVUCL7Kjn-ubY/edit?usp=sharing)
 - Design Documents
   - System Architecture
   - Class Diagrams
