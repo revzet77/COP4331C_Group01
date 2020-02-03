@@ -17,8 +17,8 @@ For gamers that are sick of basic point and shoot survivor games, this product o
 - [Sprint Backlog](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/sprint1_backlog.md)
 - [Requirements](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/requirements.md)
 - [Trello Board](https://trello.com/b/zZGtiT6a/poop-project)
-- [Burndown Chart](https://github.com/revzet77/COP4331C_Group01)
-- [Velocity Chart](https://github.com/revzet77/COP4331C_Group01)
+- [Burndown Chart](https://docs.google.com/spreadsheets/d/1xQKtZziBmI2Kaf8Ip7wdv32spgtG4dGq3O_bcDauOf0/edit?usp=sharing)
+- [Velocity Chart](https://docs.google.com/spreadsheets/d/1PBGYJGqDjQs_RxtNOGaMVTs6idsIJfqVUCL7Kjn-ubY/edit?usp=sharing)
 - Design Documents
   - System Architecture
   - Class Diagrams
