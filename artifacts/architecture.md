@@ -20,10 +20,10 @@ The architecture relates to the user stories through each coroutine. The first c
 
 ![Class Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/class%20diagram.png)
 
-- PlayerController
-- PlayerStats
-- CameraController
-- CameraStats
+- PlayerController manages the player object's interaction with the enviornment as well as with the user. This class relates to the gamer wanting to move around the environment using conventional 3rd person game controls.
+- PlayerStats tracks the health, position, and weapon choice of the player while playing the game. This class relates to the gamer wanting to know how much health he/she has and which weapon they are using. 
+- CameraController manages the position and movement, if any, of the camera objets. CameraStats tracks position and physics of camera objects. These classes relate to the gamer wanting to interact with enemies by being able to see where they are in the environment in relation to the player avatar.
+
 
 | Major Classes	| User Story ID's |
 |---------------|-----------------|
