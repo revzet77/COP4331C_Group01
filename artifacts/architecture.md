@@ -25,23 +25,31 @@ There will be no database for this project, all the data is handled live in-game
 
 # Business Rules
 
-***You should list the assumptions, rules, and guidelines from external sources that are impacting your program design.***
+***You should list the assumptions, rules, and guidelines from external sources that are impacting your program design.
 
--...
+- The user has prior gaming experience, thus is familiar with the controls.
+- 
 
 # User Interface Design
 
 ***You should have one or more user interface screens in this section. Each screen should be accompanied by an explaination of the screens purpose and how the user will interact with it. You should relate each screen to one another as the user transitions through the states of your application. You should also have a table that relates each window or component to the support using stories.***
 
+- Currently there is no user interface outside of a third-person camera perspective of a static player model. The user moves the player model with W (forward), A (left), S (backward), D (right), mouse (camera control):
 ![Interface Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/interfaceDiagram.jpg)
 
--...
+- Future UI implementation will include:
+  - player health bar.
+  - floating enemy health bars.
+  - weapon ammo counter + equipped weapon.
+  - in-game menu accesible via 'esc' for exiting or pausing the game.
 
 # Resource Management
 
+TBD
+
 # Security
 
-###EnCapSULatIoN
+##EnCapSULatIoN
 
 # Performance
 
@@ -83,7 +91,7 @@ TBD
 
 ***This section should list the third party libraries your system is using and describe what those libraries are being used for.***
 
--...
+- No third party libraries in use currently.
 
 # Reuse
 
