@@ -12,6 +12,8 @@ The architecture relates to the user stories through each coroutine. The first c
 
 ***You should have an UML class diagram in this section, along with a description of each class and a table that relates each component to one or more user stories. At a minimum, you need 1 diagram of your major classes. You are encouraged to also include more detailed diagrams that include all of your classes.***
 
+![Class Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/class%20diagram.png)
+
 - PlayerController
 - PlayerStats
 - CameraController
@@ -31,7 +33,7 @@ There will be no database for this project, all the data is handled live in-game
 
 ***You should have one or more user interface screens in this section. Each screen should be accompanied by an explaination of the screens purpose and how the user will interact with it. You should relate each screen to one another as the user transitions through the states of your application. You should also have a table that relates each window or component to the support using stories.***
 
-![InterfaceDiagram](https://drive.google.com/file/d/1jjf7alvkk_o4ftPaDlEK9FkWkiNvPgr_/view?usp=sharing)
+![Interface Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/interfaceDiagram.jpg)
 
 -...
 
