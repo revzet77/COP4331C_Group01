@@ -34,13 +34,14 @@ The architecture relates to the user stories through each coroutine. The first c
 
 # Data Design
 
-There will be no database for this project, all the data is handled live in-game. Data like health, position, amount of enemies, and round number are all local variables. When the game is over, the game essentially restarts, so no previous data is needed. 
+Data like health, position, amount of enemies, and round number are all local variables. When the game is over, the game essentially restarts, so no previous data is needed. Thus, there will be no database for this project, as all the data is handled live, in-game.
 
 # Business Rules
 
 ***You should list the assumptions, rules, and guidelines from external sources that are impacting your program design.***
 
-- The user has prior gaming experience, thus is familiar with the controls.
+Because our program is a game, external limitations and policies do not really affect us, except for the subective preferences and previous experiences of the users themselves.
+- An assumption we can have is that the user has prior gaming experience, thus is familiar with WASD controls that can move the player around within a virtual 3D space. 
 
 # User Interface Design
 
@@ -67,7 +68,7 @@ TBD
 
 # Security
 
-##EnCapSULatIoN
+Our objects will have private variables and methods to prevent unwanted access. We will also use whatever encapsulation Unity provides for our classes.
 
 # Performance
 
@@ -87,7 +88,7 @@ TBD
 
 # Input/Output
 
-Keyboard input -> Fun stuff on the screen
+Keyboard input will move the player around, as well as fire/use any weapons. The result will be the movement of the player on the screen and a fun, interactive experience for the user.
 
 # Error Processing
 
@@ -103,7 +104,7 @@ TBD
 
 # Overengineering
 
-TBD
+To make sure we don't overengineer, we are using bacis systems and designs first. When those are working, then we will add more to them to further address the user stories. Things that are too complicated but not required by user stories will be used as stretch goals, things that we will not focus on unless there is extra time and all the user stories have been met.
 
 # Build-vs-Buy Decisions
 
@@ -113,10 +114,11 @@ TBD
   - Using these models for our characters: the player and enemies.
 - [Probuilder](https://unity3d.com/unity/features/worldbuilding/probuilder)
   - Using probuilder for building 3d spaces and environments for testing and play.
+
 # Reuse
 
 TBD
 
 # Change Strategy
 
-TBD
+Every week will determine how the game is looking and see what changes we can add. Also, having people test out the game and give feedback multiple times throughout the development cycle will help us realize things that we missed out for the player experience. 
