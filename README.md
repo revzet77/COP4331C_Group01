@@ -2,7 +2,9 @@
 
 ## Vision Statement
 
-For gamers that are sick of basic point and shoot survivor games, this product offers an adaptive combat environment that leads to more innovative and creative gameplay, unlike games with very “robotic” state machines for their enemies. Our product offers enemies with an adaptive AI and procedural animation, aka the enemies will change their attack loop based on how the player acts.
+For gamers that are sick of basic point and shoot survivor games, this product offers an adaptive combat environment that leads to more innovative and creative gameplay, unlike games with very “robotic” state machines for their enemies. Our product offers enemies with an adaptive AI and procedural animation, aka the enemies will change their attack loop based on how the player acts. 
+
+This is a third person shooter wave-based game where you shoot robots. There are three modes of weapons: short, mid, and long range. If you stay too long in one mode, the robots will change their attack loop to prevent static gamepla.y (ex: if you stay short range, they will attack from long range, etc etc.)
 
 # Team Members
 
