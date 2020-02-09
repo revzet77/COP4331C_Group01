@@ -8,6 +8,12 @@ The architecture for our game consists of a Game Manager that uses coroutines de
 
 The architecture relates to the user stories through each coroutine. The first coroutine relates to our gamer wanting an environment with enemies to fight. The second coroutine relates to our gamer wanting to move his/her avatar around within the environment and interacting with enemies. The third coroutine relates to our gamer wanting to know when he/she has succeeded or failed based on their health and the amount of enemies left. 
 
+| Architecture Components	| User Story ID's |
+|-------------------------|-----------------|
+| Start Game Coroutine	| 2, 10 |
+| Play Game Coroutine	| 1, 4 |
+| End Game Coroutine	| 8 |
+
 # Major Classes
 
 ***You should have an UML class diagram in this section, along with a description of each class and a table that relates each component to one or more user stories. At a minimum, you need 1 diagram of your major classes. You are encouraged to also include more detailed diagrams that include all of your classes.***
@@ -18,6 +24,13 @@ The architecture relates to the user stories through each coroutine. The first c
 - PlayerStats
 - CameraController
 - CameraStats
+
+| Major Classes	| User Story ID's |
+|---------------|-----------------|
+| PlayerController	| 0, 1, 5, 6 |
+| PlayerStats |	4, 11 |
+| CameraController |	0, 1, 9 |
+| CameraStats |	0, 1, 9 |
 
 # Data Design
 
@@ -41,6 +54,14 @@ There will be no database for this project, all the data is handled live in-game
   - floating enemy health bars.
   - weapon ammo counter + equipped weapon.
   - in-game menu accesible via 'esc' for exiting or pausing the game.
+  
+| Interface Component	| User Story ID's |
+|---------------------|-----------------|
+| 3rd person camera |	0 |
+| WASD controls	| 1 |
+| Health Bar for player/enemies	| 5, 11 |
+| Weapon system	| 4, 6, 11 |
+| In-game menu	| 3, 6 |
 
 # Resource Management
 
