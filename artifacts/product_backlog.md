@@ -14,4 +14,4 @@
 | 009 | As an inexperienced unity user, I want to research and learn how to use unity, so that I can successfully work on the project.| 4 |  1 | research unity | DONE |
 | 010 | As a gamer, I want to feel like I'm fighting a robot. | 6 |  4 | add animations to characters/enemies | DOING |
 | 011 | As a gamer, I want a large area to fight. | 10 |  7 | make more advanced level | TO DO |
-| 012 | As a gamer, I want to be able to see the status of my health and weaponry. | 7 | 3 | DOING |
+| 012 | As a gamer, I want to be able to see the status of my health and weaponry. | 7 | 3 | Add Weapon and health UI | DOING |
