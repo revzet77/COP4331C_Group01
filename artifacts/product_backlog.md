@@ -11,6 +11,6 @@
 | 006 | As a gamer, I want to toggle different weapons | 5 | 4 | Weapons toggling | TO DO |
 | 007 | As a gamer, I want to have interesting enemies that behave naturally so I am immersed in the game | 20 | 3 | Add functional AI to enemies | TO DO |
 | 008 | As a gamer, I want to know when I have succeeded or failed so the game feels rewarding | 7 | 6 | create win/lose criteria | TO DO |
-| 010 | As a gamer, I want to feel like I'm fighting a robot. | 6 |  4 | add animations to characters/enemies | DOING |
-| 011 | As a gamer, I want a large area to fight. | 10 |  7 | make more advanced level | TO DO |
-| 012 | As a gamer, I want to be able to see the status of my health and weaponry. | 7 | 3 | Add Weapon and health UI | DOING |
+| 009 | As a gamer, I want to feel like I'm fighting a robot. | 6 |  4 | add animations to characters/enemies | DOING |
+| 010 | As a gamer, I want a large area to fight. | 10 |  7 | make more advanced level | TO DO |
+| 011 | As a gamer, I want to be able to see the status of my health and weaponry. | 7 | 3 | Add Weapon and health UI | DOING |
