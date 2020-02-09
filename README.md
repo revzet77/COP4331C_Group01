@@ -40,7 +40,7 @@ This is a third person shooter wave-based game where you shoot robots. There are
 - Design Documents
   - [System Architecture](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/architecture.md)
   - [Class Diagrams](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/class%20diagram.png)
-  - [Sequence Diagrams]()
+  - [Sequence Diagrams](https://github.com/revzet77/COP4331C_Group01/raw/master/artifacts/images/interfaceDiagram.jpg)
 - Source Code
 - Automated Tests
 - [Product Demonstration](https://drive.google.com/file/d/12xEmVb24mWP-NjGVrVLQg7SicGMkiBcV/view)
