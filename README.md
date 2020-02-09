@@ -35,7 +35,7 @@ For gamers that are sick of basic point and shoot survivor games, this product o
 - [Trello Board](https://trello.com/b/zZGtiT6a/poop-project)
 - [Burndown Chart](https://docs.google.com/spreadsheets/d/1xQKtZziBmI2Kaf8Ip7wdv32spgtG4dGq3O_bcDauOf0/edit?usp=sharing)
 - [Velocity Chart](https://docs.google.com/spreadsheets/d/1PBGYJGqDjQs_RxtNOGaMVTs6idsIJfqVUCL7Kjn-ubY/edit?usp=sharing)
-- Design Documents
+- [Design Documents](https://docs.google.com/document/d/1iUXhCO4ZKoIGQTLxJJ8Qf9LD7iLAw08_rmExO85bmt4/edit?usp=sharing)
   - [System Architecture](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/architecture.md)
   - [Class Diagrams]()
   - [Sequence Diagrams]()
