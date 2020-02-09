@@ -10,5 +10,6 @@ public class PlayerStats : MonoBehaviour
     public float moveAcceleration = 0.1f;
     public float speedSmoothTime = 0.1f;
     public float turnSmoothTime = 0.2f;
-
+    public float gravity = -5f;
+    public float jumpHeight = 1f;
 }

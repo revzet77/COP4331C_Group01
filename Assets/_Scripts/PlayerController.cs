@@ -9,14 +9,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private PlayerStats playerStats;
-    private CharacterController playerC;
+    private CharacterController player;
     private Transform cameraT;
     private float vInput, hInput;
     Vector2 inputDir;
 
 	float turnVelocity;
 	float velocity;
+    float velocityY;
     float speed;
+    bool sprint;
 
     /* TODO:
         1. Add bumper sphere support (Will change moveDir based off of if the player is running into a wall.)
@@ -25,7 +27,8 @@ public class PlayerController : MonoBehaviour
     {
         cameraT = GameObject.Find("Main Camera").GetComponent<Transform>();
         playerStats = gameObject.GetComponent<PlayerStats>();
-        playerC = gameObject.GetComponent<CharacterController>();
+        player = gameObject.GetComponent<CharacterController>();
+        velocityY = 0;
 
     }
 
@@ -36,7 +39,15 @@ public class PlayerController : MonoBehaviour
         vInput = Input.GetAxis("Vertical");
         hInput = Input.GetAxis("Horizontal");
         inputDir = new Vector2 (hInput, vInput);
+        sprint = Input.GetButton("Sprint");
 
+        Move(inputDir, sprint);
+        if (Input.GetButtonDown("Jump")){
+            Jump();
+        }
+    }
+
+    void Move(Vector2 inputDir, bool sprint){
         // create the rotation we need to be in to look at the target (Based off of the camera's y-rotation)
         // smooth damp it based off our smooth speed to make a visually nice transition
         if (inputDir != Vector2.zero) {
@@ -45,10 +56,26 @@ public class PlayerController : MonoBehaviour
 		}
 
         // Set our Target Speed
-        float tgtSpeed = playerStats.runSpeed * inputDir.magnitude;
+        if (velocityY > playerStats.gravity){
+            velocityY += Time.deltaTime * playerStats.gravity;
+        }
+        float tgtSpeed;
+        if (sprint){
+            tgtSpeed = playerStats.runSpeed * inputDir.magnitude;
+        } else {
+            tgtSpeed = playerStats.walkSpeed * inputDir.magnitude;
+        }
 		speed = Mathf.SmoothDamp (speed, tgtSpeed, ref velocity, playerStats.speedSmoothTime);
-        playerC.Move(transform.forward * Time.deltaTime * speed);
+        Vector3 vel = (transform.forward * speed + Vector3.up * velocityY) * Time.deltaTime;
+        player.Move(vel);
+    }
 
+    void Jump(){
+        if (player.isGrounded) {
+			float jumpVelocity = Mathf.Sqrt (-2 * playerStats.gravity * playerStats.jumpHeight);
+			velocityY = jumpVelocity;
+		}
+        Debug.Log(velocityY);
     }
 
 }
