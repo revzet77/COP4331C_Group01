@@ -25,7 +25,7 @@ There will be no database for this project, all the data is handled live in-game
 
 # Business Rules
 
-***You should list the assumptions, rules, and guidelines from external sources that are impacting your program design.
+***You should list the assumptions, rules, and guidelines from external sources that are impacting your program design.***
 
 - The user has prior gaming experience, thus is familiar with the controls.
 - 
