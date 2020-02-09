@@ -28,7 +28,6 @@ There will be no database for this project, all the data is handled live in-game
 ***You should list the assumptions, rules, and guidelines from external sources that are impacting your program design.***
 
 - The user has prior gaming experience, thus is familiar with the controls.
-- 
 
 # User Interface Design
 
@@ -91,8 +90,10 @@ TBD
 
 ***This section should list the third party libraries your system is using and describe what those libraries are being used for.***
 
-- No third party libraries in use currently.
-
+- [Warrior Pack](https://assetstore.unity.com/packages/3d/animations/warrior-pack-bundle-1-free-36405)
+  - Using these models for our characters: the player and enemies.
+- [Probuilder](https://unity3d.com/unity/features/worldbuilding/probuilder)
+  - Using probuilder for building 3d spaces and environments for testing and play.
 # Reuse
 
 TBD
