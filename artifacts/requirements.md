@@ -10,3 +10,4 @@
 |            005 |           005 | Have working path finding AI for enemies | Verified |
 |            006 |           006 | Have working adaptive AI for enemies | Verified |
 |            007 |           007 | Establish win/lose scenario for wave-based game | Verified |
+|            008 |           011 | Make a large level | Verified |
