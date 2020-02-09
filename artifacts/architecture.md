@@ -34,7 +34,7 @@ The architecture relates to the user stories through each coroutine. The first c
 
 # Data Design
 
-There will be no database for this project, all the data is handled live in-game. 
+There will be no database for this project, all the data is handled live in-game. Data like health, position, amount of enemies, and round number are all local variables. When the game is over, the game essentially restarts, so no previous data is needed. 
 
 # Business Rules
 
@@ -46,15 +46,13 @@ There will be no database for this project, all the data is handled live in-game
 
 ***You should have one or more user interface screens in this section. Each screen should be accompanied by an explaination of the screens purpose and how the user will interact with it. You should relate each screen to one another as the user transitions through the states of your application. You should also have a table that relates each window or component to the support using stories.***
 
-- Currently there is no user interface outside of a third-person camera perspective of a static player model. The user moves the player model with W (forward), A (left), S (backward), D (right), mouse (camera control):
+Currently there is no user interface outside of a third-person camera perspective of a static player model. The user moves the player model with W (forward), A (left), S (backward), D (right), mouse (camera control).
+
+However, our future interface will be a third person display, always displaying what is in front of the player avatar. There will also be a health bar for the actualy player, floating health bars for each enemy, and an area that displays the weapon being used, as well as any power ups obtained. We also want to implement an in-gamemenu where the player can have options like changing weapons or pausing the game. 
+Our interface relates to the gamer wanting to know what their health is, what the enemies' health is, what weapon is being used, being able to explore the environment by seeing what the avatar is seeing in the game environment, and having a smooth, immersive experience.
+
 ![Interface Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/interfaceDiagram.jpg)
 
-- Future UI implementation will include:
-  - player health bar.
-  - floating enemy health bars.
-  - weapon ammo counter + equipped weapon.
-  - in-game menu accesible via 'esc' for exiting or pausing the game.
-  
 | Interface Component	| User Story ID's |
 |---------------------|-----------------|
 | 3rd person camera |	0 |
