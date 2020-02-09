@@ -37,7 +37,7 @@ For gamers that are sick of basic point and shoot survivor games, this product o
 - [Velocity Chart](https://docs.google.com/spreadsheets/d/1PBGYJGqDjQs_RxtNOGaMVTs6idsIJfqVUCL7Kjn-ubY/edit?usp=sharing)
 - [Design Documents](https://docs.google.com/document/d/1iUXhCO4ZKoIGQTLxJJ8Qf9LD7iLAw08_rmExO85bmt4/edit?usp=sharing)
   - [System Architecture](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/architecture.md)
-  - [Class Diagrams]()
+  - [Class Diagrams](https://drive.google.com/file/d/1TqkbeYYWm1R5Yte9p3uEAMQ6i0NJLE1N/view?usp=sharing)
   - [Sequence Diagrams]()
 - Source Code
 - Automated Tests
