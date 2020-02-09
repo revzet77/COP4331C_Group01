@@ -34,13 +34,13 @@ The architecture relates to the user stories through each coroutine. The first c
 
 # Data Design
 
-Data like health, position, amount of enemies, and round number are all local variables. When the game is over, the game essentially restarts, so no previous data is needed. Thus, there will be no database for this project, as all the data is handled live, in-game.
+Data like health, position, amount of enemies, and round number are all local variables. When the game is over, the game essentially restarts, so no previous data is needed. Thus, there will be no database for this project, as all the data is handled live, in-game. The PlayerStats and CameraStats hold information for in-game 
 
 # Business Rules
 
 ***You should list the assumptions, rules, and guidelines from external sources that are impacting your program design.***
 
-Because our program is a game, external limitations and policies do not really affect us, except for the subective preferences and previous experiences of the users themselves.
+Because our program is a game, external limitations and policies do not really affect us, except for the preferences and previous experiences of the users themselves.
 - An assumption we can have is that the user has prior gaming experience, thus is familiar with WASD controls that can move the player around within a virtual 3D space. 
 
 # User Interface Design
@@ -68,7 +68,7 @@ TBD
 
 # Security
 
-Our objects will have private variables and methods to prevent unwanted access. We will also use whatever encapsulation Unity provides for our classes.
+Our objects will have private variables and methods to prevent unwanted access. We will also use whatever encapsulation Unity provides for our classes. However, we will not be 
 
 # Performance
 
