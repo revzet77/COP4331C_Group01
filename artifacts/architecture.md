@@ -1,18 +1,16 @@
-Populate each section with information as it applies to your project. If a section does not apply, explain why. Include diagrams (or links to diagrams) in each section, as appropriate. For example, sketches of the user interfaces along with an explanation of how the interface components will work; ERD diagrams of the database; rough class diagrams; context diagrams showing the system boundary; etc.
+***Populate each section with information as it applies to your project. If a section does not apply, explain why. Include diagrams (or links to diagrams) in each section, as appropriate. For example, sketches of the user interfaces along with an explanation of how the interface components will work; ERD diagrams of the database; rough class diagrams; context diagrams showing the system boundary; etc.***
 
 # Program Organization
+
+***You should have a diagram of your high level architecture in this section, along with a description of each component and a table that relates each component to one or more user stories.***
 
 The architecture for our game consists of a Game Manager that uses coroutines dedicated to starting each round, playing each round, and ending each round, respectively. In the first coroutine, player and all objects will be spawned. In the second coroutine, player will be playing the actual game, interacting with Non-Player Characters (enemies) and the environment. Player input will be received and movement will be updated, along with health of player and enemies. In the third coroutine, win/loss state will be determined and displayed to the user.
 
 The architecture relates to the user stories through each coroutine. The first coroutine relates to our gamer wanting an environment with enemies to fight. The second coroutine relates to our gamer wanting to move his/her avatar around within the environment and interacting with enemies. The third coroutine relates to our gamer wanting to know when he/she has succeeded or failed based on their health and the amount of enemies left. 
 
-You should have a diagram of your high level architecture in this section, along with a description of each component and a table that relates each component to one or more user stories.
-
--...
-
 # Major Classes
 
-You should have an UML class diagram in this section, along with a description of each class and a table that relates each component to one or more user stories. At a minimum, you need 1 diagram of your major classes. You are encouraged to also include more detailed diagrams that include all of your classes. 
+***You should have an UML class diagram in this section, along with a description of each class and a table that relates each component to one or more user stories. At a minimum, you need 1 diagram of your major classes. You are encouraged to also include more detailed diagrams that include all of your classes.***
 
 - PlayerController
 - PlayerStats
@@ -25,21 +23,23 @@ There will be no database for this project, all the data is handled live in-game
 
 # Business Rules
 
-You should list the assumptions, rules, and guidelines from external sources that are impacting your program design.
+***You should list the assumptions, rules, and guidelines from external sources that are impacting your program design.***
 
 -...
 
 # User Interface Design
 
-You should have one or more user interface screens in this section. Each screen should be accompanied by an explaination of the screens purpose and how the user will interact with it. You should relate each screen to one another as the user transitions through the states of your application. You should also have a table that relates each window or component to the support using stories. 
+***You should have one or more user interface screens in this section. Each screen should be accompanied by an explaination of the screens purpose and how the user will interact with it. You should relate each screen to one another as the user transitions through the states of your application. You should also have a table that relates each window or component to the support using stories.***
 
--TBD
+![InterfaceDiagram](https://drive.google.com/file/d/1jjf7alvkk_o4ftPaDlEK9FkWkiNvPgr_/view?usp=sharing)
+
+-...
 
 # Resource Management
 
 # Security
 
-[EnCapSULatIoN]
+###EnCapSULatIoN
 
 # Performance
 
@@ -79,7 +79,7 @@ TBD
 
 # Build-vs-Buy Decisions
 
-This section should list the third party libraries your system is using and describe what those libraries are being used for.
+***This section should list the third party libraries your system is using and describe what those libraries are being used for.***
 
 -...
 
