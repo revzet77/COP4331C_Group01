@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     private CameraStats cStats;
     private Vector3 targetPos;
     
-    float vertInput, horzInput;
+    // float vertInput, horzInput;
 
     void Start()
     {
@@ -20,13 +20,13 @@ public class CameraController : MonoBehaviour
 		}
     }
 
-    void LateUpdate()
+    public void ReceiveInput(InputHandler.MouseInput mouse)
     {
-        horzInput += Input.GetAxis("Mouse X") * cStats.mouseSensitivity;
-        vertInput -= Input.GetAxis("Mouse Y") * cStats.mouseSensitivity;
-        vertInput = Mathf.Clamp(vertInput, cStats.verticalClamp.x, cStats.verticalClamp.y);
+        mouse.horzInput *= cStats.mouseSensitivity;
+        mouse.vertInput *= cStats.mouseSensitivity;
+        mouse.vertInput = Mathf.Clamp(mouse.vertInput, cStats.verticalClamp.x, cStats.verticalClamp.y);
 
-        Vector3 rotAnglesCam = new Vector3(vertInput, horzInput, 0);
+        Vector3 rotAnglesCam = new Vector3(mouse.vertInput, mouse.horzInput, 0);
         transform.eulerAngles = rotAnglesCam;
         targetPos = playerT.position - (transform.forward * cStats.distToCameraX) + (Vector3.up * cStats.distToCameraY);
         transform.position = targetPos;

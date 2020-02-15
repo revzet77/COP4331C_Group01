@@ -11,14 +11,11 @@ public class PlayerController : MonoBehaviour
     private PlayerStats playerStats;
     private CharacterController player;
     private Transform cameraT;
-    private float vInput, hInput;
-    Vector2 inputDir;
 
 	float turnVelocity;
 	float velocity;
     float velocityY;
     float speed;
-    bool sprint;
 
     /* TODO:
         1. Add bumper sphere support (Will change moveDir based off of if the player is running into a wall.)
@@ -32,17 +29,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //handle inputs from the user (Will need to add handling here)
-        vInput = Input.GetAxis("Vertical");
-        hInput = Input.GetAxis("Horizontal");
-        inputDir = new Vector2 (hInput, vInput);
-        sprint = Input.GetButton("Sprint");
+    
 
-        Move(inputDir, sprint);
-        if (Input.GetButtonDown("Jump")){
+    // void Update()
+    public void ReceiveInput(InputHandler.KeyboardInput movement)
+    {
+        Move(movement.inputWASD, movement.isSprinting);
+        if (movement.isJumping){
             Jump();
         }
     }
@@ -75,7 +68,6 @@ public class PlayerController : MonoBehaviour
 			float jumpVelocity = Mathf.Sqrt (-2 * playerStats.gravity * playerStats.jumpHeight);
 			velocityY = jumpVelocity;
 		}
-        Debug.Log(velocityY);
     }
 
 }
