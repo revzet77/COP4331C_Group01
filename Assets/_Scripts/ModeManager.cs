@@ -2,17 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// manages the mode for all current active enemies
 public class ModeManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    enum AttackMode{
+        Offense = 0,
+        Defense = 1
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    protected class enemyMode(){
+
+        int curMode;
+
+        public enemyMode(){
+            curMode = 1;
+        }
+
+        public enemyMode(int mode){
+            curMode = mode;
+        }
     }
+
 }

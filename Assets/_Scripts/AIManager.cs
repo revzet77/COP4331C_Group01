@@ -48,7 +48,7 @@ public class AIManager : MonoBehaviour
             return curStyle;
         }
 
-        public setStyle(int style){
+        public void setStyle(int style){
             curStyle = style;
         }
     }
