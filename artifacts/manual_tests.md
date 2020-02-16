@@ -8,8 +8,7 @@
 - test: collision boxes stop player from going through objects
 
 # User Story 002
-- test: an enemy exists in a scene
-- test: an enemy can be killed or kill you
+- test: an enemy exists in a scene when started
 
 # User Story 009
 - test: an enemy runs through a natural-looking attack loop during play 
