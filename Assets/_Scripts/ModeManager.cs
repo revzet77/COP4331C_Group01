@@ -10,7 +10,7 @@ public class ModeManager : MonoBehaviour
         Defense = 1
     }
 
-    protected class enemyMode(){
+    protected class enemyMode{
 
         int curMode;
 
