@@ -48,7 +48,7 @@ This is a third person shooter wave-based game where you shoot robots. There are
 # Sprint 3
 
 - [Product Backlog](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/product_backlog.md)
-- [Sprint Backlog](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/sprint2_backlog.md)
+- [Sprint Backlog](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/sprint3_backlog.md)
 - [Requirements](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/requirements.md)
 - [Trello Board](https://trello.com/b/zZGtiT6a/poop-project)
 - [Burndown Chart](https://docs.google.com/spreadsheets/d/1xQKtZziBmI2Kaf8Ip7wdv32spgtG4dGq3O_bcDauOf0/edit?usp=sharing)
