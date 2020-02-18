@@ -11,6 +11,8 @@
 | 006 | As a gamer, I want to toggle between different weapons. | 5 | 4 | Equip and swap between multiple weapons | TO DO |
 | 007 | As a gamer, I want to have interesting enemies that behave naturally so I am immersed in the game. | 20 | 3 | Add functional AI to enemies | DOING |
 | 008 | As a gamer, I want to know when I have succeeded or failed so the game feels rewarding. | 7 | 6 | create win/lose criteria | TO DO |
-| 009 | As a gamer, I want to feel like I'm fighting a robot. | 6 |  4 | add robotic animations to characters/enemies | DOING |
+| 009 | As a gamer, I want to feel like I'm fighting a robot. | 6 |  4 | add robotic animations to characters/enemies | TO DO |
 | 010 | As a gamer, I want a large area with varying terrain to fight. | 10 |  7 | Make a more advanced level. | TO DO |
 | 011 | As a gamer, I want to be able to see the status of my health and weaponry. | 7 | 3 | Add Weapon and health UI | DOING |
+| 012 | As a gamer, I want the enemies to effectively traverse the map to pursue me. | 15 |  3 | Enemy AI is able to traverse the map effectively. | TO DO |
+| 013 | As a gamer, I want my character to visually respond to my controller inputs. | 6 |  4 | Add animations for player movement. | TESTING |
