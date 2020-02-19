@@ -14,9 +14,10 @@ public class AIManager : MonoBehaviour
     // stupid AI's are meant to be more like cannon fodder, not super in depth code
     // the fightStyle will not change, thus is private and should not be edited 
     // within the class
-    protected class stupidAI
+    public class stupidAI
     {
         private int curStyle;
+        int id;
 
         public stupidAI(int style){
             curStyle = style;
@@ -32,9 +33,11 @@ public class AIManager : MonoBehaviour
     }
 
     // smart AI's are supposed to be the adaptive versions of the enemy
-    protected class smartAI
+    public class smartAI
     {
-        int curStyle;
+        private int curStyle;
+        // TODO:  make system to track different AI's
+        int id;
 
         public smartAI(int style){
             curStyle = style;

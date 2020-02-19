@@ -10,9 +10,9 @@ public class ModeManager : MonoBehaviour
         Defense = 1
     }
 
-    protected class enemyMode{
+    public class enemyMode{
 
-        int curMode;
+        private int curMode;
 
         public enemyMode(){
             curMode = 1;
@@ -20,6 +20,9 @@ public class ModeManager : MonoBehaviour
 
         public enemyMode(int mode){
             curMode = mode;
+        }
+        public int getMode(){
+            return curMode;
         }
     }
 
