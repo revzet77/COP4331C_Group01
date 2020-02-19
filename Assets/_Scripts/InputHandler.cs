@@ -6,6 +6,7 @@ public class InputHandler : MonoBehaviour{
 
     private PlayerController player;
     private CameraController camera;
+    private Animator animator;
     
     //Keyboard Inputs
     public struct KeyboardInput{
@@ -24,7 +25,7 @@ public class InputHandler : MonoBehaviour{
     void Start(){
         player = GameObject.Find("PlayerController").GetComponent<PlayerController>();
         camera = GameObject.Find("Main Camera").GetComponent<CameraController>();
-
+        animator = player.GetComponent<Animator>();
     }
 
     void Update(){
@@ -32,13 +33,18 @@ public class InputHandler : MonoBehaviour{
         // at the moment, it only takes into account inputs as movement.
 
         // take inputs related to keyboard
-        keyboard.inputWASD = new Vector2 (Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        keyboard.inputWASD = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        animator.SetBool("IsMoving", (keyboard.inputWASD != Vector2.zero));         
+
         keyboard.isSprinting = Input.GetButton("Sprint");
+        animator.SetBool("IsSprinting", keyboard.isSprinting);
+
         keyboard.isJumping = Input.GetButtonDown("Jump");
+        if (keyboard.isJumping)
+            animator.SetTrigger("JumpTrigger");
 
         // send keyboard inputs to PlayerController script.
         player.ReceiveInput(keyboard);
-        
     }
 
     void LateUpdate(){

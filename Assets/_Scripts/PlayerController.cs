@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 {
     private PlayerStats playerStats;
     private CharacterController player;
+    private Animator animator;
     private Transform cameraT;
 
 	float turnVelocity;
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
         cameraT = GameObject.Find("Main Camera").GetComponent<Transform>();
         playerStats = gameObject.GetComponent<PlayerStats>();
         player = gameObject.GetComponent<CharacterController>();
+        animator = gameObject.GetComponent<Animator>();
         velocityY = 0;
 
     }
@@ -35,7 +37,8 @@ public class PlayerController : MonoBehaviour
     public void ReceiveInput(InputHandler.KeyboardInput movement)
     {
         Move(movement.inputWASD, movement.isSprinting);
-        if (movement.isJumping){
+        if (movement.isJumping)
+        {
             Jump();
         }
     }
@@ -44,7 +47,7 @@ public class PlayerController : MonoBehaviour
         // create the rotation we need to be in to look at the target (Based off of the camera's y-rotation)
         // smooth damp it based off our smooth speed to make a visually nice transition
         if (inputDir != Vector2.zero) {
-			float targetRotation = Mathf.Atan2 (inputDir.x, inputDir.y) * Mathf.Rad2Deg + cameraT.eulerAngles.y;
+            float targetRotation = Mathf.Atan2 (inputDir.x, inputDir.y) * Mathf.Rad2Deg + cameraT.eulerAngles.y;
 			transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnVelocity, playerStats.turnSmoothTime);
 		}
 
@@ -64,8 +67,9 @@ public class PlayerController : MonoBehaviour
     }
 
     void Jump(){
-        if (player.isGrounded) {
-			float jumpVelocity = Mathf.Sqrt (-2 * playerStats.gravity * playerStats.jumpHeight);
+        if (player.isGrounded)
+        {
+            float jumpVelocity = Mathf.Sqrt (-2 * playerStats.gravity * playerStats.jumpHeight);
 			velocityY = jumpVelocity;
 		}
     }
