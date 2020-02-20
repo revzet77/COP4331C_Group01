@@ -31,14 +31,14 @@ This is a third person shooter wave-based game where you shoot robots. There are
 
 ## Responsibilities
 - revzet77 (Jacqueline Godier)
--- Creating basic level for testing.
+  - Creating basic level for testing.
 - LynchJ13 (John Lynch)
--- Setting up the input handler and controls.
+  - Setting up the input handler and controls.
 - wa299600 (Wallace Borges)
--- Setting up the game manager/framework.
+  - Setting up the game manager/framework.
 - MagicPuffDragon (Lars Gustaf Jiborn)
--- Learning Unity
--- Player animations
+  - Learning Unity
+  - Player animations
 
 # Sprint 2
 
@@ -58,16 +58,16 @@ This is a third person shooter wave-based game where you shoot robots. There are
 
 ## Responsibilities
 - revzet77 (Jacqueline Godier)
--- Finishing the basic level for testing.
+  - Finishing the basic level for testing.
 - LynchJ13 (John Lynch)
--- Setting up the input handler and controls.
--- Creating movement mechanics (gravity, movement on the axis, etc).
+  - Setting up the input handler and controls.
+  - Creating movement mechanics (gravity, movement on the axis, etc).
 - wa299600 (Wallace Borges)
--- Creating weapon and health UI.
--- Managing the game manager.
+  - Creating weapon and health UI.
+  - Managing the game manager.
 - MagicPuffDragon (Lars Gustaf Jiborn)
--- Creating character animations for the player.
--- Learning Unity
+  - Creating character animations for the player.
+  - Learning Unity
 
 # Sprint 3
 
@@ -88,19 +88,19 @@ This is a third person shooter wave-based game where you shoot robots. There are
 
 ## Responsibilities
 - revzet77 (Jacqueline Godier)
--- Creating basic level.
--- Creating basic enemy.
--- Creating advanced AI enemy.
+  - Creating basic level.
+  - Creating basic enemy.
+  - Creating advanced AI enemy.
 - LynchJ13 (John Lynch)
--- Setting up controls and movement.
--- Creating basic enemy.
--- Creating advanced AI enemy.
+  - Setting up controls and movement.
+  - Creating basic enemy.
+  - Creating advanced AI enemy.
 - wa299600 (Wallace Borges)
--- Creating basic UI.
--- Managing the game manager.
+  - Creating basic UI.
+  - Managing the game manager.
 - MagicPuffDragon (Lars Gustaf Jiborn)
--- Finishing character animations.
--- Updating and fixing Trello board, user stories, etc.
+  - Finishing character animations.
+  - Updating and fixing Trello board, user stories, etc.
 
 # Sprint 4
 
@@ -121,10 +121,10 @@ This is a third person shooter wave-based game where you shoot robots. There are
 
 ## Responsibilities
 - revzet77 (Jacqueline Godier)
--- 
+  - 
 - LynchJ13 (John Lynch)
--- 
+  - 
 - wa299600 (Wallace Borges)
--- 
+  - 
 - MagicPuffDragon (Lars Gustaf Jiborn)
--- 
+  - 
