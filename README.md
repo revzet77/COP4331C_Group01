@@ -29,6 +29,17 @@ This is a third person shooter wave-based game where you shoot robots. There are
 - Automated Tests
 - Product Demonstration
 
+## Responsibilities
+- revzet77 (Jacqueline Godier)
+-- Creating basic level for testing.
+- LynchJ13 (John Lynch)
+-- Setting up the input handler and controls.
+- wa299600 (Wallace Borges)
+-- Setting up the game manager/framework.
+- MagicPuffDragon (Lars Gustaf Jiborn)
+-- Learning Unity
+-- Player animations
+
 # Sprint 2
 
 - [Product Backlog](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/product_backlog.md)
@@ -44,6 +55,19 @@ This is a third person shooter wave-based game where you shoot robots. There are
 - Source Code
 - Automated Tests
 - [Product Demonstration](https://drive.google.com/file/d/12xEmVb24mWP-NjGVrVLQg7SicGMkiBcV/view)
+
+## Responsibilities
+- revzet77 (Jacqueline Godier)
+-- Finishing the basic level for testing.
+- LynchJ13 (John Lynch)
+-- Setting up the input handler and controls.
+-- Creating movement mechanics (gravity, movement on the axis, etc).
+- wa299600 (Wallace Borges)
+-- Creating weapon and health UI.
+-- Managing the game manager.
+- MagicPuffDragon (Lars Gustaf Jiborn)
+-- Creating character animations for the player.
+-- Learning Unity
 
 # Sprint 3
 
@@ -62,6 +86,22 @@ This is a third person shooter wave-based game where you shoot robots. There are
 - [Manual Tests](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/manual_tests.md)
 - [Product Demonstration](https://streamable.com/eq4mc)
 
+## Responsibilities
+- revzet77 (Jacqueline Godier)
+-- Creating basic level.
+-- Creating basic enemy.
+-- Creating advanced AI enemy.
+- LynchJ13 (John Lynch)
+-- Setting up controls and movement.
+-- Creating basic enemy.
+-- Creating advanced AI enemy.
+- wa299600 (Wallace Borges)
+-- Creating basic UI.
+-- Managing the game manager.
+- MagicPuffDragon (Lars Gustaf Jiborn)
+-- Finishing character animations.
+-- Updating and fixing Trello board, user stories, etc.
+
 # Sprint 4
 
 - [Product Backlog](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/product_backlog.md)
@@ -78,3 +118,13 @@ This is a third person shooter wave-based game where you shoot robots. There are
 - [Automated Tests](https://github.com/revzet77/COP4331C_Group01/blob/master/Assets/_Scripts/testing.cs)
 - [Manual Tests](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/manual_tests.md)
 - [Product Demonstration](https://streamable.com/eq4mc)
+
+## Responsibilities
+- revzet77 (Jacqueline Godier)
+-- 
+- LynchJ13 (John Lynch)
+-- 
+- wa299600 (Wallace Borges)
+-- 
+- MagicPuffDragon (Lars Gustaf Jiborn)
+-- 
