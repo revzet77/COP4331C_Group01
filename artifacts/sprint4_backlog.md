@@ -1,4 +1,7 @@
 # Sprint 4 Backlog (02-19-2020 to 02-26-2020)
 | ID | User Story | Effort | Priority | Validation Criteria | Owner |
 |----|------------|--------|----------|---------------------|-------|
-|  |  |  |  |  |  |
+| 002 | As a player, I want to have enemies to fight. | Given the game has started, when I spawn into the map, then enemies with one attack pattern will chase me. | 8 | NECESSARY | Given the game has started, when I spawn into the map, then enemies with one attack pattern will chase me. | John/Jacqueline |
+| 011 | As a player, I want to be able to see the status of my health and weaponry. | Given the player has health and weaponry, when the player takes damage or swaps weapons, then the user interface shows the corresponding values. | 7 | IMPORTANT | Given the player has health and weaponry, when the player takes damage or swaps weapons, then the user interface shows the corresponding values. | Wallace |
+| 007 | As a player, I want to have interesting enemies that behave naturally so I am immersed in the game | 20 | MODERATE | Given that enemy models exist and can move, when the player behaves in a particular way, then the enemies alter their attack patterns and behaviors to create more challenge for the player. | John/Jacqueline |
+| 009 | As a player, I want to feel like I'm fighting a robot. | 6 | NICE TO HAVE | Given that enemy models exist and can move, when the enemy moves or attack, then an animation is played accordingly. | Gustaf |
