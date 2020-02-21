@@ -76,15 +76,15 @@ TBD
 
 # Scalability
 
-This game shall be single player only.
+Since our program is a single player game, it doesn't require scalability.
 
 # Interoperability
 
-TBD
+This is not required becuase our program is built within the Unity platform. It does not require other software to assist in functionality.
 
 # Internationalization/Localization
 
-This game will only be in English.
+This is not required as our game will only be in English.
 
 # Input/Output
 
@@ -96,7 +96,7 @@ TBD
 
 # Fault Tolerance
 
-TBD
+Because our program is a game, faults can be tolerated, such as minor glitches, errors, or even the game crashing. Perfect performance is not the first priority for our program. 
 
 # Architectural Feasibility
 
