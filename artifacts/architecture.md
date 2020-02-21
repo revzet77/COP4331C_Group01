@@ -76,7 +76,7 @@ TBD
 
 # Scalability
 
-TBD
+This game shall be single player only.
 
 # Interoperability
 
@@ -84,7 +84,7 @@ TBD
 
 # Internationalization/Localization
 
-TBD
+This game will only be in English.
 
 # Input/Output
 
@@ -117,7 +117,7 @@ To make sure we don't overengineer, we are using bacis systems and designs first
 
 # Reuse
 
-TBD
+No reuse, this is a single game executable being created.
 
 # Change Strategy
 
