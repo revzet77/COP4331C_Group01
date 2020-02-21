@@ -8,8 +8,6 @@ public class CameraController : MonoBehaviour
     private CameraStats cStats;
     private Vector3 targetPos;
     
-    // float vertInput, horzInput;
-
     void Start()
     {
         playerT = GameObject.Find("PlayerController").GetComponent<Transform>();
@@ -30,6 +28,18 @@ public class CameraController : MonoBehaviour
         transform.eulerAngles = rotAnglesCam;
         targetPos = playerT.position - (transform.forward * cStats.distToCameraX) + (Vector3.up * cStats.distToCameraY);
         transform.position = targetPos;
+    }
+
+    public Transform GetPlayerTransform(){
+        return playerT;
+    }
+
+    public Vector3 GetTargetPosition(){
+        return targetPos;
+    }
+
+    public CameraStats GetCameraStats(){
+        return cStats;
     }
 
 }

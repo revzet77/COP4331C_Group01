@@ -5,7 +5,7 @@ using UnityEngine;
 using static CameraController;
 using static CameraStats;
 using static InputHandler;
-using static  PlayerController;
+using static PlayerController;
 using static PlayerStats;
 using static AIManager;
 using static ModeManager;
@@ -81,6 +81,39 @@ public class testing : MonoBehaviour
         }
 
         return false;
+    }
+
+    bool test_inputHandler(){
+        InputHandler inp = new InputHandler();
+        return inp.TestInputs();
+
+    }
+
+    bool test_CameraController(){
+        CameraController cam = new CameraController();
+        if (cam.GetPlayerTransform() == null || cam.GetPlayerTransform().Equals(null))
+            return false;
+
+        if (cam.GetTargetPosition() == null || cam.GetTargetPosition().Equals(null))
+            return false;
+
+        if (cam.GetCameraStats() == null || cam.GetCameraStats().Equals(null))
+            return false;
+
+        return true;
+    }
+
+    bool test_PlayerController(){
+        PlayerController play = new PlayerController();
+
+        if (play.GetPlayerStats() == null || play.GetPlayerStats().Equals(null))
+            return false;
+        if (play.GetCharacterController() == null || play.GetCharacterController().Equals(null))
+            return false;
+        if (play.GetCameraTransform() == null || play.GetCameraTransform().Equals(null))
+            return false;
+
+        return true;
     }
     // test enemy mode (2 constructors)
     // Movement Manager tests

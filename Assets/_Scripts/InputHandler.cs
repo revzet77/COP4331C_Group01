@@ -34,7 +34,7 @@ public class InputHandler : MonoBehaviour{
 
         // take inputs related to keyboard
         keyboard.inputWASD = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        animator.SetBool("IsMoving", (keyboard.inputWASD != Vector2.zero));         
+        animator.SetBool("IsMoving", (keyboard.inputWASD != Vector2.zero));
 
         keyboard.isSprinting = Input.GetButton("Sprint");
         animator.SetBool("IsSprinting", keyboard.isSprinting);
@@ -51,8 +51,11 @@ public class InputHandler : MonoBehaviour{
         // take inputs related to mouse movement.
         mouse.horzInput += Input.GetAxis("Mouse X");
         mouse.vertInput -= Input.GetAxis("Mouse Y");
-
         // Send mouse input to CameraController script.
         camera.ReceiveInput(mouse);
+    }
+
+    public bool TestInputs(){
+        return !( keyboard.Equals(default(KeyboardInput))) ;
     }
 }

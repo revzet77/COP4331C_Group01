@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
 {
     private PlayerStats playerStats;
     private CharacterController player;
-    private Animator animator;
     private Transform cameraT;
+    private Animator animator;
 
 	float turnVelocity;
 	float velocity;
@@ -72,6 +72,19 @@ public class PlayerController : MonoBehaviour
             float jumpVelocity = Mathf.Sqrt (-2 * playerStats.gravity * playerStats.jumpHeight);
 			velocityY = jumpVelocity;
 		}
+    }
+
+
+    public PlayerStats GetPlayerStats(){
+        return playerStats;
+    }
+
+    public CharacterController GetCharacterController(){
+        return player;
+    }
+
+    public Transform GetCameraTransform(){
+        return cameraT;
     }
 
 }
