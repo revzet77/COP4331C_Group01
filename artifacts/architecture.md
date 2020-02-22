@@ -4,21 +4,19 @@ The architecture for our game consists of a Game Manager that uses coroutines de
 
 The architecture relates to the user stories through each coroutine. The first coroutine relates to our gamer wanting an environment with enemies to fight. The second coroutine relates to our gamer wanting to move his/her avatar around within the environment and interacting with enemies. The third coroutine relates to our gamer wanting to know when he/she has succeeded or failed based on their health and the amount of enemies left. 
 
-### Context Diagram
+  #**Context Diagram**
 
 ![Context Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/context_diagram.png)
 
 
 
-
-### Container Diagram
+  #**Container Diagram**
 
 ![Container Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/container_diagram.png)
 
 
 
-
-### Component Diagram
+  #**Component Diagram**
 
 ![Component Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/Component_diagram.png)
 
@@ -49,6 +47,23 @@ The architecture relates to the user stories through each coroutine. The first c
 | PlayerStats |	4, 11 |
 | CameraController |	0, 1, 9 |
 | CameraStats |	0, 1, 9 |
+
+![AI Manager](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/AI%20Manager.jpg)
+
+- **AI Manager** TODO
+- **SmartAI** TODO
+- **StupidAI** TODO
+- **Mode Manager** TODO
+- **Movement Manager** TODO
+
+| **Major Classes**	| **User Story ID's** |
+|---------------|-----------------|
+| AI Manager	| TODO |
+| StupidAI |	TODO |
+| SmartAI |	TODO |
+| Mode Manager |	TODO |
+| Movement Manager |	TODO |
+
 
 # Data Design
 
