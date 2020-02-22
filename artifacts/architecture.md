@@ -54,11 +54,11 @@ The architecture relates to the user stories through each coroutine. The first c
 
 ![AI Manager](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/AI%20Manager.jpg)
 
-- **AI Manager** TODO
-- **SmartAI** TODO
-- **StupidAI** TODO
-- **Mode Manager** TODO
-- **Movement Manager** TODO
+- **AI Manager** This handles all the enemies currently in play and switches the fighting style between long, mid and short range throughout the game.
+- **SmartAI** These AI's will change types and cycle through a more sophisticated attack loop.
+- **StupidAI** These AI's do not change type and have a pretty normal attack loop.
+- **Mode Manager** This handles the attack loops for enemies- mainly switching between offense and defense.
+- **Movement Manager** This handles all movement for enemies from basic navMesh, to finding the shortest path, to simple bounding movements.
 
 | **Major Classes**	| **User Story ID's** |
 |---------------|-----------------|
