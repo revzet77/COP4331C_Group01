@@ -82,7 +82,7 @@ TBD
 
 # Security
 
-Our objects will have private variables and methods to prevent unwanted access. We will also use whatever encapsulation Unity provides for our classes. However, we will not be 
+Our objects will have private variables and methods to prevent unwanted access. We will also use whatever encapsulation Unity provides for our classes. However, we will not be applying any other security measures as this is a locally installed .exe, so the only security concerns would be if the user alters source code in any way to cheat in the game. Not to mention, this isn't a competitive game so cheating is okay.
 
 # Performance
 
@@ -98,11 +98,12 @@ This is not required becuase our program is built within the Unity platform. It 
 
 # Internationalization/Localization
 
-This is not required as our game will only be in English.
+The deployment of this game will only be in the United States so there will be no need to consider internationalization. Not to mention that there are no variables such as time, language, or measurement that would differ depending on the region.
 
 # Input/Output
 
-Keyboard input will move the player around, as well as fire/use any weapons. The result will be the movement of the player on the screen and a fun, interactive experience for the user.
+Keyboard input will move the player around, as well as fire/use any weapons. The result will be the animation and actions of the player model on the screen. 
+Input is all handled in the input handler class with an updating functioning polling every frame, error checking here is rather pointless seeing as Unity has a solid model for handling keyboard input, but try-catch blocks are added for sanity sake in case something does happen.
 
 # Error Processing
 
@@ -118,16 +119,21 @@ TBD
 
 # Overengineering
 
-To make sure we don't overengineer, we are using bacis systems and designs first. When those are working, then we will add more to them to further address the user stories. Things that are too complicated but not required by user stories will be used as stretch goals, things that we will not focus on unless there is extra time and all the user stories have been met.
+To make sure we don't overengineer, we are using basic systems and designs first. When those are working, then we will add more to them to further address the user stories. Things that are too complicated but not required by user stories will be used as stretch goals, things that we will not focus on unless there is extra time and all the user stories have been met.
+The basic systems and design will follow an object oriented approach by segmenting game components into objects like playerModel, enemyModel, etc. Each with a class possessing stats on gravity, animations, damage, and health. The benefit of this approach being that further mechanics, behaviors and error checking can be easily added in the future without overcomplicating the initial setup.
 
 # Build-vs-Buy Decisions
 
 ***This section should list the third party libraries your system is using and describe what those libraries are being used for.***
 
+The project was created on Unity 3D's free edition using free models and packages from the open-source asset store. Therefore, it was very simple to evaluate the cost/benefit of objects.
+
 - [Warrior Pack](https://assetstore.unity.com/packages/3d/animations/warrior-pack-bundle-1-free-36405)
   - Using these models for our characters: the player and enemies.
 - [Probuilder](https://unity3d.com/unity/features/worldbuilding/probuilder)
   - Using probuilder for building 3d spaces and environments for testing and play.
+- [Low Poly Weapons VOL.1](https://assetstore.unity.com/packages/3d/props/guns/low-poly-weapons-vol-1-151980)
+  - Using these models for the weapons equipped by the player.
 
 # Reuse
 
