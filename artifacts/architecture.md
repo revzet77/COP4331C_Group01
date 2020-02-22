@@ -33,6 +33,8 @@ The architecture relates to the user stories through each coroutine. The first c
 
 ***You should have an UML class diagram in this section, along with a description of each class and a table that relates each component to one or more user stories. At a minimum, you need 1 diagram of your major classes. You are encouraged to also include more detailed diagrams that include all of your classes.***
 
+#**Input Handler**
+
 ![Class Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/class%20diagram.png)
 
 - **PlayerController** manages the player object's interaction with the enviornment as well as with the user. This class relates to the gamer wanting to move around the environment using conventional 3rd person game controls.
@@ -47,6 +49,8 @@ The architecture relates to the user stories through each coroutine. The first c
 | PlayerStats |	4, 11 |
 | CameraController |	0, 1, 9 |
 | CameraStats |	0, 1, 9 |
+
+#**AI Manager**
 
 ![AI Manager](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/AI%20Manager.jpg)
 
@@ -63,6 +67,10 @@ The architecture relates to the user stories through each coroutine. The first c
 | SmartAI |	TODO |
 | Mode Manager |	TODO |
 | Movement Manager |	TODO |
+
+#**Game Manager**
+
+TODO (Wallace)
 
 
 # Data Design
