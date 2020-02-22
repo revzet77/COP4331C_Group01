@@ -49,7 +49,8 @@ In this project, we have three key approaches designing each of the classes bein
 -	**Handler**
 -	**Controller**
 -	**Stats**
-The Manager class is designed to act as the starting point for all the logic. All the input from this class is information sent from the last frame update, which includes information such as state transitions and transform data of in-game objects. With this input the 
+
+The Manager class is designed to act as the starting point for all the logic. All the input from this class is information sent from the last frame update, which includes information such as state transitions and transform data of in-game objects. With this input the Manager sets the states for the particular frame and sends them as output to all of the connected Handler classes.
 Next, there’s the Handler classes. All handler classes will take in states given from the manager class as well as some form of input from the user (ie. keyboard, mouse, or UI input). Using the states given from the Manager class, the input is sent as output to one of succeeding Controller classes.
 At the end of the hierarchy, we have the Controller classes, these take in the output calculated by their corresponding Handler classes and translate that input into audio/visual feedback displayed in-game. 
 While they are not directly a part of the logical hierarchy, all controllers will have an associated Stats class. These are merely classes that are given public, fixed values that are used by their related Controller class. These values often pertain to values used to determine speed, jump height, rotation speed, and other similar values.
