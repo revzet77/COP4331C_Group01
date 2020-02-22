@@ -62,11 +62,11 @@ The architecture relates to the user stories through each coroutine. The first c
 
 | **Major Classes**	| **User Story ID's** |
 |---------------|-----------------|
-| AI Manager	| TODO |
-| StupidAI |	TODO |
-| SmartAI |	TODO |
-| Mode Manager |	TODO |
-| Movement Manager |	TODO |
+| AI Manager	| 2, 4, 5, 12 |
+| StupidAI |	2 |
+| SmartAI |	2, 7 |
+| Mode Manager |	2, 7 |
+| Movement Manager |	2, 7, 9, 12 |
 
 #**Game Manager**
 
