@@ -8,6 +8,9 @@ The architecture for our game consists of a Game Manager that uses coroutines de
 
 The architecture relates to the user stories through each coroutine. The first coroutine relates to our gamer wanting an environment with enemies to fight. The second coroutine relates to our gamer wanting to move his/her avatar around within the environment and interacting with enemies. The third coroutine relates to our gamer wanting to know when he/she has succeeded or failed based on their health and the amount of enemies left. 
 
+
+
+
 | Architecture Components	| User Story ID's |
 |-------------------------|-----------------|
 | Start Game Coroutine	| 2, 10 |
@@ -24,6 +27,9 @@ The architecture relates to the user stories through each coroutine. The first c
 - PlayerStats tracks the health, position, and weapon choice of the player while playing the game. This class relates to the gamer wanting to know how much health he/she has and which weapon they are using. 
 - CameraController manages the position and movement, if any, of the camera objets. CameraStats tracks position and physics of camera objects. These classes relate to the gamer wanting to interact with enemies by being able to see where they are in the environment in relation to the player avatar.
 
+![Context Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/context_diagram.png)
+![Container Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/container_diagram.png)
+![Component Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/Component_diagram.png)
 
 | Major Classes	| User Story ID's |
 |---------------|-----------------|
