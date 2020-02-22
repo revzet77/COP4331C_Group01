@@ -44,6 +44,17 @@ Description TODO
 
 # Major Classes
 
+In this project, we have three key approaches designing each of the classes being used. 
+-	**Manager**
+-	**Handler**
+-	**Controller**
+-	**Stats**
+The Manager class is designed to act as the starting point for all the logic. All the input from this class is information sent from the last frame update, which includes information such as state transitions and transform data of in-game objects. With this input the 
+Next, there’s the Handler classes. All handler classes will take in states given from the manager class as well as some form of input from the user (ie. keyboard, mouse, or UI input). Using the states given from the Manager class, the input is sent as output to one of succeeding Controller classes.
+At the end of the hierarchy, we have the Controller classes, these take in the output calculated by their corresponding Handler classes and translate that input into audio/visual feedback displayed in-game. 
+While they are not directly a part of the logical hierarchy, all controllers will have an associated Stats class. These are merely classes that are given public, fixed values that are used by their related Controller class. These values often pertain to values used to determine speed, jump height, rotation speed, and other similar values.
+
+
 ### Input Handler
 
 ![Class Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/class%20diagram.png)
@@ -111,7 +122,12 @@ Our interface relates to the gamer wanting to know what their health is, what th
 
 # Resource Management
 
-TBD
+Resource management is largely to be handled in two ways:
+-	Pooling of graphically intensive assets
+-	Multi-threading of CPU-intensive calculations made by AI.
+In-game there constantly going to be many graphical assets that are on display in a given frame. While this may result in the game having high-fidelity, it may also result in slower performance. To counteract this while still retaining the desired fidelity, many graphical assets will following a strict pooling method. Where only a set number of a certain asset is allowed to exist at a given time. If at any point in the game’s logic should there a request to add more than the allotted number of assets, the earliest spawned asset will be reset and redeployed as the newest spawn of that given asset.
+The next case of resource management is taken care of by multi-threading AI. While most of the game’s logic will be handled frame-by-frame some of the logic, specifically the AI, will need to be handled at a much quicker rate. As a result, most of the logic used by the AI manager will be handled through the use of multi-threading. The ultimately allows our AI to quickly handle tasks like state management and movement pathing for multiple NPC’s at once without putting too much strain on the performance.
+
 
 # Security
 
@@ -140,7 +156,7 @@ Input is all handled in the input handler class with an updating functioning pol
 
 # Error Processing
 
-TBD
+Much of our error processing is already handled by the default Unity engine. In this regard, most errors are usually to be ignored as long as it does not directly result in the game ceasing normal function (ie. A direct crash to desktop). For QA testing however, a log of any anomalies in behavior (like NPCs not responding to instructions within 5 seconds) will be displayed in the Unity Console.
 
 # Fault Tolerance
 
@@ -173,3 +189,5 @@ No reuse, this is a single game executable being created.
 # Change Strategy
 
 Every week will determine how the game is looking and see what changes we can add. Also, having people test out the game and give feedback multiple times throughout the development cycle will help us realize things that we missed out for the player experience. 
+
+With this project, an emphasis on modularity was one of the primary concerns. As discussed, change within a project of this scale is often a constant. Thus, rigidity in the programming logic has been designed to be kept at a minimum. To allow for this, the project implements a strict logical order between the classes (See Major Classes) but does not have any limit to how many types of classes used or implemented. The flexibility comes from how output is sent to other classes. For instance, one of the outputs sent from InputHandler is keyboard input. Depending on the active states, this keyboard input can be sent as output to any number of Controller classes as long as it follows that logical hierarchy. As a result, the project has a modular logical hierarchy where features can be added, removed, or adjusted if the hierarchy is still followed.
