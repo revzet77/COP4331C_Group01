@@ -2,13 +2,10 @@
 
 | Requirement ID | User Story ID | Requirement | Acceptance Criteria | Effort | Priority | Status |
 |----------------|---------------|-------------|---------------------|--------|----------|--------|
-| 000 | 000 | Have working 3rd person player | A basic character is able to move in a space. | 10 | 1 | Verified |
-| 001 | 001 | Have working level | A basic level for the player is made. | 9 | 2 | Verified |
-| 002 | 002 | Have enemies | A basic enemy is created. | 8 | 2 | Verified |
-| 003 | 003 | Have game manager | Have a functioning game manager. | 5 | 4 | Verified |
-| 004 | 004 | Have a functioning weapon system. | Weapon exists and fires projectiles. | 5 | 3 | Verified |
-| 005 | 006 | Have 3 different guns (short, mid, long range). | Equip and swap between multiple weapons. | 5 | 4 | Verified |
-| 006 | 012 | Have working path finding AI for enemies | Enemy AI is able to traverse map effectively. | 3 | 15 | Verified |
-| 007 | 007 | Have working adaptive AI for enemies | Add functional AI to enemies. | 20 | 3 | Verified |
-| 008 | 008 | Establish win/lose scenario for wave-based game | Create win/lose criteria. | 7 | 6 | Verified |
-| 009 | 010 | Make a large level with obstacles and terrain. | Make a more advanced level. | 10 | 7 | Verified |
+| 000 | 000 | When the 'WASD' keys and mouse are pressed/used, the player model shall move according to the WASD keys input, and aim the camera according to mouse movement. | Given the game is started, when I move my mouse and use 'WASD' to control my character, then the character moves and aims accordingly. | 10 | NECESSARY | WORKING |
+| 001 | 001 | The game map shall contain 3D terrain that the player model can interact with and move around in without crashing or falling through the map. | Given the game has started, when I move my character around, then the terrain and map around is properly traversed. | 9 | NECESSARY | WORKING |
+| 002 | 007 | When the player is spawned into the game, the system shall instantiate an x number of enemies that will chase and attack the player with adaptive attack patterns dependent on player behavior. | Given the game has started, when I spawn into the map, then enemies with adaptive attack patterns will chase me. | 8 | IMPORTANT | WORKING |
+| 003 | 003 | When the game is started and running, the system shall concurrently execute all user input instantly while simultaneously managing all instantiated objects and their respective processes and animations with no percievable lag. | Given the game has started, when I play the game, then the game will run smoothly. | 5 | IMPORTANT | WORKING |
+| 004 | 004 | When the player presses the attack button, the weapon equipped shall fire projectiles at a range that reflects the current weapon type, these bullets will then inflict damage to enemies. | Given the player possesses a weapon, when the player presses the attack button, then the weapon equipped will fire projectiles and inflict damage. | 5 | NECESSARY | PLANNED |
+| 005 | 006 | When the player presses the swap button, the current weapon equipped shall cycle through the three weapon types, each weapon possessing different damage and range. | Given that weapons deal damage, when the player presses the swap weapon button, then a different weapon with different stats is equipped and can be fired. | 5 | 4 | NICE TO HAVE | PLANNED |
+| 007 | 008 | The game shall have win and lose criteria in which the game exits after notifying the player of the outcome of their play session. | Given the game is running, when the player wins or loses, then the game ends. | 7 | NICE TO HAVE | PLANNED |
