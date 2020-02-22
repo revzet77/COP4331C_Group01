@@ -1,7 +1,7 @@
 # Program Organization
 
 
-  #**Context Diagram**
+### Context Diagram
 
 ![Context Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/context_diagram.png)
 
@@ -15,7 +15,7 @@ The architecture relates to the user stories through each coroutine. The first c
 | Play Game Coroutine	| 1, 4 |
 | End Game Coroutine	| 8 |
 
-  #**Container Diagram**
+### Container Diagram
 
 ![Container Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/container_diagram.png)
 
@@ -27,7 +27,7 @@ Description TODO
 | TODO	| TODO |
 | TODO	| TODO |
 
-  #**Component Diagram**
+### Component Diagram
 
 ![Component Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/Component_diagram.png)
 
@@ -44,16 +44,13 @@ Description TODO
 
 # Major Classes
 
-***You should have an UML class diagram in this section, along with a description of each class and a table that relates each component to one or more user stories. At a minimum, you need 1 diagram of your major classes. You are encouraged to also include more detailed diagrams that include all of your classes.***
-
-#**Input Handler**
+### Input Handler
 
 ![Class Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/class%20diagram.png)
 
 - **PlayerController** manages the player object's interaction with the enviornment as well as with the user. This class relates to the gamer wanting to move around the environment using conventional 3rd person game controls.
 - **PlayerStats** tracks the health, position, and weapon choice of the player while playing the game. This class relates to the gamer wanting to know how much health he/she has and which weapon they are using. 
 - **CameraController** manages the position and movement, if any, of the camera objets. CameraStats tracks position and physics of camera objects. These classes relate to the gamer wanting to interact with enemies by being able to see where they are in the environment in relation to the player avatar.
-
 
 
 | **Major Classes**	| **User Story ID's** |
@@ -63,7 +60,7 @@ Description TODO
 | CameraController |	0, 1, 9 |
 | CameraStats |	0, 1, 9 |
 
-#**AI Manager**
+### AI Manager
 
 ![AI Manager](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/AI%20Manager.jpg)
 
@@ -81,7 +78,7 @@ Description TODO
 | Mode Manager |	2, 7 |
 | Movement Manager |	2, 7, 9, 12 |
 
-#**Game Manager**
+### Game Manager
 
 TODO (Wallace)
 
