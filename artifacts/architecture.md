@@ -36,9 +36,8 @@ Description TODO
 
 | **Architecture Components**	| **User Story ID's** |
 |-------------------------|-----------------|
-| TODO	| TODO |
-| TODO	| TODO |
-| TODO	| TODO |
+| AIControl	| 2, 5, 7, 9, 12 |
+| PlayerControl	| 0, 4, 5, 6, 11, 13 |
 
 
 
