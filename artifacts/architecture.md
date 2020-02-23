@@ -15,7 +15,7 @@ When the player interacts with the game, they will enter the main gaming loop. T
 
 ### Container Diagram
 
-![Container Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/container_diagram.png)
+![Container Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/container%20diagram.jpg)
 
 The architecture for our game consists of a Game Manager that uses coroutines dedicated to starting each round, playing each round, and ending each round, respectively. In the first coroutine, player and all objects will be spawned. In the second coroutine, player will be playing the actual game, interacting with Non-Player Characters (enemies) and the environment. Player input will be received and movement will be updated, along with health of player and enemies. In the third coroutine, win/loss state will be determined and displayed to the user.
 
