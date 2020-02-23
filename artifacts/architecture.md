@@ -33,7 +33,10 @@ Description TODO (wallace)
 ![Component Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/Component_diagram.png)
 
 
-Description TODO
+The InputHandler works around the user by taking direct inputs from the UI, keyboard, and mouse and converting that into motion and actions performed by the player character. This includes feats like running, jumping, shooting their weapon, etc. Each of these inputs will be sent to a Controller based off of the states set by the Game Manager script. This will allow the game to adapt the controls as it sees fit based off of if the player is in a menu, in game, or has paused the game.
+
+The AI Manager works by taking in updates on the Players current stats and reacts by setting different AI states to try and defeat the player. This would include change AI tactics to be more defensive if the player has not moved a certain amount of distance within a given timeframe. The AI Manager will then set the modes of the NPC's and will also send locational points to move at to the Movement Manager, which will move the NPC to that given location.
+
 
 | **Architecture Components**	| **User Story ID's** |
 |-------------------------|-----------------|
