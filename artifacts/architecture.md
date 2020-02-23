@@ -102,7 +102,8 @@ Data like health, position, amount of enemies, and round number are all local va
 # Business Rules
 
 Because our program is a game, external limitations and policies do not really affect us, except for the preferences and previous experiences of the users themselves.
-- An assumption we can have is that the user has prior gaming experience, thus is familiar with WASD controls that can move the player around within a virtual 3D space. 
+- An assumption we can have is that the user has prior gaming experience, thus is familiar with WASD controls that can move the player around within a virtual 3D space.
+- This game is targeted towards a wide range of gamers, as such it should efficiently run on most modern machines. Keeping this in mind reservations were held with adding features to AI and graphics to ensure the game runs smoothly on the system.
 
 # User Interface Design
 
