@@ -121,6 +121,14 @@ This is a third person shooter wave-based game where you shoot robots. There are
 
 ## Responsibilities
 - revzet77 (Jacqueline Godier)
+  - Work on AI Manager
+  - Start on attack loop
 - LynchJ13 (John Lynch)
+  - Input Handler 
+   - Start on navigation
 - wa299600 (Wallace Borges)
+  - Game Manager
 - MagicPuffDragon (Lars Gustaf Jiborn)
+  - Animations
+  - admin-related tasks
+  - fix artifacts formatting
