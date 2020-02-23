@@ -5,7 +5,7 @@
 
 ![Context Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/context_diagram.png)
 
-When the player interacts with the game, they will enter the main gaming loop. This is a conventional organization style for games, and the player's entire experience will be within the loop. This includes attacking enemies, losing health, creative gameplay, and any standard experience a player can create with a conventional game design model (e.g: a systems with rules that ends with a win or lose state). The gaming loop end either when the player reaches a win or lose state. 
+
 
 | **Architecture Components**	| **User Story ID's** |
 |-------------------------|-----------------|
@@ -20,6 +20,8 @@ When the player interacts with the game, they will enter the main gaming loop. T
 The architecture for our game consists of a Game Manager that uses coroutines dedicated to starting each round, playing each round, and ending each round, respectively. In the first coroutine, player and all objects will be spawned. In the second coroutine, player will be playing the actual game, interacting with Non-Player Characters (enemies) and the environment. Player input will be received and movement will be updated, along with health of player and enemies. In the third coroutine, win/loss state will be determined and displayed to the user.
 
 The architecture relates to the user stories through each coroutine. The first coroutine relates to our gamer wanting an environment with enemies to fight. The second coroutine relates to our gamer wanting to move his/her avatar around within the environment and interacting with enemies. The third coroutine relates to our gamer wanting to know when he/she has succeeded or failed based on their health and the amount of enemies left. 
+
+Throughout the game loop, the Game Manager uses information from the health system to check if the player is still alive, as well as handling any powerups that affect the health. It also interacts with the weapon system to determine which weapon is being used and how much damage it deals to the enemies. The game manager also manages the inputs given by the user and handles that input relative to what is happening in the game. Also, the game manager allows an environment for the enemey AI to function, so information and behaviors from the AI Manager are used whenever an enemy is alive. 
 
 | **Architecture Components**	| **User Story ID's** |
 |-------------------------|-----------------|
