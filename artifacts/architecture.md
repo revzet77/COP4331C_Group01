@@ -127,9 +127,9 @@ TODO: add pictures (wallace)
 Resource management is largely to be handled in two ways:
 -	Pooling of graphically intensive assets
 -	Multi-threading of CPU-intensive calculations made by AI.
-  -- In-game there constantly going to be many graphical assets that are on display in a given frame. While this may result in the game having high-fidelity, it may also result in slower performance. To counteract this while still retaining the desired fidelity, many graphical assets will following a strict pooling method. Where only a set number of a certain asset is allowed to exist at a given time. 
-  -- If at any point in the game’s logic should there a request to add more than the allotted number of assets, the earliest spawned asset will be reset and redeployed as the newest spawn of that given asset.
-  -- The next case of resource management is taken care of by multi-threading AI. While most of the game’s logic will be handled frame-by-frame some of the logic, specifically the AI, will need to be handled at a much quicker rate. As a result, most of the logic used by the AI manager will be handled through the use of multi-threading. This ultimately allows our AI to quickly handle tasks like state management and movement pathing for multiple NPC’s at once without putting too much strain on the performance.
+  - In-game there constantly going to be many graphical assets that are on display in a given frame. While this may result in the game having high-fidelity, it may also result in slower performance. To counteract this while still retaining the desired fidelity, many graphical assets will following a strict pooling method. Where only a set number of a certain asset is allowed to exist at a given time. 
+  - If at any point in the game’s logic should there a request to add more than the allotted number of assets, the earliest spawned asset will be reset and redeployed as the newest spawn of that given asset.
+  - The next case of resource management is taken care of by multi-threading AI. While most of the game’s logic will be handled frame-by-frame some of the logic, specifically the AI, will need to be handled at a much quicker rate. As a result, most of the logic used by the AI manager will be handled through the use of multi-threading. This ultimately allows our AI to quickly handle tasks like state management and movement pathing for multiple NPC’s at once without putting too much strain on the performance.
 
 
 # Security
