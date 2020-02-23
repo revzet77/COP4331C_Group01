@@ -5,7 +5,7 @@
 
 ![Context Diagram](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/context_diagram.png)
 
-
+When the player interacts with the game, they will enter the main gaming loop. This is a conventional organization style for games, and the player's entire experience will be within the loop. This includes attacking enemies, losing health, creative gameplay, and any standard experience a player can create with a conventional game design model (e.g: a systems with rules that ends with a win or lose state). The gaming loop end either when the player reaches a win or lose state. 
 
 | **Architecture Components**	| **User Story ID's** |
 |-------------------------|-----------------|
