@@ -108,16 +108,12 @@ This is a third person shooter wave-based game where you shoot robots. There are
 - [Sprint Backlog](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/sprint4_backlog.md)
 - [Requirements](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/requirements.md)
 - [Trello Board](https://trello.com/b/zZGtiT6a/poop-project)
-- [Burndown Chart](https://docs.google.com/spreadsheets/d/1xQKtZziBmI2Kaf8Ip7wdv32spgtG4dGq3O_bcDauOf0/edit?usp=sharing)
-- [Velocity Chart](https://docs.google.com/spreadsheets/d/1xQKtZziBmI2Kaf8Ip7wdv32spgtG4dGq3O_bcDauOf0/edit?usp=sharing)
-- Design Documents
-  - [System Architecture](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/architecture.md)
-  - [Class Diagrams](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/class%20diagram.png)
-  - [Sequence Diagrams](https://github.com/revzet77/COP4331C_Group01/raw/master/artifacts/images/interfaceDiagram.jpg)
+- [Burndown Chart(UPDATE HOURS)](https://docs.google.com/spreadsheets/d/1xQKtZziBmI2Kaf8Ip7wdv32spgtG4dGq3O_bcDauOf0/edit?usp=sharing#gid=1942920166)
+- [Velocity Chart(UPDATE HOURS)](https://docs.google.com/spreadsheets/d/1xQKtZziBmI2Kaf8Ip7wdv32spgtG4dGq3O_bcDauOf0/edit?usp=sharing)
+- [System Architecture](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/architecture.md)
 - [Source Code](https://github.com/revzet77/COP4331C_Group01/tree/master/Assets/_Scripts)
 - [Automated Tests](https://github.com/revzet77/COP4331C_Group01/blob/master/Assets/_Scripts/testing.cs)
-- [Manual Tests](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/manual_tests.md)
-- [Product Demonstration](https://streamable.com/eq4mc)
+- [Product Demonstration(TODO)]()
 
 ## Responsibilities
 - revzet77 (Jacqueline Godier)
