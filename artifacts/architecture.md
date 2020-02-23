@@ -164,7 +164,7 @@ Because our program is a game, faults can be tolerated, such as minor glitches, 
 
 # Architectural Feasibility
 
-TBD
+All of the team members have experience with C#, and several members have worked with game development, AI, or Unity in other classes. Because of this, We believe it this project's requirements are reasonable because almost everyone on the team has a good base of knowledge of Unity or C#. The hardest part of this project will be staying on pace, AI coding, and playtesting.
 
 # Overengineering
 
