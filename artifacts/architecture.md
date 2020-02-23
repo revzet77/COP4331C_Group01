@@ -135,7 +135,7 @@ Our objects will have private variables and methods to prevent unwanted access. 
 
 # Performance
 
-TBD
+Our objective is to have this game run on very low power computers, so as such we have taken a couple steps to improve performance. First of all, the graphics in this game are lo-poly to prevent any buffering. Next, we have included stupidAI's into our design. These AI's have less computational work to do compared to the smart, adaptive ones. That way, the player has the illusion o fighting many smart enemies, because there is no visual difference between the stupid and smart AI's in the game. We are also incorporating best practice tenchinques into our coding to prevent unnecessary slow downs that could result in the player being taken out of the game.
 
 # Scalability
 
