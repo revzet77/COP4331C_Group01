@@ -23,9 +23,10 @@ Description TODO
 
 | **Architecture Components**	| **User Story ID's** |
 |-------------------------|-----------------|
-| TODO	| TODO |
-| TODO	| TODO |
-| TODO	| TODO |
+| Game Manager	|  |
+| Health and Weapon System	|  |
+| Input Manager	|  |
+| AI Manager |  |
 
 ### Component Diagram
 
