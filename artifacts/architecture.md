@@ -85,14 +85,22 @@ While they are not directly a part of the logical hierarchy, all controllers wil
 | **Major Classes**	| **User Story ID's** |
 |---------------|-----------------|
 | AI Manager	| 2, 4, 5, 12 |
-| StupidAI |	2 |
+| StupidAI |2 |
 | SmartAI |	2, 7 |
 | Mode Manager |	2, 7 |
 | Movement Manager |	2, 7, 9, 12 |
 
 ### Game Manager
 
-TODO (Wallace)
+![Game Manager](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/GameManager.png)
+
+- **GameManager** controls the loop of the game using coroutines. This class allows the main classes to interact with each other and relies on the game state, as well as the player state, to determine when the game will end. This allows for a smooth flow and an actual game to run. 
+- **GameStates** holds the states of the game using boolean and integer values. This class is necessary for maintaining and ending the game.
+
+| **Major Classes**	| **User Story ID's** |
+|---------------|-----------------|
+| Game Manager	| 3, 8 |
+| Game States |	3, 8 |
 
 
 # Data Design
