@@ -27,7 +27,7 @@ Throughout the game loop, the Game Manager uses information from the health syst
 |-------------------------|-----------------|
 | Game Manager	| 3 |
 | Health and Weapon System	| 4, 5, 6, 11 |
-| Input Manager	| 0, 13 |
+| Input Handler	| 0, 13 |
 | AI Manager | 2, 5, 7, 9, 12 |
 
 ### Component Diagram
