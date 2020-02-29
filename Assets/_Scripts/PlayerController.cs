@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController player;
     private Transform cameraT;
     private Animator animator;
-
+    
 	float turnVelocity;
 	float velocity;
     float velocityY;
