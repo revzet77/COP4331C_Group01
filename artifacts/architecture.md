@@ -120,13 +120,21 @@ Because our program is a game, external limitations and policies do not really a
 
 # User Interface Design
 
-Currently there is no user interface outside of a third-person camera perspective of a static player model. The user moves the player model with W (forward), A (left), S (backward), D (right), and mouse (camera control).
+![Load Screen](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/basic%20load%20screen.PNG)
 
-However, our future interface will be a third person display, always displaying what is in front of the player avatar. There will also be a health bar for the actualy player, floating health bars for each enemy, and an area that displays the weapon being used, as well as any power ups obtained. We also want to implement an in-gamemenu where the player can have options like changing weapons or pausing the game. 
+Our interface begins with a menu displaying options that the user can take. Currently only a start button is working. However, a settings button will be installed that brings the user to a screen where they can change in-game settings. When the start button is pressed, it will load another scene where the gameplay will take place. 
+
+![Player Map](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/Player%20Map.PNG)
+
+This is the environment where our game is taking place. The player is able to walk around the environment and interact with landscape, buildings, other scenery game objects, and enemies.
+
+![Player View](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/images/Player%20View.PNG)
+
+Our interface with the game is a third person display, always displaying what is in front of the player avatar. The user moves the player model with keyboard keys W (forward), A (left), S (backward), D (right), and controls the view by moving the mouse (camera control).
+
+Eventually, there will also be health bar for the player, floating health bars for each enemy, and an area that displays the weapon being used, as well as any power ups obtained. We also want to implement an in-game menu where the player can have options like pausing the game. 
 
 Our interface relates to the gamer wanting to know what their health is, what the enemies' health is, what weapon is being used, being able to explore the environment by seeing what the avatar is seeing in the game environment, and having a smooth, immersive experience.
-
-TODO: add pictures (wallace)
 
 | **Interface Component**	| **User Story ID's** |
 |---------------------|-----------------|
