@@ -97,42 +97,17 @@ public class testing
     // Game Manager test
     // This tests existance of GameObjects necesary for game flow, the coroutines, and the handler functions
     // User Stories 003 / 008 / 011
-    /*
-    bool test_GameManager(){
+	[Test]
+    void test_GameManager(){
+        
         GameManager game = new GameManager();
 
-        if(game.gameInstance == null)
-            return false;
-        if(game.gameState == null)
-            return false;
-        if(game.player == null)
-            return false;
-        if(game.playerController == null)
-            return false;
-
-        if(game.waveStarting() == null)
-            return false;
-        if(game.wavePlaying() == null)
-            return false;
-        if(game.waveEnding() == null)
-            return false;
-        if(game.GameOver() == null)
-            return false;
-        if(game.spawnRobots() == null)
-            return false;
-        if(game.spawnPowerups() == null)
-            return false;
-        if(game.destroyActiveEnemies() == null)
-            return false;
-        if(game.EnablePlayerControls() == null)
-            return false;
-        if(game.DisblePlayerControls() == null)
-            return false;
-
-        return true;
+        Assert.IsNotNull(game);
+        Assert.IsNotNull(game.playerController, "game.playerController");
+        Assert.IsNotNull(game.gameState, "game.gameState");
     }
-     */
     
+
     // test enemy mode (2 constructors)
     // Movement Manager tests
     // theres no code for it yet
