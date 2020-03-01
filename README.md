@@ -142,13 +142,18 @@ This is a third person shooter wave-based game where you shoot robots. There are
 - [Automated Tests](https://github.com/revzet77/COP4331C_Group01/blob/master/Assets/_Scripts/testing.cs)
 - [Product Demonstration](https://streamable.com/3z10x)
 
+
 ## Responsibilities
 - revzet77 (Jacqueline Godier)
-  - 
+  - Work on AI Manager
+  - Fix everything Wallace broke this week
+  - Add Unity Test Runner
 - LynchJ13 (John Lynch)
-  - 
+  - Health and Weapons
+  - Fixing game manager
+   - Refactor 
 - wa299600 (Wallace Borges)
-  - 
+ - nothing
 - MagicPuffDragon (Lars Gustaf Jiborn)
   - Animations
   - admin-related tasks
