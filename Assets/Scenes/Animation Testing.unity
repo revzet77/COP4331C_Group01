@@ -338,8 +338,8 @@ GameObject:
   - component: {fileID: 1306866526}
   - component: {fileID: 1306866527}
   - component: {fileID: 1306866528}
-  - component: {fileID: 1306866529}
   - component: {fileID: 1306866530}
+  - component: {fileID: 1306866529}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -382,6 +382,7 @@ MonoBehaviour:
   turnSmoothTime: 0.2
   gravity: -13
   jumpHeight: 2
+  health: 0
 --- !u!114 &1306866527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,9 +420,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306866524}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7a000ce8da49db46ac5e579b69d3423, type: 3}
+  m_Script: {fileID: 11500000, guid: dc7eb378497ce18478cbb31337891651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!95 &1306866530
