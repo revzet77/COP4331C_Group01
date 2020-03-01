@@ -146,14 +146,14 @@ This is a third person shooter wave-based game where you shoot robots. There are
 ## Responsibilities
 - revzet77 (Jacqueline Godier)
   - Work on AI Manager
-  - Fix everything Wallace broke this week
+  - Fix game manager tests
   - Add Unity Test Runner
 - LynchJ13 (John Lynch)
   - Health and Weapons
   - Fixing game manager
-   - Refactor 
+  - Refactor 
 - wa299600 (Wallace Borges)
- - nothing
+  - game manager
 - MagicPuffDragon (Lars Gustaf Jiborn)
   - Animations
   - admin-related tasks
