@@ -124,6 +124,7 @@ This is a third person shooter wave-based game where you shoot robots. There are
    - Start on navigation
 - wa299600 (Wallace Borges)
   - Game Manager
+  - Begin UI elements
 - MagicPuffDragon (Lars Gustaf Jiborn)
   - Animations
   - admin-related tasks
@@ -153,7 +154,10 @@ This is a third person shooter wave-based game where you shoot robots. There are
   - Fixing game manager
   - Refactor 
 - wa299600 (Wallace Borges)
-  - game manager
+  - Fixing game manager
+  - Fixing game manager tests
+  - UI Manager
+  - Game Menu functionality
 - MagicPuffDragon (Lars Gustaf Jiborn)
   - Animations
   - admin-related tasks
