@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     private PlayerStats playerStats;
     private CharacterController player;
     private Transform cameraT;
-    private Animator animator;
     
 	float turnVelocity;
 	float velocity;
@@ -26,9 +25,7 @@ public class PlayerController : MonoBehaviour
         cameraT = GameObject.Find("Main Camera").GetComponent<Transform>();
         playerStats = gameObject.GetComponent<PlayerStats>();
         player = gameObject.GetComponent<CharacterController>();
-        animator = gameObject.GetComponent<Animator>();
         velocityY = 0;
-
     }
 
     
