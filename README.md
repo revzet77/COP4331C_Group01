@@ -139,7 +139,7 @@ This is a third person shooter wave-based game where you shoot robots. There are
 - [Velocity Chart](https://docs.google.com/spreadsheets/d/1xQKtZziBmI2Kaf8Ip7wdv32spgtG4dGq3O_bcDauOf0/edit?usp=sharing)
 - [System Architecture](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/architecture.md)
 - [Source Code](https://github.com/revzet77/COP4331C_Group01/tree/master/Assets/_Scripts)
-- [Automated Tests](https://github.com/revzet77/COP4331C_Group01/blob/master/Assets/_Scripts/testing.cs)
+- [Automated Tests](https://github.com/revzet77/COP4331C_Group01/blob/master/Assets/_Scripts/Tests/Testing.cs)
 - [Product Demonstration](https://streamable.com/3z10x)
 
 
