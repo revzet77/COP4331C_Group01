@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static PlayerController playerController;
     public static GameStates gameState;
     public static GameManager gameInstance;
     public static UIManager UI_Man;
+    public PlayerController player;
 
+    private PlayerStats pStats;
     private WaitForSeconds m_StartWait;     
     private WaitForSeconds m_EndWait;
      
@@ -19,9 +20,10 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
 		gameInstance = this;
-        if(gameState == null)
-            gameState = GetComponent<GameStates>();
-        UI_Man = GetComponent<UIManager>();
+        gameState = GetComponent<GameStates>();
+        UI_Man = gameInstance.GetComponent<UIManager>();
+        pStats = player.GetComponent<PlayerStats>();
+        if(player == null) Debug.Log("No way Jose!");
 
         Debug.Log("The Game has initiated");
 
@@ -39,8 +41,12 @@ public class GameManager : MonoBehaviour
     public IEnumerator GameLoop()
     {
         // TODO: Refrernce Game State if valid
-        gameState.resetGameStats();
-        while(!gameState.isGameOver)
+        gameState.resetGame();
+        player.ResetPlayerHealth();
+        // Spawn location of player at beginning of the game
+        player.transform.position = new Vector3(-43,0,-97);
+        
+        while(!gameState.isGameOver(pStats))
         {
         	Debug.Log("The game Loop has started");
             yield return StartCoroutine(WaveStarting());
@@ -55,66 +61,71 @@ public class GameManager : MonoBehaviour
 
 
     public IEnumerator WaveStarting()
-    {
-        // TODO: Pick starting position of player
-        
-        spawnRobots();
-        spawnPowerups();
+    {        
+        // TODO: Spawn enemies here
+
+        //spawnEnemies();
         gameState.waveNumber++;
-        
-        Debug.Log("In the wave! waveNumber = " + gameState.waveNumber);
-        
+        UI_Man.updateWaveNumber(gameState.waveNumber);
+
+        Debug.Log("Playing the wave! Past the while loop");
         yield return m_StartWait;
     }
 
 
+    private int i;   // Just for testing
  	public IEnumerator WavePlaying()
     {
         Debug.Log("Playing the wave! Before the while loop");
-
         // Keeps game running until player health is 0 or until all enemies defeated
-        while(!gameState.isPlayerDead && !gameState.isWaveOver)
+        while(!gameState.isPlayerDead(pStats) && !gameState.isWaveOver())
         {
-            // TODO: Update score and score text UI
-            // TODO: Update player health and health bar
+            // TODO: Update score and health when enemies get hit with bullets
+            i++;
+            if(i>=30) {
+                gameState.score++;
+                i=0;
+            }
+            // TODO: Update player's health in PlayerStats when hit
+            // TODO: Track how many enemies alive still
+            UI_Man.UpdateHealthBar(pStats.currentHealth);
+            UI_Man.updateScore(gameState.score);
             
             yield return null;
         }
-        Debug.Log("Playing the wave! Past the while loop");
     }
 
     public IEnumerator WaveEnding()
     {
     	Debug.Log("Ending the wave!");
-    	if(gameState.isPlayerDead || gameState.finishedAllWaves)
-    	{
+    	//if(gameState.isPlayerDead || gameState.finishedAllWaves
+    	if(gameState.isGameOver(pStats))
+        {
             GameOver();
             yield break;
         }
-        gameState.isWaveOver = false;
+        //gameState.isWaveOver = false;
         yield return m_EndWait;
     }
     
     public static void GameOver()
     {
         Debug.Log("Game is over!");
-        gameState.isGameOver = true;
+        //gameState.isGameOver = true;
+        gameInstance.destroyActiveEnemies();
         UI_Man.showMenu();
-        // TODO: pass final score to UI_Man
+        UI_Man.hidePlayerUI();
+        UI_Man.DisplayFinalScores(gameState);
         return;
     }
 
-    public void spawnRobots()
+    public void spawnEnemies()
     {
         return;
     }
 
+    // If player dies, destroys enemies still alive to clean up for next game
     public void destroyActiveEnemies()
-    {
-        return;
-    }
-
-    public void spawnPowerups()
     {
         return;
     }

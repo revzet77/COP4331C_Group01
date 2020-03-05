@@ -95,7 +95,6 @@ public class testing
 
     
     // Game Manager test
-    // This tests existance of GameObjects necesary for game flow, the coroutines, and the handler functions
     // User Stories 003 / 008 / 011
 	[Test]
     void test_GameManager(){

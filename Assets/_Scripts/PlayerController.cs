@@ -72,6 +72,11 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    public void ResetPlayerHealth(){
+        playerStats.currentHealth = playerStats.maxHealth;
+        return;
+    }
+
     public PlayerStats GetPlayerStats(){
         return playerStats;
     }
