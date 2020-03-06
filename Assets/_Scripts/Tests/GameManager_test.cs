@@ -5,172 +5,129 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject startGameButton;
-    public PlayerController playerController;
-    public Text titleText;
-    public Text gameOverText;
-    public Text scoreText;
-    public Text waveText;
-    public float m_StartDelay = 1f;         
-    public float m_EndDelay = 1f;           
+    public static GameStates gameState;
+    public static GameManager gameInstance;
+    public static UIManager UI_Man;
 
+    public PlayerController player;
+    public PlayerStats pStats;
     private WaitForSeconds m_StartWait;     
     private WaitForSeconds m_EndWait;
-    
-    //private static GameStates gameState;
-    //private static GameManager gameInstance;
-    
-    public GameStates gameState;
-    public GameManager gameInstance;
-    
+     
     //TODO: manager for enemies
-    //private enemyManager[] activeEnemies;
-
+    
 
     private void Start()
     {
-		gameInstance = this;
-        titleText.enabled = true;
-        gameOverText.enabled = false;
-        scoreText.enabled = false;
-        waveText.enabled = false;
-        startGameButton.SetActive(true);
-        
+        gameInstance = this;
         gameState = GetComponent<GameStates>();
-        gameState.score = 0;
-        gameState.waveNumber = 0;
-        gameState.isPlayerDead = false;
-        gameState.isGameOver = false;
+        UI_Man = gameInstance.GetComponent<UIManager>();
+        pStats = player.GetComponent<PlayerStats>();
+        if(player == null) Debug.Log("No way Jose!");
 
         Debug.Log("The Game has initiated");
 
-        m_StartWait = new WaitForSeconds(m_StartDelay);
-        m_EndWait = new WaitForSeconds(m_EndDelay);
+        m_StartWait = new WaitForSeconds(1F);
+        m_EndWait = new WaitForSeconds(1f);
 
-        // SceneManager.LoadScene("actual_level", LoadSceneMode.Single);
-		// SceneManager.LoadScene("actual_level", LoadSceneMode.Additive);
-
-        StartCoroutine(GameLoop());
+        StartGame();
     }
 
+    public void StartGame()
+    {
+        StartCoroutine(GameLoop());
+    }
 
     public IEnumerator GameLoop()
     {
         // TODO: Refrernce Game State if valid
-        while(!gameState.isGameOver)
+        gameState.resetGame();
+        player.ResetPlayerHealth();
+        // Spawn location of player at beginning of the game
+        player.transform.position = new Vector3(-43,0,-97);
+        
+        while(!gameState.isGameOver(pStats))
         {
-        	Debug.Log("The game Loop has started");
-                yield return StartCoroutine(WaveStarting());
-                Debug.Log("Still in the game loop, but WaveStart is done");
-                yield return StartCoroutine(WavePlaying());
-                Debug.Log("Still in the game loop, but WavePlaying is done");
-                yield return StartCoroutine(WaveEnding());
-                Debug.Log("Still in the game loop, but WaveEnding is done");
-            }
+            Debug.Log("The game Loop has started");
+            yield return StartCoroutine(WaveStarting());
+            Debug.Log("Still in the game loop, but WaveStart is done");
+            yield return StartCoroutine(WavePlaying());
+            Debug.Log("Still in the game loop, but WavePlaying is done");
+            yield return StartCoroutine(WaveEnding());
+            Debug.Log("Still in the game loop, but WaveEnding is done");
+        }
+        yield return null;
     }
 
 
     public IEnumerator WaveStarting()
-    {
-        titleText.enabled = false;
-        startGameButton.SetActive(false);
+    {        
+        // TODO: Spawn enemies here
 
-        // TODO: Pick starting position of player
-        //player.transform.position = new Vector3(0, -3.22f, 0);
-        //player.transform.eulerAngles = new Vector3(90, 180, 0);
-
-        scoreText.text = "Score: " + gameState.score;
-        waveText.text = "Wave: " + gameState.waveNumber;
-        scoreText.enabled = true;
-        waveText.enabled = true;
-        
-        // TODO: health restore function for player
-        //player.GetComponent<PlayerController>().RestoreHealth();
-        
-        gameOverText.enabled = false;
-        spawnRobots();
-        spawnPowerups();
-
-        //DisablePlayerControl();
-        Debug.Log("In the wave! waveNumber = " + gameState.waveNumber);
-        
+        //spawnEnemies();
         gameState.waveNumber++;
-        
-        Debug.Log("In the wave! waveNumber = " + gameState.waveNumber);
-        
+        UI_Man.updateWaveNumber(gameState.waveNumber);
+
+        Debug.Log("Playing the wave! Past the while loop");
         yield return m_StartWait;
     }
 
 
- 	public IEnumerator WavePlaying()
+    private int i;   // Just for testing
+    public IEnumerator WavePlaying()
     {
-        //EnablePlayerControl();
-        
         Debug.Log("Playing the wave! Before the while loop");
-        int i = 0;
-        // TODO: add robot manager class so 2nd condition can be met
         // Keeps game running until player health is 0 or until all enemies defeated
-        while(!gameState.isPlayerDead && !gameState.isWaveOver)
+        while(!gameState.isPlayerDead(pStats) && !gameState.isWaveOver())
         {
-            Debug.Log("In the while loop, pray for me. iteration number is = " + i);
+            // TODO: Update score and health when enemies get hit with bullets
             i++;
-            // TODO: UPDATE SCORE!
+            if(i>=30) {
+                gameState.score++;
+                i=0;
+            }
+            // TODO: Update player's health in PlayerStats when hit
+            // TODO: Track how many enemies alive still
+            UI_Man.UpdateHealthBar(pStats.currentHealth);
+            UI_Man.updateScore(gameState.score);
+            
             yield return null;
-            Debug.Log("In the while loop, pray for me 2. iteration number is = " + i);
         }
-        Debug.Log("Playing the wave! Past the while loop");
-        
     }
 
     public IEnumerator WaveEnding()
     {
-    	Debug.Log("Ending the wave! pt 1");
-    	if(gameState.isPlayerDead || gameState.finishedAllWaves)
-    	{
+        Debug.Log("Ending the wave!");
+        //if(gameState.isPlayerDead || gameState.finishedAllWaves
+        if(gameState.isGameOver(pStats))
+        {
             GameOver();
             yield break;
         }
-        Debug.Log("Ending the wave! pt 2");
-        gameState.isWaveOver = false;
+        //gameState.isWaveOver = false;
         yield return m_EndWait;
     }
     
     public static void GameOver()
     {
-        //DisablePlayerControl();
         Debug.Log("Game is over!");
-        //gameInstance.titleText.enabled = true;
-        //gameInstance.startGameButton.SetActive(true);
         //gameState.isGameOver = true;
-        //gameInstance.spawner.StopSpawning();
-        //gameInstance.gameOverText.enabled = true;
-
+        gameInstance.destroyActiveEnemies();
+        UI_Man.showMenu();
+        UI_Man.hidePlayerUI();
+        UI_Man.DisplayFinalScores(gameState);
+        return;
     }
 
-    public void spawnRobots()
+    public void spawnEnemies()
     {
-        
+        return;
     }
 
+    // If player dies, destroys enemies still alive to clean up for next game
     public void destroyActiveEnemies()
     {
-
-    }
-
-    public void spawnPowerups()
-    {
-
-    }
-
-    public void EnablePlayerControl()
-    {
-
-    }
-
-    public void DisablePlayerControl()
-    {
-
+        return;
     }
 
 }

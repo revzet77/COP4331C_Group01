@@ -84,4 +84,9 @@ public class PlayerController : MonoBehaviour
         return cameraT;
     }
 
+    public void ResetPlayerHealth(){
+        playerStats.currentHealth = playerStats.maxHealth;
+        return;
+    }
+
 }

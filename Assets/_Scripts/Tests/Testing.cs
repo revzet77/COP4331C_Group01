@@ -14,6 +14,7 @@ using static ModeManager;
 using static MovementManager;
 using static GameManager;
 using static GameStates;
+using static UIManager;
 
 // the testing script is meant to cover all our User stories in the sprint backlog
 // current user stories in the backlog that are either working/testing/done:
@@ -26,7 +27,7 @@ public class testing
     // test stupid AI (2 constructors, getstyle)
     // User story 007 / 002
     [Test]
-    void test_stupidAI(){
+    public void test_stupidAI(){
        
         stupidAI stu = new stupidAI();
         Assert.That(stu.getStyle(), Is.EqualTo(1));
@@ -39,7 +40,7 @@ public class testing
     // test smart AI (2 constructors, get/set)
     // User story 007/002
     [Test]
-    void test_smartAI(){
+    public void test_smartAI(){
 
         smartAI stu = new smartAI();
         Assert.That(stu.getStyle(), Is.EqualTo(1));
@@ -54,7 +55,7 @@ public class testing
     // Mode Manager tests
     // User story 007/002
     [Test]
-    void test_enemyMode(){
+    public void test_enemyMode(){
 
         enemyMode enMode = new enemyMode();
 
@@ -64,7 +65,7 @@ public class testing
     
     // User Story 000 / 013
     [Test]
-    void test_inputHandler(){
+    public void test_inputHandler(){
         InputHandler inp = new InputHandler();
         inp.TestInputs();
 
@@ -72,7 +73,7 @@ public class testing
     
     // User Story 00
     [Test]
-    void test_CameraController(){
+    public void test_CameraController(){
         CameraController cam = new CameraController();
 
         Assert.That(cam.GetPlayerTransform(), !(Is.EqualTo(null)));
@@ -84,7 +85,7 @@ public class testing
     
     // User Story 00
     [Test]
-    void test_PlayerController(){
+    public void test_PlayerController(){
         PlayerController play = new PlayerController();
 
         Assert.That(play.GetPlayerStats(), !(Is.EqualTo(null)));
@@ -97,13 +98,29 @@ public class testing
     // Game Manager test
     // User Stories 003 / 008 / 011
 	[Test]
-    void test_GameManager(){
+    public void test_GameManager(){
         
         GameManager game = new GameManager();
+        
+        Assert.IsNotNull(game);
+        Assert.IsNotNull(game.player, "game.player");
+        Assert.IsNotNull(GameManager.gameState, "game.gameState");
+        Assert.IsNotNull(GameManager.UI_Man, "game.UI_Man");
+        Assert.IsNotNull(game.pStats, "game.pStats");
+
+    }
+    
+    // UI Manager test
+    // User Stories 005 / 008 / 011
+    [Test]
+    public void test_UIManager(){
+        
+        UIManager game = new UIManager();
 
         Assert.IsNotNull(game);
-        Assert.IsNotNull(game.playerController, "game.playerController");
-        Assert.IsNotNull(game.gameState, "game.gameState");
+        Assert.IsNotNull(game.gameMenu, "game.gameMenu");
+        Assert.IsNotNull(game.playerUI, "game.playerUI");
+        Assert.IsNotNull(game.healthBar, "game.healthBar");
     }
     
 

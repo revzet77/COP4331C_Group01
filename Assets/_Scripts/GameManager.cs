@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameStates gameState;
     public static GameManager gameInstance;
+    public static GameStates gameState;
     public static UIManager UI_Man;
     public PlayerController player;
 
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     {
         // TODO: Refrernce Game State if valid
         gameState.resetGame();
-        player.ResetPlayerHealth();
+        pStats.currentHealth = pStats.maxHealth;
         // Spawn location of player at beginning of the game
         player.transform.position = new Vector3(-43,0,-97);
         
