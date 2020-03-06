@@ -3,21 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class UIManager : MonoBehaviour
 {
 	public GameObject gameMenu;
 	public GameObject playerUI;
 	public Slider healthBar;
-	// TODO: replace TextMeshPro with regular texts
-	public TextMeshProUGUI scoreTMP;
-	public TextMeshProUGUI waveTMP;
-	public TextMeshProUGUI enemyTMP;
-	public TextMeshProUGUI fscoreTMP;
-	public TextMeshProUGUI fwaveTMP;
+	public Text scoreText;
+	public Text waveText;
+	public Text enemyText;
+	public Text fscoreText;
+	public Text fwaveText;
 
-	
 	private void Start()
 	{
 		if(gameMenu == null)
@@ -46,25 +43,22 @@ public class UIManager : MonoBehaviour
 		return;
 	}
 
-	// TODO: replace TextMeshPro with regular texts
 	public void updateWaveNumber(int wave)
 	{
-		waveTMP.text = "Wave: " + wave;
+		waveText.text = "Wave: " + wave;
 		return;
 	}
 
-	// TODO: replace TextMeshPro with regular texts
 	public void updateScore(int score)
 	{
-		scoreTMP.text = score.ToString();
+		scoreText.text = score.ToString();
 		return;
 	}
 
-	// TODO: replace TextMeshPro with regular texts
 	public void DisplayFinalScores(GameStates g_state)
 	{
-		fscoreTMP.text = "Final Score: " + g_state.score;
-		fwaveTMP.text = "Waves Played: " + g_state.waveNumber;
+		fscoreText.text = "Final Score: " + g_state.score;
+		fwaveText.text = "Waves Played: " + g_state.waveNumber;
 		return;
 	}
 }

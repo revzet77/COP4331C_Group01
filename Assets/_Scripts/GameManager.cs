@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
         m_StartWait = new WaitForSeconds(1F);
         m_EndWait = new WaitForSeconds(1f);
 
+        // Comment this out + set Main Menu to active to test functionality
         StartGame();
     }
 

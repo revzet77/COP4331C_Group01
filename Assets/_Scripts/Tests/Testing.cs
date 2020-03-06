@@ -102,10 +102,9 @@ public class testing
         
         GameManager game = new GameManager();
         
-        Assert.IsNotNull(game);
+        Assert.IsNotNull(GameManager.gameState, "GameManager.gameState");
+        Assert.IsNotNull(GameManager.UI_Man, "GameManager.UI_Man");
         Assert.IsNotNull(game.player, "game.player");
-        Assert.IsNotNull(GameManager.gameState, "game.gameState");
-        Assert.IsNotNull(GameManager.UI_Man, "game.UI_Man");
         Assert.IsNotNull(game.pStats, "game.pStats");
 
     }
@@ -117,7 +116,6 @@ public class testing
         
         UIManager game = new UIManager();
 
-        Assert.IsNotNull(game);
         Assert.IsNotNull(game.gameMenu, "game.gameMenu");
         Assert.IsNotNull(game.playerUI, "game.playerUI");
         Assert.IsNotNull(game.healthBar, "game.healthBar");
