@@ -162,3 +162,32 @@ This is a third person shooter wave-based game where you shoot robots. There are
   - Animations
   - admin-related tasks
   - fix artifacts formatting
+
+# Sprint 6
+
+- [Product Backlog](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/product6_backlog.md)
+- [Sprint Backlog](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/sprint6_backlog.md)
+- [Requirements](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/requirements.md)
+- [Trello Board](https://trello.com/b/zZGtiT6a/poop-project)
+- [Burndown Chart](https://docs.google.com/spreadsheets/d/1xQKtZziBmI2Kaf8Ip7wdv32spgtG4dGq3O_bcDauOf0/edit?usp=sharing#gid=1907858622)
+- [Velocity Chart](https://docs.google.com/spreadsheets/d/1xQKtZziBmI2Kaf8Ip7wdv32spgtG4dGq3O_bcDauOf0/edit?usp=sharing)
+- [System Architecture](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/architecture.md)
+- [Source Code](https://github.com/revzet77/COP4331C_Group01/tree/master/Assets/_Scripts)
+- [Automated Tests](https://github.com/revzet77/COP4331C_Group01/blob/master/Assets/_Scripts/Tests/Testing.cs)
+- [Product Demonstration(SOON TO BE ADDED)]()
+
+## Responsibilities
+- revzet77 (Jacqueline Godier)
+  - Continued work on AI Manager
+  - Enemy NPCs
+- LynchJ13 (John Lynch)
+  - Adding functioning shooting mechanics to guns
+- wa299600 (Wallace Borges)
+  - Testing UI
+  - Adding colliders to all model objects in game scene.
+  - Helped with Admin work
+  - Improving Advanced Map terrain/design
+- MagicPuffDragon (Lars Gustaf Jiborn)
+  - Implmenting enemy prefabs with animations
+  - Various Admin + Management tasks
+  - Improving Advanced Map terrain/design
