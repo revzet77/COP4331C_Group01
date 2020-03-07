@@ -1,4 +1,7 @@
 # Sprint 6 Backlog (03-04-2020 to 03-11-2020)
+
+| ID | User Story | Effort | Priority | Validation Criteria | Owner |
+|----|------------|--------|----------|---------------------|-------|
 | 000 | As a player, I want my convential third person gaming so the controls are inuitive. | 10 | NECESSARY | Given the game is started, when I move my mouse and use 'WASD' to control my character, then the character moves and aims accordingly. | John |
 | 003 | As a player, I want my game to run smoothly so it immerses me. | 5 | NECESSARY | Given the game has started, when I play the game, then the game will run smoothly. | Wallace |
 | 004 | As a player, I want a weapons system so I can fight enemies. | 5 | NECESSARY | Given the player possesses a weapon, when the player presses the attack button, then the weapon equipped will fire projectiles and inflict damage. | John |
