@@ -63,7 +63,7 @@ public class testing
 
     }
     
-    // User Story 000 / 013 / 001
+    // User Story 000 / 013
     [Test]
     public void test_inputHandler(){
         InputHandler inp = new InputHandler();
@@ -71,7 +71,7 @@ public class testing
 
     }
     
-    // User Story 000 / 001
+    // User Story 00
     [Test]
     public void test_CameraController(){
         CameraController cam = new CameraController();
@@ -83,7 +83,7 @@ public class testing
 
     }
     
-    // User Story 000 
+    // User Story 00
     [Test]
     public void test_PlayerController(){
         PlayerController play = new PlayerController();
@@ -110,7 +110,7 @@ public class testing
     }
     
     // UI Manager test
-    // User Stories 005 / 008 / 011 / 010
+    // User Stories 005 / 008 / 011
     [Test]
     public void test_UIManager(){
         
