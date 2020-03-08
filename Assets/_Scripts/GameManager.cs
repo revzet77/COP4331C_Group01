@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager gameInstance;
     public static GameStates gameState;
     public static UIManager UI_Man;
+    public static AIManager ai_manager;
     public PlayerController player;
 
     private PlayerStats pStats;
@@ -98,10 +99,11 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator WaveEnding()
     {
-    	Debug.Log("Ending the wave!");
+    	Debug.Log("entering WaveEnding coroutine");
     	//if(gameState.isPlayerDead || gameState.finishedAllWaves
     	if(gameState.isGameOver(pStats))
         {
+            Debug.Log("Ending the wave!");
             GameOver();
             yield break;
         }

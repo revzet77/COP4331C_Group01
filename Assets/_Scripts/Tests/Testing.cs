@@ -33,7 +33,7 @@ public class testing
         Assert.That(stu.getStyle(), Is.EqualTo(1));
        
         stupidAI stu2 = new stupidAI(0);
-        Assert.That(stu.getStyle(), Is.EqualTo(10));
+        Assert.That(stu.getStyle(), Is.EqualTo(0));
        
         
     }
