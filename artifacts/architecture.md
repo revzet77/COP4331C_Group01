@@ -203,6 +203,9 @@ The project was created on Unity 3D's free edition using free models and package
   - Using probuilder for building 3d spaces and environments for testing and play.
 - [Low Poly Weapons VOL.1](https://assetstore.unity.com/packages/3d/props/guns/low-poly-weapons-vol-1-151980)
   - Using these models for the weapons equipped by the player.
+- [NavMeshComponents](https://github.com/Unity-Technologies/NavMeshComponents)
+  - Using for advanced navigation functions
+  
 
 # Reuse
 
