@@ -11,14 +11,14 @@ using static PlayerController;
 using static PlayerStats;
 using static AIManager;
 using static ModeManager;
-using static MovementManager;
 using static GameManager;
 using static GameStates;
 using static UIManager;
+using static MovementController;
 
 // the testing script is meant to cover all our User stories in the sprint backlog
 // current user stories in the backlog that are either working/testing/done:
-// 000, 001, 002, 003, 007, 008, 011, 013
+// 000, 001, 002, 003, 004, 007, 008, 010,  011, 012, 013
 // please CTRL-F to find the test for each story
 // ALL unit tests must go with a user story
 public class testing 
@@ -96,7 +96,7 @@ public class testing
 
     
     // Game Manager test
-    // User Stories 003 / 008 / 011
+    // User Stories 003 / 008 / 011 / 004
 	[Test]
     public void test_GameManager(){
         
@@ -123,8 +123,16 @@ public class testing
     
 
     // test enemy mode (2 constructors)
-    // Movement Manager tests
-    // theres no code for it yet
+    // user story 012
+    // Movement Controller tests
+    [Test]
+    public void test_MovementController(){
+        MovementController mover = new MovementController();
+
+        Assert.IsNotNull(mover.meleeRange);
+        Assert.IsNotNull(mover.midRange);
+        Assert.IsNotNull(mover.longRange);
+    }
 
 
 
