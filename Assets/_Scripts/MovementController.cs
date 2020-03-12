@@ -2,27 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// player MUST be named player controller
 public class MovementController : MonoBehaviour
 {
-    public UnityEngine.AI.NavMeshAgent meleeRange;
-    public UnityEngine.AI.NavMeshAgent midRange;
-    public UnityEngine.AI.NavMeshAgent longRange;
-    public GameObject player;
-    private Animator animator1;
-    // Start is called before the first frame update
-    void Start()
+    UnityEngine.AI.NavMeshAgent agent;
+   
+    public MovementController(UnityEngine.AI.NavMeshAgent enagent)
     {
-        animator1 = meleeRange.GetComponent<Animator>();    
+        agent = enagent;
     }
 
     // Update is called once per frame
-    void Update()
+    public void moveToPlayer()
     {
+        Transform playerpos = GameObject.Find("PlayerController").GetComponent<Transform>();
+        agent.SetDestination(playerpos.position);
 
-        //meleeRange.hasPath;
-
-        meleeRange.SetDestination(player.GetComponent<Transform>().position);
-        midRange.SetDestination(player.GetComponent<Transform>().position);
-        longRange.SetDestination(player.GetComponent<Transform>().position);
     }
 }

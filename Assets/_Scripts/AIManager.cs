@@ -1,71 +1,242 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using static MovementController;
+using static ModeController;
+
 
 public class AIManager : MonoBehaviour
 {
-    enum FightStyle
-    {
-        Long = 0,
-        Mid = 1,
-        Short = 2
-    }
+  // todo: random instantiation locations
+  // todo: fighting
+  // todo: nav
+  // todo: enemy health
+  // todo: enemy death
+  // NOTE: prefabs need to be added via unity console
+    public GameObject meleePrefab;
+    public GameObject midPrefab;
+    public GameObject longPrefab;
+    public Transform playerpos;
+    public int overallStyle;
+    public int [] damageCount;
+    ArrayList stupidList;
+    ArrayList smartList;
+    // tracks if game is still active
+    public bool isAlive, killed;
 
-    // stupid AI's are meant to be more like cannon fodder, not super in depth code
-    // the fightStyle will not change, thus is private and should not be edited 
-    // within the class
-    public class stupidAI
-    {
-        private int curStyle;
-        int id;
+    // FightStyles: 0: short, 1: mid, 2: long
 
-        public stupidAI(int style){
-            curStyle = style;
-        } 
-        // default is mid if not specified
-        public stupidAI(){
-            curStyle = 1;
-        } 
-
-        public int getStyle(){
-            return curStyle;
-        }
-    }
-
-    // smart AI's are supposed to be the adaptive versions of the enemy
-    public class smartAI
-    {
-        private int curStyle;
-        // TODO:  make system to track different AI's
-        int id;
-
-        public smartAI(int style){
-            curStyle = style;
-        } 
-        // default is mid if not specified
-        public smartAI(){
-            curStyle = 1;
-        } 
-
-        public int getStyle(){
-            return curStyle;
-        }
-
-        public void setStyle(int style){
-            curStyle = style;
-        }
-    }
-
-    public int curStyle;
     // Start is called before the first frame update
     void Start()
     {
-        
+        overallStyle = 1;
+        // damage on everything set to 0 to begin
+        damageCount = new int[] { 0,0,0};
+        // game is inactive. gm must make AI manager active
+        killed = true;
+        isAlive = false;
+        stupidList = new ArrayList();
+        smartList = new ArrayList();
     }
 
     // Update is called once per frame
     void Update()
     {
+        setLive();
+        //if gm kills the wave
+        if(!isAlive && !killed){
+            // kill the game
+            killWave();
+        }
+
+        // if gm is reviving wave
+        if(killed && isAlive){
+            // call make method
+            reviveWave();
+            // make sure to set kill to false
+        }
         
+        // if currently alive
+        if(isAlive){
+            int bestStyle = checkDamage();
+            if (bestStyle != overallStyle){
+            // change smart AI's
+            changeAllStyles();
+            // whichever damage vount has the most is new overallStyle;
+            overallStyle = bestStyle;
+            }
+            // moves AI's
+            moveField();
+            
+        }
+
+    }
+
+    // for game manager
+    public void setLive(){
+        isAlive = true;
+    }
+
+    // for game manager
+    public void setDead(){
+        isAlive = false;
+        killed = true;
+    }
+
+    public void incrementDamage(int fightType){
+        if(fightType > 2 || fightType < 0){
+            Debug.Log("invalid index! styles are 0-2");
+            return;
+        }
+        
+        damageCount[fightType]++;
+    }
+
+ 
+    // kills wave
+    private void killWave(){
+        // destroy all current enemies
+        foreach(GameObject go in stupidList)
+        {
+         Destroy(go);
+        }
+        stupidList.Clear();
+        
+        foreach(GameObject go in smartList)
+        {
+         Destroy(go);
+        }
+        smartList.Clear();
+    }
+
+    
+    // restarts wave
+    // todo: random spawning
+    private void reviveWave(){
+
+
+        // respawn all enemies
+        // todo: add randomization on field, and iterator
+        stupidAI shortR = new stupidAI(0, meleePrefab);
+        stupidList.Add(shortR);
+
+
+
+        // reset damagecount
+        for(int i = 0; i < 3; i++){
+            damageCount[i] = 0;
+        }
+        // reset overallStyle
+        overallStyle = 1;
+        // resets state
+        killed = false;
+    }
+
+    // checks index of max AI damage
+    private int checkDamage(){
+        
+        int maxVal = damageCount.Max();
+        int maxIndex = damageCount.ToList().IndexOf(maxVal);
+        return maxIndex;
+    }
+
+    // todo
+    private void changeAllStyles(){
+        // change styles of all current smart AI's
+    }
+
+    // tells AI's from certain distance from player to move
+    // todo
+    private void moveField(){
+        foreach(stupidAI go in stupidList)
+        {
+            go.mover.moveToPlayer();
+        }
     }
 }
+
+
+// stupid AI's are meant to be more like cannon fodder, not super in depth code
+// the fightStyle will not change, thus is private and should not be edited 
+// within the class
+// they spawn certain model based on type
+public class stupidAI : MonoBehaviour
+{
+    
+    private int curStyle;
+    private GameObject enemy;
+    private int id;
+    protected UnityEngine.AI.NavMeshAgent agent;
+    public MovementController mover;
+
+    public stupidAI(int style, GameObject myPrefab){
+        // Instantiate at position (0, 0, 0) and zero rotation.
+        enemy = Instantiate(myPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
+        curStyle = style;
+         switch (curStyle)
+        {
+            case 0:
+                agent.stoppingDistance = 3.0F;
+                break;
+            case 1:
+                agent.stoppingDistance = 7.0F;
+                break;
+            case 2:
+                agent.stoppingDistance = 12.0F;
+                break;
+            default:
+                agent.stoppingDistance = 7.0F;
+                curStyle = 1;
+                break;
+        }
+        mover = new MovementController(agent);
+        //mover.moveToPlayer();
+    } 
+    // default is mid if not specified
+    public stupidAI(GameObject myPrefab){
+        // Instantiate at position (0, 0, 0) and zero rotation.
+        enemy = Instantiate(myPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
+        agent.stoppingDistance = 7.0F;
+        curStyle = 1;
+    } 
+
+    public int getStyle(){
+        return curStyle;
+    }
+
+
+}
+
+// smart AI's are supposed to be the adaptive versions of the enemy
+// spawn initial model but can change type
+/*
+public class smartAI : stupidAI
+{
+    int curStyle;
+
+    public void setStyle(int style){
+        curStyle = style;
+        switch (curStyle)
+        {
+            case 0:
+                agent.stoppingDistance = 2.0F;
+                break;
+            case 1:
+                agent.stoppingDistance = 7.0F;
+                break;
+            case 2:
+                agent.stoppingDistance = 12.0F;
+                break;
+            default:
+                agent.stoppingDistance = 7.0F;
+                curStyle = 1;
+                break;
+        }
+    }
+
+}
+*/
+

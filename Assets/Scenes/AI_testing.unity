@@ -1891,7 +1891,7 @@ GameObject:
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &999363802
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3884,7 +3884,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23330
+  m_Name: pb_Mesh19256
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4167,7 +4167,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23258
+  m_Name: pb_Mesh19184
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4523,7 +4523,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22910
+  m_Name: pb_Mesh18826
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4748,6 +4748,7 @@ GameObject:
   - component: {fileID: 1602282482}
   - component: {fileID: 1602282481}
   - component: {fileID: 1602282480}
+  - component: {fileID: 1602282483}
   m_Layer: 0
   m_Name: AI Manager
   m_TagString: Untagged
@@ -4767,10 +4768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28b6fb4add051c64e964988c7672cfd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeRange: {fileID: 999363802}
-  midRange: {fileID: 2262400550170230009}
-  longRange: {fileID: 3170684617170858634}
-  player: {fileID: 3868329889879786176}
 --- !u!114 &1602282481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4814,6 +4811,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1602282483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602282479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ba7ce8e1583cf4e8e5cd173edae99a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleePrefab: {fileID: 100000, guid: ce898fdcb7684734b8b25310bcb1600e, type: 3}
+  midPrefab: {fileID: 2262400550927053463, guid: 00129c07c74c74b4ba44a8afcbe2bd38,
+    type: 3}
+  longPrefab: {fileID: 100000, guid: 03195f095903a914192b43fe5bb968e1, type: 3}
+  playerpos: {fileID: 3868329889879786177}
+  overallStyle: 0
+  damageCount: 
+  isAlive: 0
+  killed: 0
 --- !u!1001 &1627386169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7414,7 +7432,7 @@ GameObject:
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &2262400550170230009
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -9052,7 +9070,7 @@ GameObject:
   m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &3170684617170858634
 NavMeshAgent:
   m_ObjectHideFlags: 0
