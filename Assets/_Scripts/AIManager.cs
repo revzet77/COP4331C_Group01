@@ -8,12 +8,12 @@ using static ModeController;
 
 public class AIManager : MonoBehaviour
 {
-  // todo: random instantiation locations
+  
   // todo: fighting
   // todo: nav
   // todo: enemy health
   // todo: enemy death
-  // NOTE: prefabs need to be added via unity console
+  // NOTE: public gameobjects need to be added via unity console
     public GameObject meleePrefab;
     public GameObject midPrefab;
     public GameObject longPrefab;
@@ -22,6 +22,7 @@ public class AIManager : MonoBehaviour
     public int [] damageCount;
     ArrayList stupidList;
     ArrayList smartList;
+    GameObject [] spawners;
     // tracks if game is still active
     public bool isAlive, killed;
 
@@ -33,6 +34,8 @@ public class AIManager : MonoBehaviour
         overallStyle = 1;
         // damage on everything set to 0 to begin
         damageCount = new int[] { 0,0,0};
+        spawners = new GameObject[5]
+        {GameObject.Find("spawner0"), GameObject.Find("spawner1"), GameObject.Find("spawner2"), GameObject.Find("spawner3"), GameObject.Find("spawner4")}; 
         // game is inactive. gm must make AI manager active
         killed = true;
         isAlive = false;
@@ -95,6 +98,7 @@ public class AIManager : MonoBehaviour
 
  
     // kills wave
+    // todo: destroy movers, test function
     private void killWave(){
         // destroy all current enemies
         foreach(GameObject go in stupidList)
@@ -112,15 +116,33 @@ public class AIManager : MonoBehaviour
 
     
     // restarts wave
-    // todo: random spawning
     private void reviveWave(){
-
-
         // respawn all enemies
-        // todo: add randomization on field, and iterator
-        stupidAI shortR = new stupidAI(0, meleePrefab);
-        stupidList.Add(shortR);
-
+        // currently there are five enemies to spawn at fiver different spawn points
+        // todo: add smart AI's
+    
+        for(int i = 0; i < 10; i++){
+            // max of range is excluded
+            int model_no = Random.Range(0, 3);
+            GameObject myPrefab;
+            switch (model_no)
+            {
+            case 0:
+                myPrefab = meleePrefab;
+                break;
+            case 1:
+                myPrefab = midPrefab;
+                break;
+            case 2:
+                myPrefab = longPrefab;
+                break;
+            default:
+                myPrefab = midPrefab;
+                break;
+            }
+            stupidAI shortR = new stupidAI(Random.Range(0, 3), myPrefab, spawners[Random.Range(0, 5)].GetComponent<Transform>());
+            stupidList.Add(shortR);
+        }
 
 
         // reset damagecount
@@ -141,13 +163,13 @@ public class AIManager : MonoBehaviour
         return maxIndex;
     }
 
-    // todo
+    // todo - change smart AI's style
     private void changeAllStyles(){
         // change styles of all current smart AI's
     }
 
     // tells AI's from certain distance from player to move
-    // todo
+    // todo- only move enemies from certain distance
     private void moveField(){
         foreach(stupidAI go in stupidList)
         {
@@ -170,9 +192,9 @@ public class stupidAI : MonoBehaviour
     protected UnityEngine.AI.NavMeshAgent agent;
     public MovementController mover;
 
-    public stupidAI(int style, GameObject myPrefab){
+    public stupidAI(int style, GameObject myPrefab, Transform spawnLocation){
         // Instantiate at position (0, 0, 0) and zero rotation.
-        enemy = Instantiate(myPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        enemy = Instantiate(myPrefab, spawnLocation.position, Quaternion.identity);
         agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
         curStyle = style;
          switch (curStyle)
@@ -195,9 +217,9 @@ public class stupidAI : MonoBehaviour
         //mover.moveToPlayer();
     } 
     // default is mid if not specified
-    public stupidAI(GameObject myPrefab){
+    public stupidAI(GameObject myPrefab, Transform spawnLocation){
         // Instantiate at position (0, 0, 0) and zero rotation.
-        enemy = Instantiate(myPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        enemy = Instantiate(myPrefab, spawnLocation.position, Quaternion.identity);
         agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
         agent.stoppingDistance = 7.0F;
         curStyle = 1;
@@ -210,6 +232,7 @@ public class stupidAI : MonoBehaviour
 
 }
 
+// todo: smart ai
 // smart AI's are supposed to be the adaptive versions of the enemy
 // spawn initial model but can change type
 /*
