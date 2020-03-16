@@ -10,5 +10,9 @@ public class CameraStats : MonoBehaviour
     public Vector2 offset = new Vector2(5.0f, 4.0f);
     public float distToCameraX = 5.0f;
     public float distToCameraY = 2.0f;
+    public float distToCameraZ = 0.0f;
+    public float distToCameraXAiming = 2.0f;
+    public float distToCameraYAiming = 2.5f;
+    public float distToCameraZAiming = 0.5f;
 
 }

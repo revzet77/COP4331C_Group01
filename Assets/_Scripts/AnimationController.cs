@@ -13,13 +13,13 @@ public class AnimationController : MonoBehaviour
     }
 
 
-    public void ReceiveInput(InputHandler.KeyboardInput keyboard)
+    public void ReceiveInput(InputHandler.PlayerInput inputP)
     {
-        animator.SetBool("IsMoving", (keyboard.inputWASD != Vector2.zero));
+        animator.SetBool("IsMoving", (inputP.inputWASD != Vector2.zero));
 
-        animator.SetBool("IsSprinting", keyboard.isSprinting);
+        animator.SetBool("IsSprinting", inputP.isSprinting);
 
-        if (keyboard.isJumping)
+        if (inputP.isJumping)
             animator.SetTrigger("JumpTrigger");
     }
 
@@ -27,6 +27,10 @@ public class AnimationController : MonoBehaviour
     void SetAnimationStates()
     {
 
+    }
+
+    public Animator GetAnimator(){
+        return animator;
     }
 
 }

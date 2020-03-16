@@ -18,15 +18,20 @@ public class CameraController : MonoBehaviour
 		}
     }
 
-    public void ReceiveInput(InputHandler.MouseInput mouse)
+    public void ReceiveInput(InputHandler.PlayerInput input)
     {
-        mouse.horzInput *= cStats.mouseSensitivity;
-        mouse.vertInput *= cStats.mouseSensitivity;
-        mouse.vertInput = Mathf.Clamp(mouse.vertInput, cStats.verticalClamp.x, cStats.verticalClamp.y);
+        input.horzMouseInput *= cStats.mouseSensitivity;
+        input.vertMouseInput *= cStats.mouseSensitivity;
+        input.vertMouseInput = Mathf.Clamp(input.vertMouseInput, cStats.verticalClamp.x, cStats.verticalClamp.y);
 
-        Vector3 rotAnglesCam = new Vector3(mouse.vertInput, mouse.horzInput, 0);
+        Vector3 rotAnglesCam = new Vector3(input.vertMouseInput, input.horzMouseInput, 0);
         transform.eulerAngles = rotAnglesCam;
-        targetPos = playerT.position - (transform.forward * cStats.distToCameraX) + (Vector3.up * cStats.distToCameraY);
+        if ( input.isAiming ){
+            targetPos = playerT.position - (transform.forward * cStats.distToCameraXAiming) + (Vector3.up * cStats.distToCameraYAiming) + (transform.right * cStats.distToCameraZAiming);
+        } else {
+            targetPos = playerT.position - (transform.forward * cStats.distToCameraX) + (Vector3.up * cStats.distToCameraY) + (Vector3.left * cStats.distToCameraZ);
+        }
+
         transform.position = targetPos;
     }
 

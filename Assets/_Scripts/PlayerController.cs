@@ -10,7 +10,9 @@ public class PlayerController : MonoBehaviour
 {
     private PlayerStats playerStats;
     private CharacterController player;
+    private GunController gunC;
     private Transform cameraT;
+    private Transform bullet;
     
 	float turnVelocity;
 	float velocity;
@@ -25,28 +27,37 @@ public class PlayerController : MonoBehaviour
         cameraT = GameObject.Find("Main Camera").GetComponent<Transform>();
         playerStats = gameObject.GetComponent<PlayerStats>();
         player = gameObject.GetComponent<CharacterController>();
+        gunC = GameObject.Find("GameManager").GetComponent<GunController>();
+        bullet = GameObject.Find("BulletRelease").GetComponent<Transform>();
         velocityY = 0;
     }
 
     
 
     // void Update()
-    public void ReceiveInput(InputHandler.KeyboardInput movement)
+    public void ReceiveInput(InputHandler.PlayerInput inputP)
     {
-        Move(movement.inputWASD, movement.isSprinting);
-        if (movement.isJumping)
+        Move(inputP.inputWASD, inputP.isSprinting, inputP.isAiming);
+        if (inputP.isJumping)
         {
             Jump();
         }
+
+        if (inputP.isShooting){
+            Shoot();
+        }
     }
 
-    void Move(Vector2 inputDir, bool sprint){
+    void Move(Vector2 inputDir, bool sprint, bool aiming){
         // create the rotation we need to be in to look at the target (Based off of the camera's y-rotation)
         // smooth damp it based off our smooth speed to make a visually nice transition
-        if (inputDir != Vector2.zero) {
+        if (inputDir != Vector2.zero || aiming) {
             float targetRotation = Mathf.Atan2 (inputDir.x, inputDir.y) * Mathf.Rad2Deg + cameraT.eulerAngles.y;
 			transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnVelocity, playerStats.turnSmoothTime);
 		}
+        if (aiming) {
+            bullet.eulerAngles = cameraT.eulerAngles;
+        }
 
         // Set our Target Speed
         if (velocityY > playerStats.gravity){
@@ -71,6 +82,9 @@ public class PlayerController : MonoBehaviour
 		}
     }
 
+    void Shoot(){
+        gunC.ShootGun(bullet.transform);
+    }
 
     public PlayerStats GetPlayerStats(){
         return playerStats;

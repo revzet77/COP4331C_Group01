@@ -8,19 +8,19 @@ public class InputHandler : MonoBehaviour{
     private CameraController camera;
     private AnimationController animations;
     
-    //Keyboard Inputs
-    public struct KeyboardInput{
+
+    // Keyboard and Mouse Inputs from the player
+    public struct PlayerInput {
+        public float vertMouseInput, horzMouseInput;
         public Vector2 inputWASD;
+        public bool isShooting;
+        public bool isAiming;
         public bool isSprinting;
         public bool isJumping;
     }
-    // mouse inputs for camera
-    public struct MouseInput{
-        public float vertInput, horzInput;
-    }
 
-    private KeyboardInput keyboard;
-    private MouseInput mouse;
+    // private KeyboardInput keyboard;
+    private PlayerInput playerInput;
 
     void Start(){
         player = GameObject.Find("PlayerController").GetComponent<PlayerController>();
@@ -33,28 +33,34 @@ public class InputHandler : MonoBehaviour{
         // at the moment, it only takes into account inputs as movement.
 
         // take inputs related to keyboard
-        keyboard.inputWASD = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        playerInput.inputWASD = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        
 
-        keyboard.isSprinting = Input.GetButton("Sprint");
+        playerInput.isSprinting = Input.GetButton("Sprint");
 
-        keyboard.isJumping = Input.GetButtonDown("Jump");
+        playerInput.isJumping = Input.GetButtonDown("Jump");
+
+        playerInput.isShooting = Input.GetButton("Fire1");
+
+        playerInput.isAiming = Input.GetButton("Aim");
 
         // send keyboard inputs to PlayerController script.
-        player.ReceiveInput(keyboard);
-        animations.ReceiveInput(keyboard);
+        player.ReceiveInput(playerInput);
+        animations.ReceiveInput(playerInput);
     }
 
     void LateUpdate(){
         
         // take inputs related to mouse movement.
-        mouse.horzInput += Input.GetAxis("Mouse X");
-        mouse.vertInput -= Input.GetAxis("Mouse Y");
+        playerInput.horzMouseInput += Input.GetAxis("Mouse X");
+        playerInput.vertMouseInput -= Input.GetAxis("Mouse Y");
+
 
         // Send mouse input to CameraController script.
-        camera.ReceiveInput(mouse);
+        camera.ReceiveInput(playerInput);
     }
 
     public bool TestInputs(){
-        return !( keyboard.Equals(default(KeyboardInput))) ;
+        return !( playerInput.Equals(default(PlayerInput))) ;
     }
 }
