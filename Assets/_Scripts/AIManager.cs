@@ -173,7 +173,21 @@ public class AIManager : MonoBehaviour
     private void moveField(){
         foreach(stupidAI go in stupidList)
         {
-            go.mover.moveToPlayer();
+            float minMoveDistance = 20.0f;
+            float distance = Vector3.Distance(go.enemy.GetComponent<Transform>().position, playerpos.position);
+            //Debug.Log("distance is" + distance);
+            if (distance < minMoveDistance)
+            {
+                go.closeEnough = true;
+            }
+            else{
+                go.closeEnough = false;
+            }
+            if(go.closeEnough){
+                
+                go.mover.moveToPlayer();
+            }
+            
         }
     }
 }
@@ -187,12 +201,14 @@ public class stupidAI : MonoBehaviour
 {
     
     private int curStyle;
-    private GameObject enemy;
+    public GameObject enemy;
     private int id;
     protected UnityEngine.AI.NavMeshAgent agent;
     public MovementController mover;
+    public bool closeEnough;
 
     public stupidAI(int style, GameObject myPrefab, Transform spawnLocation){
+        closeEnough = false;
         // Instantiate at position (0, 0, 0) and zero rotation.
         enemy = Instantiate(myPrefab, spawnLocation.position, Quaternion.identity);
         agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
