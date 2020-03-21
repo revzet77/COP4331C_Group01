@@ -199,6 +199,14 @@ The project was created on Unity 3D's free edition using free models and package
 
 - [Warrior Pack](https://assetstore.unity.com/packages/3d/animations/warrior-pack-bundle-1-free-36405)
   - Using these models for our characters: the player and enemies.
+- [Warrior Pack Bundle 3](https://assetstore.unity.com/packages/3d/animations/warrior-pack-bundle-3-free-47320)
+  - Using the animations from the archer model for the player animations.
+- [Zombie Animation Pack](https://assetstore.unity.com/packages/3d/animations/zombie-animation-pack-free-150219)
+  - Using these animations for various enemy models.
+- [Fighter Pack Bundle](https://assetstore.unity.com/packages/3d/animations/fighter-pack-bundle-free-36286)
+  - Using animations from this for various enemy models.
+- [Warrior Pack Bundle 2](https://assetstore.unity.com/packages/3d/animations/warrior-pack-bundle-2-free-42454)
+  - Using animations from this for various enemy models.
 - [Probuilder](https://unity3d.com/unity/features/worldbuilding/probuilder)
   - Using probuilder for building 3d spaces and environments for testing and play.
 - [Low Poly Weapons VOL.1](https://assetstore.unity.com/packages/3d/props/guns/low-poly-weapons-vol-1-151980)
