@@ -10,7 +10,6 @@ public class AIManager : MonoBehaviour
 {
   
   // todo: fighting
-  // todo: nav
   // todo: enemy health
   // todo: enemy death
   // NOTE: public gameobjects need to be added via unity console
@@ -65,9 +64,10 @@ public class AIManager : MonoBehaviour
             int bestStyle = checkDamage();
             if (bestStyle != overallStyle){
             // change smart AI's
-            changeAllStyles();
-            // whichever damage vount has the most is new overallStyle;
             overallStyle = bestStyle;
+            changeAllStyles(overallStyle);
+            // whichever damage vount has the most is new overallStyle;
+            
             }
             // moves AI's
             moveField();
@@ -101,13 +101,13 @@ public class AIManager : MonoBehaviour
     // todo: destroy movers, test function
     private void killWave(){
         // destroy all current enemies
-        foreach(GameObject go in stupidList)
+        foreach(stupidAI go in stupidList)
         {
          Destroy(go);
         }
         stupidList.Clear();
         
-        foreach(GameObject go in smartList)
+        foreach(smartAI go in smartList)
         {
          Destroy(go);
         }
@@ -121,7 +121,7 @@ public class AIManager : MonoBehaviour
         // currently there are five enemies to spawn at fiver different spawn points
         // todo: add smart AI's
     
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < 5; i++){
             // max of range is excluded
             int model_no = Random.Range(0, 3);
             GameObject myPrefab;
@@ -142,6 +142,8 @@ public class AIManager : MonoBehaviour
             }
             stupidAI shortR = new stupidAI(Random.Range(0, 3), myPrefab, spawners[Random.Range(0, 5)].GetComponent<Transform>());
             stupidList.Add(shortR);
+            smartAI smartie = new smartAI(Random.Range(0, 3), myPrefab, spawners[Random.Range(0, 5)].GetComponent<Transform>());
+            smartList.Add(smartie);
         }
 
 
@@ -164,15 +166,40 @@ public class AIManager : MonoBehaviour
     }
 
     // todo - change smart AI's style
-    private void changeAllStyles(){
+    
+    private void changeAllStyles(int curStyle){
         // change styles of all current smart AI's
+        foreach(smartAI go in smartList)
+        {
+          go.setStyle(curStyle);
+        }
     }
-
+    
     // tells AI's from certain distance from player to move
-    // todo- only move enemies from certain distance
+
     private void moveField(){
         foreach(stupidAI go in stupidList)
         {
+            float minMoveDistance = 20.0f;
+            float distance = Vector3.Distance(go.enemy.GetComponent<Transform>().position, playerpos.position);
+            //Debug.Log("distance is" + distance);
+            if (distance < minMoveDistance)
+            {
+                go.closeEnough = true;
+            }
+            else{
+                go.closeEnough = false;
+            }
+            if(go.closeEnough){
+                
+                go.mover.moveToPlayer();
+            }
+            
+        }
+      
+        foreach(smartAI go in smartList)
+        {
+            
             float minMoveDistance = 20.0f;
             float distance = Vector3.Distance(go.enemy.GetComponent<Transform>().position, playerpos.position);
             //Debug.Log("distance is" + distance);
@@ -200,12 +227,13 @@ public class AIManager : MonoBehaviour
 public class stupidAI : MonoBehaviour
 {
     
-    private int curStyle;
+    protected int curStyle;
     public GameObject enemy;
-    private int id;
+    protected int id;
     protected UnityEngine.AI.NavMeshAgent agent;
     public MovementController mover;
     public bool closeEnough;
+    public int health;
 
     public stupidAI(int style, GameObject myPrefab, Transform spawnLocation){
         closeEnough = false;
@@ -230,16 +258,26 @@ public class stupidAI : MonoBehaviour
                 break;
         }
         mover = new MovementController(agent);
-        //mover.moveToPlayer();
+        health = 3;
+       
     } 
     // default is mid if not specified
     public stupidAI(GameObject myPrefab, Transform spawnLocation){
         // Instantiate at position (0, 0, 0) and zero rotation.
+        closeEnough = false;
         enemy = Instantiate(myPrefab, spawnLocation.position, Quaternion.identity);
         agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
         agent.stoppingDistance = 7.0F;
         curStyle = 1;
+        mover = new MovementController(agent);
+        health = 3;
     } 
+
+    // for smart AI only
+    protected stupidAI(){
+        closeEnough = false;
+        health = 3;
+    }
 
     public int getStyle(){
         return curStyle;
@@ -251,10 +289,43 @@ public class stupidAI : MonoBehaviour
 // todo: smart ai
 // smart AI's are supposed to be the adaptive versions of the enemy
 // spawn initial model but can change type
-/*
+
 public class smartAI : stupidAI
 {
-    int curStyle;
+    public smartAI(int style, GameObject myPrefab, Transform spawnLocation){
+      
+        // Instantiate at position (0, 0, 0) and zero rotation.
+        enemy = Instantiate(myPrefab, spawnLocation.position, Quaternion.identity);
+        agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
+        curStyle = style;
+         switch (curStyle)
+        {
+            case 0:
+                agent.stoppingDistance = 3.0F;
+                break;
+            case 1:
+                agent.stoppingDistance = 7.0F;
+                break;
+            case 2:
+                agent.stoppingDistance = 12.0F;
+                break;
+            default:
+                agent.stoppingDistance = 7.0F;
+                curStyle = 1;
+                break;
+        }
+        mover = new MovementController(agent);
+       
+    }
+
+     public smartAI(GameObject myPrefab, Transform spawnLocation){
+        // Instantiate at position (0, 0, 0) and zero rotation.
+        enemy = Instantiate(myPrefab, spawnLocation.position, Quaternion.identity);
+        agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
+        agent.stoppingDistance = 7.0F;
+        curStyle = 1;
+        mover = new MovementController(agent);
+    } 
 
     public void setStyle(int style){
         curStyle = style;
@@ -277,5 +348,5 @@ public class smartAI : stupidAI
     }
 
 }
-*/
+
 
