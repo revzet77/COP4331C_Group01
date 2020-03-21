@@ -191,3 +191,34 @@ This is a third person shooter wave-based game where you shoot robots. There are
   - Implmenting enemy prefabs with animations
   - Various Admin + Management tasks
   - Improving Advanced Map terrain/design
+
+# Sprint 7
+
+- [Product Backlog](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/product7_backlog.md)
+- [Sprint Backlog](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/sprint7_backlog.md)
+- [Requirements](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/requirements.md)
+- [Trello Board](https://trello.com/b/zZGtiT6a/poop-project)
+- [Burndown Chart](https://docs.google.com/spreadsheets/d/1xQKtZziBmI2Kaf8Ip7wdv32spgtG4dGq3O_bcDauOf0/edit?usp=sharing#gid=1559236065)
+- [Velocity Chart](https://docs.google.com/spreadsheets/d/1xQKtZziBmI2Kaf8Ip7wdv32spgtG4dGq3O_bcDauOf0/edit?usp=sharing)
+- [System Architecture](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/architecture.md)
+- [Source Code](https://github.com/revzet77/COP4331C_Group01/tree/master/Assets/_Scripts)
+- [Automated Tests](https://github.com/revzet77/COP4331C_Group01/blob/master/Assets/_Scripts/Tests/Testing.cs)
+- [Product Demonstration]()
+
+## Responsibilities
+- revzet77 (Jacqueline Godier)
+  - Enemy health system
+  - Pathfinding/Navmesh for enemies
+  - Enemy 'AI' system
+- LynchJ13 (John Lynch)
+  - Weapons system
+  - Enemy 'AI' system
+- wa299600 (Wallace Borges)
+  - Creating final level map
+  - Adding colliders to final level
+  - Creating win/lose mechanic
+  - Sprint Administrative work
+- MagicPuffDragon (Lars Gustaf Jiborn)
+  - Creating final level map
+  - Adding animation triggers to AI code
+  - Sprint Administrative work
