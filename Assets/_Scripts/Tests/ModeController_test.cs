@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // manages the mode for all current active enemies
-public class ModeManager : MonoBehaviour
+public class ModeController : MonoBehaviour
 {
     enum AttackMode{
         Offense = 0,

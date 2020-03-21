@@ -10,7 +10,7 @@ using static InputHandler;
 using static PlayerController;
 using static PlayerStats;
 using static AIManager;
-using static ModeManager;
+using static ModeController;
 using static GameManager;
 using static GameStates;
 using static UIManager;
@@ -27,12 +27,31 @@ public class testing
     // test stupid AI (2 constructors, getstyle)
     // User story 007 / 002
     [Test]
+    public void test_AIManager(){
+        AIManager ai_guy = new AIManager();
+        Assert.That(ai_guy.overallStyle, Is.EqualTo(1));
+        Assert.That(ai_guy.damageCount, !(Is.EqualTo(null)));
+        Assert.That(ai_guy.killed, Is.EqualTo(true));
+        Assert.That(ai_guy.isAlive, Is.EqualTo(false));
+
+        ai_guy.setLive();
+        Assert.That(ai_guy.isAlive, Is.EqualTo(true));
+        ai_guy.setDead();
+        Assert.That(ai_guy.isAlive, Is.EqualTo(false));
+        Assert.That(ai_guy.killed, Is.EqualTo(true));
+
+    }
+
+    [Test]
     public void test_stupidAI(){
        
-        stupidAI stu = new stupidAI();
+        
+        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        cube.transform.position = new Vector3(0, 0.5f, 0);
+        stupidAI stu = new stupidAI(cube, cube.transform);
         Assert.That(stu.getStyle(), Is.EqualTo(1));
        
-        stupidAI stu2 = new stupidAI(0);
+        stupidAI stu2 = new stupidAI(0, cube, cube.transform);
         Assert.That(stu.getStyle(), Is.EqualTo(0));
        
         
@@ -41,11 +60,13 @@ public class testing
     // User story 007/002
     [Test]
     public void test_smartAI(){
-
-        smartAI stu = new smartAI();
+    
+        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        cube.transform.position = new Vector3(0, 0.5f, 0);
+        smartAI stu = new smartAI(cube, cube.transform);
         Assert.That(stu.getStyle(), Is.EqualTo(1));
 
-        smartAI stu2 = new smartAI(0);
+        smartAI stu2 = new smartAI(0, cube, cube.transform);
         Assert.That(stu2.getStyle(), Is.EqualTo(0));
 
         stu2.setStyle(2);
@@ -127,11 +148,12 @@ public class testing
     // Movement Controller tests
     [Test]
     public void test_MovementController(){
-        MovementController mover = new MovementController();
+        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        UnityEngine.AI.NavMeshAgent agent = cube.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
 
-        Assert.IsNotNull(mover.meleeRange);
-        Assert.IsNotNull(mover.midRange);
-        Assert.IsNotNull(mover.longRange);
+        MovementController mover = new MovementController(agent);
+        Assert.IsNotNull(mover);
+ 
     }
 
 
