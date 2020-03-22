@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-	public GameObject gameMenu;
+	public GameObject gameOverMenu;
+	public GameObject mainMenu;
 	public GameObject playerUI;
 	public Slider healthBar;
 	public Text scoreText;
@@ -17,17 +18,19 @@ public class UIManager : MonoBehaviour
 
 	private void Start()
 	{
-		if(gameMenu == null)
-			gameMenu = GameObject.Find("Game Over Menu");
+		if(gameOverMenu == null)
+			gameOverMenu = GameObject.Find("Game Over Menu");
+		if(mainMenu == null)
+			mainMenu = GameObject.Find("Main Menu");
 		if(playerUI == null)
 			playerUI = GameObject.Find("Player UI");
 		if(healthBar == null)
 			healthBar = GameObject.Find("Health Bar").GetComponent<Slider>();
 	}
 
-	public void showMenu()
+	public void showMenu(GameObject menu)
 	{
-		gameMenu.SetActive(true);
+		menu.SetActive(true);
 		return;
 	}
 
