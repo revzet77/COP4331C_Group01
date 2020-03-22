@@ -104,7 +104,7 @@ public class testing
 
     }
     
-    // User Story 000 / 014 /015
+    // User Story 000 / 015
     [Test]
     public void test_PlayerController(){
         PlayerController play = new PlayerController();
@@ -114,7 +114,14 @@ public class testing
         Assert.That(play.GetCameraTransform(), !(Is.EqualTo(null)));
 
     }
+    
+    // User Story 014
+    [Test]
+    void test_AnimationController(){
+        AnimationController anim = new AnimationController();
 
+        Assert.That(anim.GetAnimator(), !(Is.EqualTo(null)));
+    }
     
     // Game Manager test
     // User Stories 003 / 008 / 011 / 004 /015
@@ -154,8 +161,5 @@ public class testing
         Assert.IsNotNull(mover);
  
     }
-
-
-
 
 }
