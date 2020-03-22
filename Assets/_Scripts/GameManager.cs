@@ -30,8 +30,6 @@ public class GameManager : MonoBehaviour
         m_StartWait = new WaitForSeconds(1F);
         m_EndWait = new WaitForSeconds(1f);
 
-        // Comment this out + set Main Menu to active to test functionality
-        //StartGame();
         UI_Man.showMenu(UI_Man.mainMenu);
     }
 
@@ -42,14 +40,14 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator GameLoop()
     {
-        Debug.Log("The game Loop has started");
+        Debug.Log("The Game Loop has started");
         
         gameState.resetGame();
         pStats.currentHealth = pStats.maxHealth;
         
         while(!gameState.isGameOver(pStats))
         {
-            Debug.Log("While loop started");
+            Debug.Log("While loop started, entering WaveStarting");
             yield return StartCoroutine(WaveStarting());
             Debug.Log("Still in while loop, entering WavePlaying");
             yield return StartCoroutine(WavePlaying());
@@ -74,24 +72,32 @@ public class GameManager : MonoBehaviour
 
   	public IEnumerator WavePlaying()
     {
-        Debug.Log("Playing the wave! Before the while loop");
-        // Keeps game running until player health is 0 or until all enemies defeated
+        Debug.Log("In WavePlaying coroutine!");
+        
+        // Keeps game running until player health is 0 OR until all enemies are defeated
+        // TODO: check how many enemies are left using gameState.isWavOver() function or some
+        // function from AI_Manager that can return a boolean here
         while(!gameState.isPlayerDead(pStats) && !gameState.isWaveOver())
         {
-            // TODO: Update score and health when enemies get hit with bullets
-            // TODO: Update player's health in PlayerStats when hit
-            // TODO: Track how many enemies alive still
+            /* TODO: 
+            	- Update score and health when enemies get hit with bullets
+            	- Update player's health in PlayerStats when hit
+            	- Track how many enemies alive still
+            */
             UI_Man.UpdateHealthBar(pStats.currentHealth);
             UI_Man.updateScore(gameState.score);
 
             yield return null;
         }
+        Debug.Log("In WavePlaying coroutine, AFTER while loop");
     }
 
     public IEnumerator WaveEnding()
     {
-    	Debug.Log("entering WaveEnding coroutine");
-    	//if(gameState.isPlayerDead || gameState.finishedAllWaves
+    	Debug.Log("In WaveEnding coroutine");
+    	
+
+    	// If player died or player finished all the waves, sends to game over menu
     	if(gameState.isGameOver(pStats))
         {
             Debug.Log("Ending the wave!");
@@ -106,22 +112,14 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game is over!");
         //gameState.isGameOver = true;
-        gameInstance.destroyActiveEnemies();
+        
+        // TODO: AI_Manager function to destroy all active enemies
+
+
         UI_Man.showMenu(UI_Man.gameOverMenu);
         UI_Man.hidePlayerUI();
         UI_Man.DisplayFinalScores(gameState);
         return;
     }
-
-    public void spawnEnemies()
-    {
-        return;
-    }
-
-    // If player dies, destroys enemies still alive to clean up for next game
-    public void destroyActiveEnemies()
-    {
-        return;
-    }
-
+    
 }
