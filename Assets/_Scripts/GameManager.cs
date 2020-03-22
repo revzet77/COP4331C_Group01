@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager gameInstance;
     public static GameStates gameState;
     public static UIManager UI_Man;
-    public AIManager AI_manager;
+    public AIManager AI_Manager;
     public PlayerController player;
     
     private PlayerStats pStats;
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     {        
         // TODO: Spawn enemies here
 
-        //spawnEnemies();
+        AI_Manager.setLive();
         gameState.waveNumber++;
         UI_Man.updateWaveNumber(gameState.waveNumber);
 

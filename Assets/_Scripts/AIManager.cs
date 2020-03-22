@@ -12,11 +12,12 @@ public class AIManager : MonoBehaviour
   // todo: fighting
   // todo: enemy health
   // todo: enemy death
-  // NOTE: public gameobjects need to be added via unity console
+  // NOTE: these gameobjects need to be added via unity console
     public GameObject meleePrefab;
     public GameObject midPrefab;
     public GameObject longPrefab;
     public Transform playerpos;
+    /////////////////////////////////////
     public int overallStyle;
     public int [] damageCount;
     ArrayList stupidList;
@@ -45,7 +46,7 @@ public class AIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        setLive();
+        //setLive();
         //if gm kills the wave
         if(!isAlive && !killed){
             // kill the game
@@ -119,7 +120,7 @@ public class AIManager : MonoBehaviour
     private void reviveWave(){
         // respawn all enemies
         // currently there are five enemies to spawn at fiver different spawn points
-        // todo: add smart AI's
+        // todo: fix melee issue
     
         for(int i = 0; i < 5; i++){
             // max of range is excluded
