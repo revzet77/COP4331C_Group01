@@ -18,14 +18,14 @@ using static MovementController;
 
 // the testing script is meant to cover all our User stories in the sprint backlog
 // current user stories in the backlog that are either working/testing/done:
-// 000, 001, 002, 003, 004, 007, 008, 010,  011, 012, 013
+// 000, 001, 002, 003, 004, 005, 007, 008, 010,  011, 012, 013, 014, 015
 // please CTRL-F to find the test for each story
 // ALL unit tests must go with a user story
 public class testing 
 {
     // AI Manager tests
     // test stupid AI (2 constructors, getstyle)
-    // User story 007 / 002
+    // User story 007 / 002 / 005
     [Test]
     public void test_AIManager(){
         AIManager ai_guy = new AIManager();
@@ -57,7 +57,7 @@ public class testing
         
     }
     // test smart AI (2 constructors, get/set)
-    // User story 007/002
+    // User story 007/ 002 /005
     [Test]
     public void test_smartAI(){
     
@@ -104,7 +104,7 @@ public class testing
 
     }
     
-    // User Story 000
+    // User Story 000 / 014 /015
     [Test]
     public void test_PlayerController(){
         PlayerController play = new PlayerController();
@@ -117,7 +117,7 @@ public class testing
 
     
     // Game Manager test
-    // User Stories 003 / 008 / 011 / 004
+    // User Stories 003 / 008 / 011 / 004 /015
 	[Test]
     public void test_GameManager(){
         
@@ -129,7 +129,7 @@ public class testing
     }
     
     // UI Manager test
-    // User Stories 005 / 008 / 011 /010
+    // User Stories 005 / 008 / 011 /010 /015
     [Test]
     public void test_UIManager(){
         
