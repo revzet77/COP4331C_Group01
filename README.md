@@ -203,7 +203,7 @@ This is a third person shooter wave-based game where you shoot robots. There are
 - [System Architecture](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/architecture.md)
 - [Source Code](https://github.com/revzet77/COP4331C_Group01/tree/master/Assets/_Scripts)
 - [Automated Tests](https://github.com/revzet77/COP4331C_Group01/blob/master/Assets/_Scripts/Tests/Testing.cs)
-- [Product Demonstration]()
+- [Product Demonstration](https://streamable.com/jh9hk)
 
 ## Responsibilities
 - revzet77 (Jacqueline Godier)
