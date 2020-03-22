@@ -38,9 +38,12 @@ public class GameManager : MonoBehaviour
         StartCoroutine(GameLoop());
     }
 
-    public IEnumerator GameLoop()
+    private IEnumerator GameLoop()
     {
         Debug.Log("The Game Loop has started");
+        
+        // TODO: AI_Manager function to clear all active enemies
+        AI_Manager.setDead();
         
         gameState.resetGame();
         pStats.currentHealth = pStats.maxHealth;
@@ -58,7 +61,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public IEnumerator WaveStarting()
+    private IEnumerator WaveStarting()
     {        
         // TODO: Spawn enemies here
 
@@ -70,7 +73,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-  	public IEnumerator WavePlaying()
+  	private IEnumerator WavePlaying()
     {
         Debug.Log("In WavePlaying coroutine!");
         
@@ -92,7 +95,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("In WavePlaying coroutine, AFTER while loop");
     }
 
-    public IEnumerator WaveEnding()
+    private IEnumerator WaveEnding()
     {
     	Debug.Log("In WaveEnding coroutine");
     	
@@ -108,14 +111,11 @@ public class GameManager : MonoBehaviour
         yield return m_EndWait;
     }
     
-    public static void GameOver()
+    private void GameOver()
     {
         Debug.Log("Game is over!");
         //gameState.isGameOver = true;
         
-        // TODO: AI_Manager function to destroy all active enemies
-
-
         UI_Man.showMenu(UI_Man.gameOverMenu);
         UI_Man.hidePlayerUI();
         UI_Man.DisplayFinalScores(gameState);
