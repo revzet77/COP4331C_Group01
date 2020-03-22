@@ -29,4 +29,8 @@ public class AnimationController : MonoBehaviour
 
     }
 
+    public Animator GetAnimator(){
+        return animator;
+    }
+
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     private float damage;       // damage per single shot hit
-    private int rof;            // time between shots
+    private int rpm;            // time between shots
     private bool isAuto;        // is automatic weapon?
 
 
