@@ -17,6 +17,7 @@ public class InputHandler : MonoBehaviour{
         public bool isAiming;
         public bool isSprinting;
         public bool isJumping;
+        public float weaponSelect;
     }
 
     // private KeyboardInput keyboard;
@@ -43,6 +44,16 @@ public class InputHandler : MonoBehaviour{
         playerInput.isShooting = Input.GetButton("Fire1");
 
         playerInput.isAiming = Input.GetButton("Aim");
+
+        if(Input.GetButtonDown("Weapon1"))
+            playerInput.weaponSelect = 1;
+
+        if(Input.GetButtonDown("Weapon2"))
+            playerInput.weaponSelect = 2;
+
+        if(Input.GetButtonDown("Weapon3"))
+            playerInput.weaponSelect = 3;
+
 
         // send keyboard inputs to PlayerController script.
         player.ReceiveInput(playerInput);
