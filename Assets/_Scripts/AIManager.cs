@@ -227,12 +227,14 @@ public class AIManager : MonoBehaviour
 // they spawn certain model based on type
 public class stupidAI : MonoBehaviour
 {
-    
     protected int curStyle;
     public GameObject enemy;
     protected int id;
     protected UnityEngine.AI.NavMeshAgent agent;
     public MovementController mover;
+    //-----ADDED BY GUS
+    public AIAnimationController animations;
+    //-----
     public bool closeEnough;
     public int health;
 
@@ -245,7 +247,7 @@ public class stupidAI : MonoBehaviour
          switch (curStyle)
         {
             case 0:
-                agent.stoppingDistance = 3.0F;
+                agent.stoppingDistance = 4.0F;
                 break;
             case 1:
                 agent.stoppingDistance = 7.0F;
@@ -258,6 +260,10 @@ public class stupidAI : MonoBehaviour
                 curStyle = 1;
                 break;
         }
+        //-----ADDED BY GUS
+        animations = enemy.GetComponent<AIAnimationController>();
+        animations.Initialize(agent);
+        //-----
         mover = new MovementController(agent);
         health = 3;
        
@@ -270,6 +276,10 @@ public class stupidAI : MonoBehaviour
         agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
         agent.stoppingDistance = 7.0F;
         curStyle = 1;
+        //-----ADDED BY GUS
+        animations = enemy.GetComponent<AIAnimationController>();
+        animations.Initialize(agent);
+        //-----
         mover = new MovementController(agent);
         health = 3;
     } 
@@ -302,7 +312,7 @@ public class smartAI : stupidAI
          switch (curStyle)
         {
             case 0:
-                agent.stoppingDistance = 3.0F;
+                agent.stoppingDistance = 4.0F;
                 break;
             case 1:
                 agent.stoppingDistance = 7.0F;
@@ -315,8 +325,11 @@ public class smartAI : stupidAI
                 curStyle = 1;
                 break;
         }
+        //-----ADDED BY GUS
+        animations = enemy.GetComponent<AIAnimationController>();
+        animations.Initialize(agent);
+        //-----
         mover = new MovementController(agent);
-       
     }
 
      public smartAI(GameObject myPrefab, Transform spawnLocation){
@@ -325,6 +338,10 @@ public class smartAI : stupidAI
         agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
         agent.stoppingDistance = 7.0F;
         curStyle = 1;
+        //-----ADDED BY GUS
+        animations = enemy.GetComponent<AIAnimationController>();
+        animations.Initialize(agent);
+        //-----
         mover = new MovementController(agent);
     } 
 
@@ -333,7 +350,7 @@ public class smartAI : stupidAI
         switch (curStyle)
         {
             case 0:
-                agent.stoppingDistance = 2.0F;
+                agent.stoppingDistance = 3.0F;
                 break;
             case 1:
                 agent.stoppingDistance = 7.0F;
