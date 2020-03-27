@@ -238,10 +238,10 @@ This is a third person shooter wave-based game where you shoot robots. There are
 
 ## Responsibilities
 - revzet77 (Jacqueline Godier)
-  - 
+  - ...
 - LynchJ13 (John Lynch)
-  - 
+  - ...
 - wa299600 (Wallace Borges)
-  - 
+  - ...
 - MagicPuffDragon (Lars Gustaf Jiborn)
-  - 
+  - ...
