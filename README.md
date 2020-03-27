@@ -222,3 +222,26 @@ This is a third person shooter wave-based game where you shoot robots. There are
   - Creating final level map
   - Adding animation triggers to AI code
   - Sprint Administrative work
+  
+  # Sprint 8
+  
+- [Product Backlog](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/product8_backlog.md)
+- [Sprint Backlog](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/sprint8_backlog.md)
+- [Requirements](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/requirements.md)
+- [Trello Board](https://trello.com/b/zZGtiT6a/poop-project)
+- [Burndown Chart](https://docs.google.com/spreadsheets/d/1xQKtZziBmI2Kaf8Ip7wdv32spgtG4dGq3O_bcDauOf0/edit?usp=sharing#gid=1322511302)
+- [Velocity Chart](https://docs.google.com/spreadsheets/d/1xQKtZziBmI2Kaf8Ip7wdv32spgtG4dGq3O_bcDauOf0/edit?usp=sharing)
+- [System Architecture](https://github.com/revzet77/COP4331C_Group01/blob/master/artifacts/architecture.md)
+- [Source Code](https://github.com/revzet77/COP4331C_Group01/tree/master/Assets/_Scripts)
+- [Automated Tests](https://github.com/revzet77/COP4331C_Group01/blob/master/Assets/_Scripts/Tests/Testing.cs)
+- [Product Demonstration]()
+
+## Responsibilities
+- revzet77 (Jacqueline Godier)
+  - 
+- LynchJ13 (John Lynch)
+  - 
+- wa299600 (Wallace Borges)
+  - 
+- MagicPuffDragon (Lars Gustaf Jiborn)
+  - 
