@@ -13,11 +13,13 @@ public class InputHandler : MonoBehaviour{
     public struct PlayerInput {
         public float vertMouseInput, horzMouseInput;
         public Vector2 inputWASD;
+        public bool firstPull;
         public bool isShooting;
+        public bool triggerRelease;
         public bool isAiming;
         public bool isSprinting;
         public bool isJumping;
-        public float weaponSelect;
+        public int weaponSelect;
     }
 
     // private KeyboardInput keyboard;
@@ -41,18 +43,21 @@ public class InputHandler : MonoBehaviour{
 
         playerInput.isJumping = Input.GetButtonDown("Jump");
 
+        playerInput.firstPull = Input.GetButtonDown("Fire1");
         playerInput.isShooting = Input.GetButton("Fire1");
+        playerInput.triggerRelease = Input.GetButtonUp("Fire1");
 
         playerInput.isAiming = Input.GetButton("Aim");
 
+        playerInput.weaponSelect = -1;
         if(Input.GetButtonDown("Weapon1"))
-            playerInput.weaponSelect = 1;
+            playerInput.weaponSelect = 0;
 
         if(Input.GetButtonDown("Weapon2"))
-            playerInput.weaponSelect = 2;
+            playerInput.weaponSelect = 1;
 
         if(Input.GetButtonDown("Weapon3"))
-            playerInput.weaponSelect = 3;
+            playerInput.weaponSelect = 2;
 
 
         // send keyboard inputs to PlayerController script.

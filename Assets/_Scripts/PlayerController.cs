@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     private PlayerStats playerStats;
     private CharacterController player;
     private GunController gunC;
+
+    private Gun[] gunList = new Gun[3];
+    private Gun activeGun;
+
     private Transform cameraT;
     private Transform bullet;
     
@@ -30,6 +34,17 @@ public class PlayerController : MonoBehaviour
         gunC = GameObject.Find("GameManager").GetComponent<GunController>();
         bullet = GameObject.Find("BulletRelease").GetComponent<Transform>();
         velocityY = 0;
+        
+        gunList[0] = new Gun( "AK74", 1, 0.1f, true );
+        gunList[1] = new Gun( "M107", 1, 0.0f, false );
+        gunList[2] = new Gun( "Bennelli_M4", 1, 0.3f, true);
+        activeGun = gunList[0];
+
+        Debug.Log(gunList[0].getInGameObject());
+        Debug.Log(gunList[1].getInGameObject());
+        Debug.Log(gunList[2].getInGameObject());
+
+        
     }
 
     
@@ -42,9 +57,19 @@ public class PlayerController : MonoBehaviour
         {
             Jump();
         }
+        
+        if ( inputP.weaponSelect != -1 ){
+            SwapWeapon(inputP.weaponSelect);
+        }
 
-        if (inputP.isShooting){
-            Shoot();
+        if ( inputP.firstPull ) { Shoot(); }
+        if ( inputP.triggerRelease ) { activeGun.timeSinceLastShot = 0.0f; }
+        if ( inputP.isShooting && activeGun.GetIsAuto() ){
+            if ( activeGun.timeSinceLastShot >= activeGun.GetRPM() ){
+                Shoot();
+            } else {
+                activeGun.timeSinceLastShot += Time.deltaTime;
+            }
         }
     }
 
@@ -83,9 +108,22 @@ public class PlayerController : MonoBehaviour
     }
 
     void Shoot(){
-        gunC.ShootGun(bullet.transform);
+        // use the active gun's RPM to calculate the time between each shot
+        // tbs = 1 / (rpm / 60)
+        gunC.ShootGun(bullet.transform, activeGun);
+        activeGun.timeSinceLastShot = 0.0f;
     }
 
+    void SwapWeapon(int weaponNum){
+        activeGun.HideGun();
+        
+        //set new activeGun
+        activeGun = gunList[weaponNum];
+        Debug.Log(activeGun.getInGameObject());
+
+        activeGun.ShowGun();
+        
+    }
     public PlayerStats GetPlayerStats(){
         return playerStats;
     }

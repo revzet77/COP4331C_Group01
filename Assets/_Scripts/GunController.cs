@@ -9,21 +9,14 @@ public class GunController : MonoBehaviour
 
     // takes a transform (the spot where the bullet will leave the gun), and sends
     // a raycast in it's forward direction.
-    public void ShootGun( Transform bulletStart ){
+    public void ShootGun( Transform bulletStart, Gun activeGun){
         start = bulletStart.position;
         dest = start + (bulletStart.forward * 100);
         // Debug.DrawRay(start, dest, Color.blue, 5.0f);
         Debug.Log("Shooting");
         
-         // Bit shift the index of the layer (8) to get a bit mask
-        int layerMask = 1 << 8;
-
-        // This would cast rays only against colliders in layer 8.
-        // But instead we want to collide against everything except layer 8. The ~ operator does this, it inverts a bitmask.
-        layerMask = ~layerMask;
-
         RaycastHit hit;
-        if (Physics.Raycast(start, dest, out hit, Mathf.Infinity, layerMask))
+        if (Physics.Raycast(start, dest, out hit, Mathf.Infinity))
         {   
             Debug.Log(hit.transform.root.tag);
             if (hit.transform.root.tag == "NPC" || hit.transform.root.tag == "Player"){
