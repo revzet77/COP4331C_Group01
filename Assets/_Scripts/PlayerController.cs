@@ -39,11 +39,6 @@ public class PlayerController : MonoBehaviour
         gunList[1] = new Gun( "M107", 1, 0.0f, false );
         gunList[2] = new Gun( "Bennelli_M4", 1, 0.3f, true);
         activeGun = gunList[0];
-
-        Debug.Log(gunList[0].getInGameObject());
-        Debug.Log(gunList[1].getInGameObject());
-        Debug.Log(gunList[2].getInGameObject());
-
         
     }
 
