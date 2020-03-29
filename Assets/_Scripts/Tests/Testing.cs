@@ -168,4 +168,15 @@ public class testing
  
     }
 
+    // test AI animation
+    // user story 009
+    // Enemy Animation Controller tests
+    [Test]
+    public void test_AIAnimationController()
+    {
+        AIAnimationController anim = new AIAnimationController();
+
+        Assert.That(anim.GetAnimator(), !(Is.EqualTo(null)));
+    }
+
 }
