@@ -11,6 +11,7 @@ public class AIManager : MonoBehaviour
   
   // todo: fighting
   // todo: enemy health (sync with weapon hit)
+  // todo: add takedamage that damages all AI's once
   // todo: enemy death
   // NOTE: these gameobjects need to be added via unity console
     public GameObject meleePrefab;
@@ -296,20 +297,25 @@ public class stupidAI : MonoBehaviour
         
     }
 
+    // for gamemanager/weapons
     public int getStyle(){
         return curStyle;
     }
 
+    // for gamemanager/weapons
     public int getHealth(){
         return health;
     }
 
+    // for gamemanager/weapons
     public void takeDamage(){
         health = health - 1;
         if(health <= 0){
             die();
         }
     }
+
+    
 
     // todo: destroy mover/gameobject, override and add in smartAI
     protected void die(){
