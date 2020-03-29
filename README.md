@@ -238,10 +238,17 @@ This is a third person shooter wave-based game where you shoot robots. There are
 
 ## Responsibilities
 - revzet77 (Jacqueline Godier)
-  - ...
+  - Added Health and damage system to AI
+  - Finalized Navmesh
+  - Fixed code from play-tester feedback
 - LynchJ13 (John Lynch)
-  - ...
+  - Added multiple weapon system
+  - Worked on shooting and damage system
 - wa299600 (Wallace Borges)
-  - ...
+  - Added and edited colliders for final scene
+  - Finalized UI
+  - Game testing
 - MagicPuffDragon (Lars Gustaf Jiborn)
-  - ...
+  - Added enemy animations to final scene
+  - Continued design of final level
+  - Game testing

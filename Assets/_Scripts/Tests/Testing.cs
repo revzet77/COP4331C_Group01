@@ -10,6 +10,7 @@ using static InputHandler;
 using static PlayerController;
 using static PlayerStats;
 using static AIManager;
+using static AIAnimationController;
 using static ModeController;
 using static GameManager;
 using static GameStates;
@@ -50,9 +51,12 @@ public class testing
         cube.transform.position = new Vector3(0, 0.5f, 0);
         stupidAI stu = new stupidAI(cube, cube.transform);
         Assert.That(stu.getStyle(), Is.EqualTo(1));
+        Assert.That(stu.getHealth(), Is.EqualTo(3));
        
         stupidAI stu2 = new stupidAI(0, cube, cube.transform);
-        Assert.That(stu.getStyle(), Is.EqualTo(0));
+        stu2.takeDamage();
+        Assert.That(stu2.getHealth(), Is.EqualTo(2));
+        Assert.That(stu2.getStyle(), Is.EqualTo(0));
        
         
     }
@@ -65,12 +69,14 @@ public class testing
         cube.transform.position = new Vector3(0, 0.5f, 0);
         smartAI stu = new smartAI(cube, cube.transform);
         Assert.That(stu.getStyle(), Is.EqualTo(1));
+        Assert.That(stu.getHealth(), Is.EqualTo(5));
 
         smartAI stu2 = new smartAI(0, cube, cube.transform);
         Assert.That(stu2.getStyle(), Is.EqualTo(0));
-
+        stu2.takeDamage();
         stu2.setStyle(2);
-        Assert.That(stu.getStyle(), Is.EqualTo(2));
+        Assert.That(stu2.getHealth(), Is.EqualTo(4));
+        Assert.That(stu2.getStyle(), Is.EqualTo(2));
 
     }
     // Mode Manager tests

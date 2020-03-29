@@ -10,7 +10,8 @@ public class AIManager : MonoBehaviour
 {
   
   // todo: fighting
-  // todo: enemy health
+  // todo: enemy health (sync with weapon hit)
+  // todo: add takedamage that damages all AI's once
   // todo: enemy death
   // NOTE: these gameobjects need to be added via unity console
     public GameObject meleePrefab;
@@ -120,30 +121,36 @@ public class AIManager : MonoBehaviour
     private void reviveWave(){
         // respawn all enemies
         // currently there are five enemies to spawn at fiver different spawn points
-        // todo: fix melee issue
+        // stretch goal: fix longprefab
     
         for(int i = 0; i < 5; i++){
             // max of range is excluded
-            int model_no = Random.Range(0, 3);
-            GameObject myPrefab;
-            switch (model_no)
+            int fightrange = Random.Range(0, 3);
+            int smartrange = fightrange;
+            GameObject myPrefab, smartPrefab;
+            switch (fightrange)
             {
             case 0:
                 myPrefab = meleePrefab;
+                smartrange = 1;
+                smartPrefab = midPrefab;
                 break;
             case 1:
                 myPrefab = midPrefab;
+                smartPrefab = midPrefab;
                 break;
             case 2:
-                myPrefab = longPrefab;
+                myPrefab = midPrefab;
+                smartPrefab = midPrefab;
                 break;
             default:
                 myPrefab = midPrefab;
+                smartPrefab = midPrefab;
                 break;
             }
-            stupidAI shortR = new stupidAI(Random.Range(0, 3), myPrefab, spawners[Random.Range(0, 5)].GetComponent<Transform>());
+            stupidAI shortR = new stupidAI(fightrange, myPrefab, spawners[Random.Range(0, 5)].GetComponent<Transform>());
             stupidList.Add(shortR);
-            smartAI smartie = new smartAI(Random.Range(0, 3), myPrefab, spawners[Random.Range(0, 5)].GetComponent<Transform>());
+            smartAI smartie = new smartAI(smartrange, smartPrefab, spawners[Random.Range(0, 5)].GetComponent<Transform>());
             smartList.Add(smartie);
         }
 
@@ -166,7 +173,7 @@ public class AIManager : MonoBehaviour
         return maxIndex;
     }
 
-    // todo - change smart AI's style
+  
     
     private void changeAllStyles(int curStyle){
         // change styles of all current smart AI's
@@ -236,7 +243,7 @@ public class stupidAI : MonoBehaviour
     public AIAnimationController animations;
     //-----
     public bool closeEnough;
-    public int health;
+    protected int health;
 
     public stupidAI(int style, GameObject myPrefab, Transform spawnLocation){
         closeEnough = false;
@@ -287,17 +294,38 @@ public class stupidAI : MonoBehaviour
     // for smart AI only
     protected stupidAI(){
         closeEnough = false;
-        health = 3;
+        
     }
 
+    // for gamemanager/weapons
     public int getStyle(){
         return curStyle;
+    }
+
+    // for gamemanager/weapons
+    public int getHealth(){
+        return health;
+    }
+
+    // for gamemanager/weapons
+    public void takeDamage(){
+        health = health - 1;
+        if(health <= 0){
+            die();
+        }
+    }
+
+    
+
+    // todo: destroy mover/gameobject, override and add in smartAI
+    protected void die(){
+
     }
 
 
 }
 
-// todo: smart ai
+
 // smart AI's are supposed to be the adaptive versions of the enemy
 // spawn initial model but can change type
 
@@ -330,6 +358,7 @@ public class smartAI : stupidAI
         animations.Initialize(agent);
         //-----
         mover = new MovementController(agent);
+        health = 5;
     }
 
      public smartAI(GameObject myPrefab, Transform spawnLocation){
@@ -343,6 +372,7 @@ public class smartAI : stupidAI
         animations.Initialize(agent);
         //-----
         mover = new MovementController(agent);
+        health = 5;
     } 
 
     public void setStyle(int style){
@@ -364,6 +394,7 @@ public class smartAI : stupidAI
                 break;
         }
     }
+
 
 }
 
