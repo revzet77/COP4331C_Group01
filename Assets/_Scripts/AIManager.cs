@@ -124,26 +124,32 @@ public class AIManager : MonoBehaviour
     
         for(int i = 0; i < 5; i++){
             // max of range is excluded
-            int model_no = Random.Range(0, 3);
-            GameObject myPrefab;
-            switch (model_no)
+            int fightrange = Random.Range(0, 3);
+            int smartrange = fightrange;
+            GameObject myPrefab, smartPrefab;
+            switch (fightrange)
             {
             case 0:
                 myPrefab = meleePrefab;
+                smartrange = 1;
+                smartPrefab = midPrefab;
                 break;
             case 1:
                 myPrefab = midPrefab;
+                smartPrefab = midPrefab;
                 break;
             case 2:
-                myPrefab = longPrefab;
+                myPrefab = midPrefab;
+                smartPrefab = midPrefab;
                 break;
             default:
                 myPrefab = midPrefab;
+                smartPrefab = midPrefab;
                 break;
             }
-            stupidAI shortR = new stupidAI(Random.Range(0, 3), myPrefab, spawners[Random.Range(0, 5)].GetComponent<Transform>());
+            stupidAI shortR = new stupidAI(fightrange, myPrefab, spawners[Random.Range(0, 5)].GetComponent<Transform>());
             stupidList.Add(shortR);
-            smartAI smartie = new smartAI(Random.Range(0, 3), myPrefab, spawners[Random.Range(0, 5)].GetComponent<Transform>());
+            smartAI smartie = new smartAI(smartrange, smartPrefab, spawners[Random.Range(0, 5)].GetComponent<Transform>());
             smartList.Add(smartie);
         }
 
