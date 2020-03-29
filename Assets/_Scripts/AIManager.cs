@@ -10,7 +10,7 @@ public class AIManager : MonoBehaviour
 {
   
   // todo: fighting
-  // todo: enemy health
+  // todo: enemy health (sync with weapon hit)
   // todo: enemy death
   // NOTE: these gameobjects need to be added via unity console
     public GameObject meleePrefab;
@@ -120,7 +120,7 @@ public class AIManager : MonoBehaviour
     private void reviveWave(){
         // respawn all enemies
         // currently there are five enemies to spawn at fiver different spawn points
-        // todo: fix melee issue
+        // stretch goal: fix longprefab
     
         for(int i = 0; i < 5; i++){
             // max of range is excluded
@@ -172,7 +172,7 @@ public class AIManager : MonoBehaviour
         return maxIndex;
     }
 
-    // todo - change smart AI's style
+  
     
     private void changeAllStyles(int curStyle){
         // change styles of all current smart AI's
@@ -242,7 +242,7 @@ public class stupidAI : MonoBehaviour
     public AIAnimationController animations;
     //-----
     public bool closeEnough;
-    public int health;
+    protected int health;
 
     public stupidAI(int style, GameObject myPrefab, Transform spawnLocation){
         closeEnough = false;
@@ -293,17 +293,33 @@ public class stupidAI : MonoBehaviour
     // for smart AI only
     protected stupidAI(){
         closeEnough = false;
-        health = 3;
+        
     }
 
     public int getStyle(){
         return curStyle;
     }
 
+    public int getHealth(){
+        return health;
+    }
+
+    public void takeDamage(){
+        health = health - 1;
+        if(health <= 0){
+            die();
+        }
+    }
+
+    // todo: destroy mover/gameobject, override and add in smartAI
+    protected void die(){
+
+    }
+
 
 }
 
-// todo: smart ai
+
 // smart AI's are supposed to be the adaptive versions of the enemy
 // spawn initial model but can change type
 
@@ -336,6 +352,7 @@ public class smartAI : stupidAI
         animations.Initialize(agent);
         //-----
         mover = new MovementController(agent);
+        health = 5;
     }
 
      public smartAI(GameObject myPrefab, Transform spawnLocation){
@@ -349,6 +366,7 @@ public class smartAI : stupidAI
         animations.Initialize(agent);
         //-----
         mover = new MovementController(agent);
+        health = 5;
     } 
 
     public void setStyle(int style){
@@ -370,6 +388,7 @@ public class smartAI : stupidAI
                 break;
         }
     }
+
 
 }
 
