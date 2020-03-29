@@ -6316,6 +6316,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6878d1e45822eab4e9efcffabf39cfd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1810368234 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3868329889643319225, guid: 23afcfd58639f7643b8ad771fae4a275,
+    type: 3}
+  m_PrefabInstance: {fileID: 1810368232}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1867056402
 GameObject:
   m_ObjectHideFlags: 0
@@ -6754,7 +6760,7 @@ MonoBehaviour:
   midPrefab: {fileID: 2262400550927053463, guid: 00129c07c74c74b4ba44a8afcbe2bd38,
     type: 3}
   longPrefab: {fileID: 100000, guid: 03195f095903a914192b43fe5bb968e1, type: 3}
-  playerpos: {fileID: 0}
+  playerpos: {fileID: 1810368234}
   overallStyle: 0
   damageCount: 
   isAlive: 0
