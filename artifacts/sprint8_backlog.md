@@ -1,3 +1,5 @@
+# Sprint 8 Backlog (03-25-2020 to 04-01-2020)
+
 | ID | User Story | Effort | Priority | Validation Criteria | Owner |
 |----|------------|--------|----------|---------------------|-------|
 | 004 | As a player, I want a weapons system so I can fight enemies. | 5 | NECESSARY | Given the player possesses a weapon, when the player presses the attack button, then the weapon equipped will fire projectiles and inflict damage. | John |
