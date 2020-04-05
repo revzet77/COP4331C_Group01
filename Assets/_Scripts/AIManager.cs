@@ -8,11 +8,7 @@ using static ModeController;
 
 public class AIManager : MonoBehaviour
 {
-  
-  // todo: fighting
-  // todo: enemy health (sync with weapon hit)
-  // todo: add takedamage that damages all AI's once
-  // todo: enemy death
+
   // NOTE: these gameobjects need to be added via unity console
     public GameObject meleePrefab;
     public GameObject midPrefab;
@@ -73,7 +69,7 @@ public class AIManager : MonoBehaviour
             }
             // moves AI's
             moveField();
-            
+            // todo: attack?
         }
 
     }
@@ -148,9 +144,9 @@ public class AIManager : MonoBehaviour
                 smartPrefab = midPrefab;
                 break;
             }
-            stupidAI shortR = new stupidAI(fightrange, myPrefab, spawners[Random.Range(0, 5)].GetComponent<Transform>());
+            stupidAI shortR = new stupidAI(fightrange, myPrefab, spawners[Random.Range(0, 5)].GetComponent<Transform>(), i);
             stupidList.Add(shortR);
-            smartAI smartie = new smartAI(smartrange, smartPrefab, spawners[Random.Range(0, 5)].GetComponent<Transform>());
+            smartAI smartie = new smartAI(smartrange, smartPrefab, spawners[Random.Range(0, 5)].GetComponent<Transform>(), i + 5);
             smartList.Add(smartie);
         }
 
@@ -171,6 +167,53 @@ public class AIManager : MonoBehaviour
         int maxVal = damageCount.Max();
         int maxIndex = damageCount.ToList().IndexOf(maxVal);
         return maxIndex;
+    }
+
+    // todo: test
+    public void recieveDamage(int damageType, int hit_id){
+        
+        // increment damage counter
+
+        if(damageType < 3 && damageType >= 0){
+            damageCount[damageType]++;
+        }
+        else{
+            Debug.Log("recieveDamage: damage types need to be in range 0-2!");
+        }
+
+        // match id to AI object, give damage
+        foreach(stupidAI go in stupidList)
+        {
+            if(go.id == hit_id){
+                go.takeDamage();
+            }
+        }
+
+        
+        foreach(smartAI go in smartList)
+        {
+            if(go.id == hit_id){
+                go.takeDamage();
+            }
+        }
+        
+    }
+
+    // for weapons
+    public void damageAll(){
+
+        foreach(stupidAI go in stupidList)
+        {
+            go.takeDamage();
+        }
+
+        
+        foreach(smartAI go in smartList)
+        {
+            go.takeDamage();
+        }
+       
+
     }
 
   
@@ -236,7 +279,7 @@ public class stupidAI : MonoBehaviour
 {
     protected int curStyle;
     public GameObject enemy;
-    protected int id;
+    public int id;
     protected UnityEngine.AI.NavMeshAgent agent;
     public MovementController mover;
     //-----ADDED BY GUS
@@ -245,7 +288,8 @@ public class stupidAI : MonoBehaviour
     public bool closeEnough;
     protected int health;
 
-    public stupidAI(int style, GameObject myPrefab, Transform spawnLocation){
+    public stupidAI(int style, GameObject myPrefab, Transform spawnLocation, int idSet){
+        id = idSet;
         closeEnough = false;
         // Instantiate at position (0, 0, 0) and zero rotation.
         enemy = Instantiate(myPrefab, spawnLocation.position, Quaternion.identity);
@@ -276,7 +320,8 @@ public class stupidAI : MonoBehaviour
        
     } 
     // default is mid if not specified
-    public stupidAI(GameObject myPrefab, Transform spawnLocation){
+    public stupidAI(GameObject myPrefab, Transform spawnLocation, int idSet){
+        id = idSet;
         // Instantiate at position (0, 0, 0) and zero rotation.
         closeEnough = false;
         enemy = Instantiate(myPrefab, spawnLocation.position, Quaternion.identity);
@@ -331,8 +376,8 @@ public class stupidAI : MonoBehaviour
 
 public class smartAI : stupidAI
 {
-    public smartAI(int style, GameObject myPrefab, Transform spawnLocation){
-      
+    public smartAI(int style, GameObject myPrefab, Transform spawnLocation, int idSet){
+        id = idSet;
         // Instantiate at position (0, 0, 0) and zero rotation.
         enemy = Instantiate(myPrefab, spawnLocation.position, Quaternion.identity);
         agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
@@ -361,7 +406,8 @@ public class smartAI : stupidAI
         health = 5;
     }
 
-     public smartAI(GameObject myPrefab, Transform spawnLocation){
+     public smartAI(GameObject myPrefab, Transform spawnLocation, int idSet){
+         id = idSet;
         // Instantiate at position (0, 0, 0) and zero rotation.
         enemy = Instantiate(myPrefab, spawnLocation.position, Quaternion.identity);
         agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
