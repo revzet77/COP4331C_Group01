@@ -72,6 +72,7 @@ public class AIManager : MonoBehaviour
             // todo: attack?
         }
 
+
     }
 
     // for game manager
@@ -93,6 +94,13 @@ public class AIManager : MonoBehaviour
         
         damageCount[fightType]++;
     }
+    
+    //.... by Wallace
+    public int enemyCount(){
+        int count = stupidList.Count + smartList.Count;
+        return count;
+    }
+    //....
 
  
     // kills wave

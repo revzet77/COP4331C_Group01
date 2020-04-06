@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
 	public Text scoreText;
 	public Text waveText;
 	public Text enemyText;
+	public Text weaponText;
 	public Text fscoreText;
 	public Text fwaveText;
 
@@ -50,6 +51,27 @@ public class UIManager : MonoBehaviour
 	{
 		waveText.text = "Wave: " + wave;
 		return;
+	}
+
+	public void updateEnemyCount(int count)
+	{
+		enemyText.text = "Enemies Remaining: " + count;
+		return;
+	}
+
+	public void updateWeaponText(Gun activeGun)
+	{
+		if(activeGun == null){
+			Debug.Log("No gun found!");
+			return;
+		}
+		string gunID = activeGun.name;
+		if(gunID.Equals("AK74"))
+			weaponText.text = "mid range:\n" + "AK74";
+		if(gunID.Equals("M107"))
+			weaponText.text = "long range:\n" + "M107";
+		if(gunID.Equals("Bennelli_M4"))
+			weaponText.text = "shoty range:\n" + "Bennelli M4";
 	}
 
 	public void updateScore(int score)

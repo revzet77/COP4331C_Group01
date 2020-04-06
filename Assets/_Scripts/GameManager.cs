@@ -85,10 +85,11 @@ public class GameManager : MonoBehaviour
             /* TODO: 
             	- Update score and health when enemies get hit with bullets
             	- Update player's health in PlayerStats when hit
-            	- Track how many enemies alive still
             */
             UI_Man.UpdateHealthBar(pStats.currentHealth);
             UI_Man.updateScore(gameState.score);
+            UI_Man.updateEnemyCount(AI_Manager.enemyCount());
+        	//UI_Man.updateWeaponText(player.GetActiveGun());
 
             yield return null;
         }

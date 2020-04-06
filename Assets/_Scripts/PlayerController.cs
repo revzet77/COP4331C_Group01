@@ -131,4 +131,9 @@ public class PlayerController : MonoBehaviour
         return cameraT;
     }
 
+    //....by Wallace
+    public Gun GetActiveGun(){
+        return activeGun;
+    }
+    //....
 }
