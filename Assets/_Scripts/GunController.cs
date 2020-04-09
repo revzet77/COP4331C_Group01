@@ -6,6 +6,7 @@ public class GunController : MonoBehaviour
 {
     private Vector3 start;
     private Vector3 dest;
+    GameObject manager;
 
     // takes a transform (the spot where the bullet will leave the gun), and sends
     // a raycast in it's forward direction.
@@ -22,6 +23,8 @@ public class GunController : MonoBehaviour
             if (hit.transform.root.tag == "NPC" || hit.transform.root.tag == "Player"){
                 Debug.Log("Hit something that can die, lol");
                 //Do some call to do a damage calculation here.
+                manager = GameObject.Find("AI Manager");
+                manager.GetComponent<AIManager>().recieveDamage(2, hit.transform.gameObject);
             }
             Debug.DrawRay(start, bulletStart.forward * hit.distance, Color.yellow);
         }

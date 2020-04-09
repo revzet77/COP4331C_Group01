@@ -44,6 +44,7 @@ public class AIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        removeDead();
         //setLive();
         //if gm kills the wave
         if(!isAlive && !killed){
@@ -70,6 +71,7 @@ public class AIManager : MonoBehaviour
             }
             // moves AI's
             moveField();
+            
             // todo: attack?
         }
 
@@ -180,7 +182,7 @@ public class AIManager : MonoBehaviour
 
     // todo: test
     public void recieveDamage(int damageType, GameObject enemy){
-        
+        Debug.Log("entering recieveDamage");
         // increment damage counter
         int hit_id = enemy.GetComponent<enemyid>().getID();
 
@@ -224,6 +226,26 @@ public class AIManager : MonoBehaviour
         }
        
 
+    }
+    //todo
+    // removes any enemies who have been set to dead
+    protected void removeDead(){
+        foreach(stupidAI go in stupidList)
+        {
+            if(go.isDead){
+                Destroy(go);
+                stupidList.Remove(go);
+            }
+        }
+
+        
+        foreach(smartAI go in smartList)
+        {
+            if(go.isDead){
+                Destroy(go);
+                smartList.Remove(go);
+            }
+        }
     }
 
   
@@ -298,10 +320,12 @@ public class stupidAI : MonoBehaviour
     public bool closeEnough;
     protected int health;
     public enemyid id;
+    public bool isDead;
 
     public stupidAI(int style, GameObject myPrefab, Transform spawnLocation, int idSet){
         //id = idSet;
         closeEnough = false;
+        isDead = false;
         // Instantiate at position (0, 0, 0) and zero rotation.
         enemy = Instantiate(myPrefab, spawnLocation.position, Quaternion.identity);
         agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
@@ -329,7 +353,7 @@ public class stupidAI : MonoBehaviour
         mover = new MovementController(agent);
         id = enemy.AddComponent(typeof(enemyid)) as enemyid;
         id.setID(idSet);
-        health = 3;
+        health = 1;
        
     } 
 
@@ -337,6 +361,7 @@ public class stupidAI : MonoBehaviour
     // for smart AI only
     protected stupidAI(){
         closeEnough = false;
+        isDead = false;
         
     }
 
@@ -352,6 +377,7 @@ public class stupidAI : MonoBehaviour
 
     // for gamemanager/weapons
     public void takeDamage(){
+        Debug.Log("Entering takeDamage");
         health = health - 1;
         if(health <= 0){
             die();
@@ -362,7 +388,8 @@ public class stupidAI : MonoBehaviour
 
     // todo: destroy mover/gameobject, override and add in smartAI
     protected void die(){
-
+        isDead = true;
+        Debug.Log("enemy died");
     }
 
 
