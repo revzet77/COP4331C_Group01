@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using static MovementController;
+using static enemyid;
 using static ModeController;
 
 
@@ -178,9 +179,10 @@ public class AIManager : MonoBehaviour
     }
 
     // todo: test
-    public void recieveDamage(int damageType, int hit_id){
+    public void recieveDamage(int damageType, GameObject enemy){
         
         // increment damage counter
+        int hit_id = enemy.GetComponent<enemyid>().getID();
 
         if(damageType < 3 && damageType >= 0){
             damageCount[damageType]++;
@@ -188,11 +190,11 @@ public class AIManager : MonoBehaviour
         else{
             Debug.Log("recieveDamage: damage types need to be in range 0-2!");
         }
-
+        
         // match id to AI object, give damage
         foreach(stupidAI go in stupidList)
         {
-            if(go.id == hit_id){
+            if(go.GetComponent<enemyid>().getID() == hit_id){
                 go.takeDamage();
             }
         }
@@ -200,7 +202,7 @@ public class AIManager : MonoBehaviour
         
         foreach(smartAI go in smartList)
         {
-            if(go.id == hit_id){
+            if(go.GetComponent<enemyid>().getID() == hit_id){
                 go.takeDamage();
             }
         }
@@ -287,7 +289,7 @@ public class stupidAI : MonoBehaviour
 {
     protected int curStyle;
     public GameObject enemy;
-    public int id;
+
     protected UnityEngine.AI.NavMeshAgent agent;
     public MovementController mover;
     //-----ADDED BY GUS
@@ -295,9 +297,10 @@ public class stupidAI : MonoBehaviour
     //-----
     public bool closeEnough;
     protected int health;
+    public enemyid id;
 
     public stupidAI(int style, GameObject myPrefab, Transform spawnLocation, int idSet){
-        id = idSet;
+        //id = idSet;
         closeEnough = false;
         // Instantiate at position (0, 0, 0) and zero rotation.
         enemy = Instantiate(myPrefab, spawnLocation.position, Quaternion.identity);
@@ -324,25 +327,12 @@ public class stupidAI : MonoBehaviour
         animations.Initialize(agent);
         //-----
         mover = new MovementController(agent);
+        id = enemy.AddComponent(typeof(enemyid)) as enemyid;
+        id.setID(idSet);
         health = 3;
        
     } 
-    // default is mid if not specified
-    public stupidAI(GameObject myPrefab, Transform spawnLocation, int idSet){
-        id = idSet;
-        // Instantiate at position (0, 0, 0) and zero rotation.
-        closeEnough = false;
-        enemy = Instantiate(myPrefab, spawnLocation.position, Quaternion.identity);
-        agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
-        agent.stoppingDistance = 7.0F;
-        curStyle = 1;
-        //-----ADDED BY GUS
-        animations = enemy.GetComponent<AIAnimationController>();
-        animations.Initialize(agent);
-        //-----
-        mover = new MovementController(agent);
-        health = 3;
-    } 
+
 
     // for smart AI only
     protected stupidAI(){
@@ -385,7 +375,7 @@ public class stupidAI : MonoBehaviour
 public class smartAI : stupidAI
 {
     public smartAI(int style, GameObject myPrefab, Transform spawnLocation, int idSet){
-        id = idSet;
+        //id = idSet;
         // Instantiate at position (0, 0, 0) and zero rotation.
         enemy = Instantiate(myPrefab, spawnLocation.position, Quaternion.identity);
         agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
@@ -411,23 +401,12 @@ public class smartAI : stupidAI
         animations.Initialize(agent);
         //-----
         mover = new MovementController(agent);
+        id = enemy.AddComponent(typeof(enemyid)) as enemyid;
+        id.setID(idSet);
         health = 5;
     }
 
-     public smartAI(GameObject myPrefab, Transform spawnLocation, int idSet){
-         id = idSet;
-        // Instantiate at position (0, 0, 0) and zero rotation.
-        enemy = Instantiate(myPrefab, spawnLocation.position, Quaternion.identity);
-        agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
-        agent.stoppingDistance = 7.0F;
-        curStyle = 1;
-        //-----ADDED BY GUS
-        animations = enemy.GetComponent<AIAnimationController>();
-        animations.Initialize(agent);
-        //-----
-        mover = new MovementController(agent);
-        health = 5;
-    } 
+
 
     public void setStyle(int style){
         curStyle = style;
