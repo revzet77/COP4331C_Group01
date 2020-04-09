@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyid : MonoBehaviour
+public class Enemyid : MonoBehaviour
 {
-    int id;
+    public int Id;
 
      void Start()
     {
@@ -12,10 +12,10 @@ public class enemyid : MonoBehaviour
     }
 
     public void setID(int setid){
-        id = setid;
+        Id = setid;
     }
 
     public int getID(){
-        return id;
+        return Id;
     }
 }

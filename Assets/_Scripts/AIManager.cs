@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using static MovementController;
-using static enemyid;
+using static Enemyid;
 using static ModeController;
 
 
@@ -181,11 +181,12 @@ public class AIManager : MonoBehaviour
     }
 
     // todo: test
-    public void recieveDamage(int damageType, GameObject enemy){
-        Debug.Log("entering recieveDamage");
+    public void recieveDamage(int damageType, int pos){
+        Debug.Log("entering recieveDamage, instance id is:" + pos);
         // increment damage counter
-        int hit_id = enemy.GetComponent<enemyid>().getID();
-
+        
+        
+        
         if(damageType < 3 && damageType >= 0){
             damageCount[damageType]++;
         }
@@ -196,18 +197,22 @@ public class AIManager : MonoBehaviour
         // match id to AI object, give damage
         foreach(stupidAI go in stupidList)
         {
-            if(go.GetComponent<enemyid>().getID() == hit_id){
+           // Debug.Log(pos + " , " + go.enemy.GetInstanceID());
+            if(go.enemy.GetComponent<Enemyid>().Id == pos){
+                Debug.Log("found AI");
                 go.takeDamage();
             }
         }
-
-        
+          
         foreach(smartAI go in smartList)
         {
-            if(go.GetComponent<enemyid>().getID() == hit_id){
+            //Debug.Log(pos + " , " + go.enemy.GetInstanceID());
+            if(go.enemy.GetComponent<Enemyid>().Id == pos){
+                Debug.Log("found AI");
                 go.takeDamage();
             }
         }
+        
         
     }
 
@@ -227,7 +232,7 @@ public class AIManager : MonoBehaviour
        
 
     }
-    //todo
+ 
     // removes any enemies who have been set to dead
     protected void removeDead(){
         foreach(stupidAI go in stupidList)
@@ -319,7 +324,7 @@ public class stupidAI : MonoBehaviour
     //-----
     public bool closeEnough;
     protected int health;
-    public enemyid id;
+    public Enemyid id;
     public bool isDead;
 
     public stupidAI(int style, GameObject myPrefab, Transform spawnLocation, int idSet){
@@ -351,7 +356,7 @@ public class stupidAI : MonoBehaviour
         animations.Initialize(agent);
         //-----
         mover = new MovementController(agent);
-        id = enemy.AddComponent(typeof(enemyid)) as enemyid;
+        id = enemy.AddComponent(typeof(Enemyid)) as Enemyid;
         id.setID(idSet);
         health = 1;
        
@@ -428,7 +433,7 @@ public class smartAI : stupidAI
         animations.Initialize(agent);
         //-----
         mover = new MovementController(agent);
-        id = enemy.AddComponent(typeof(enemyid)) as enemyid;
+        id = enemy.AddComponent(typeof(Enemyid)) as Enemyid;
         id.setID(idSet);
         health = 5;
     }

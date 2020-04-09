@@ -24,7 +24,7 @@ public class GunController : MonoBehaviour
                 Debug.Log("Hit something that can die, lol");
                 //Do some call to do a damage calculation here.
                 manager = GameObject.Find("AI Manager");
-                manager.GetComponent<AIManager>().recieveDamage(2, hit.transform.gameObject);
+                manager.GetComponent<AIManager>().recieveDamage(2, hit.transform.root.gameObject.GetComponent<Enemyid>().Id);
             }
             Debug.DrawRay(start, bulletStart.forward * hit.distance, Color.yellow);
         }
