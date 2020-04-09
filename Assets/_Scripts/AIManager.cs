@@ -72,7 +72,8 @@ public class AIManager : MonoBehaviour
             // moves AI's
             moveField();
             
-            // todo: attack?
+            //attack
+            checkAttack();
         }
 
 
@@ -305,6 +306,76 @@ public class AIManager : MonoBehaviour
             
         }
     }
+
+    // if the enemy's path is completed, then attack
+    //todo
+    private void checkAttack(){
+
+        
+        float minMoveDistance = 20.0f;
+        foreach(stupidAI go in stupidList)
+        {
+            switch (go.getStyle())
+            {
+            case 0:
+                minMoveDistance = 4.0F;
+                break;
+            case 1:
+                minMoveDistance = 7.0F;
+                break;
+            case 2:
+                minMoveDistance = 12.0F;
+                break;
+            default:
+                minMoveDistance = 7.0F;
+                
+                break;
+            }
+            
+            float distance = Vector3.Distance(go.enemy.GetComponent<Transform>().position, playerpos.position);
+            //Debug.Log("distance is" + distance);
+            if (distance < minMoveDistance)
+            {
+                if(Random.Range(0, 120) == 3){
+                    Debug.Log("player would be hurt.... IF I COULD HURT THEM");
+                }
+                 
+            }
+
+            
+        }
+      
+        foreach(smartAI go in smartList)
+        {
+            
+            switch (go.getStyle())
+            {
+            case 0:
+                minMoveDistance = 4.0F;
+                break;
+            case 1:
+                minMoveDistance = 7.0F;
+                break;
+            case 2:
+                minMoveDistance = 12.0F;
+                break;
+            default:
+                minMoveDistance = 7.0F;
+                
+                break;
+            }
+            
+            float distance = Vector3.Distance(go.enemy.GetComponent<Transform>().position, playerpos.position);
+            //Debug.Log("distance is" + distance);
+            if (distance < minMoveDistance)
+            {
+                if(Random.Range(0, 120) == 3){
+                    Debug.Log("player would be hurt.... IF I COULD HURT THEM");
+                }
+            }
+            
+        }
+    }
 }
 
 
@@ -317,7 +388,7 @@ public class stupidAI : MonoBehaviour
     protected int curStyle;
     public GameObject enemy;
 
-    protected UnityEngine.AI.NavMeshAgent agent;
+    public UnityEngine.AI.NavMeshAgent agent;
     public MovementController mover;
     //-----ADDED BY GUS
     public AIAnimationController animations;
@@ -334,6 +405,7 @@ public class stupidAI : MonoBehaviour
         // Instantiate at position (0, 0, 0) and zero rotation.
         enemy = Instantiate(myPrefab, spawnLocation.position, Quaternion.identity);
         agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
+        agent.speed = 3;
         curStyle = style;
          switch (curStyle)
         {
@@ -411,6 +483,7 @@ public class smartAI : stupidAI
         // Instantiate at position (0, 0, 0) and zero rotation.
         enemy = Instantiate(myPrefab, spawnLocation.position, Quaternion.identity);
         agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
+        agent.speed = 3;
         curStyle = style;
          switch (curStyle)
         {
