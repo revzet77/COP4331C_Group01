@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
         
         // TODO: AI_Manager function to clear all active enemies
         AI_Manager.setDead();
-        AI_Manager.killWave();
         
         gameState.resetGame();
         pStats.currentHealth = pStats.maxHealth;
