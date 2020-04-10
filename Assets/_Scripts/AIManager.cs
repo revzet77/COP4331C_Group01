@@ -192,16 +192,17 @@ public class AIManager : MonoBehaviour
         // increment damage counter
         if(enem == null){
             Debug.Log("entering recieveDamage, enem is null");
-            
+            return;
         }
         else{
             if(enem.GetComponent<Enemyid>() != null){
                 id = enem.GetComponent<Enemyid>().Id;
                 Debug.Log("id found. it is " + id);
+                
             }
             else{
                 Debug.Log("entering recieveDamage, Enemyid is null");
-                
+                return;
             }
         }
         
