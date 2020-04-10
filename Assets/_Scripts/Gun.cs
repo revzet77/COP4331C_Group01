@@ -9,13 +9,15 @@ public class Gun : MonoBehaviour
     private float rpm;                // time between shots
     private bool isAuto;            // is automatic weapon?
     private GameObject inGameObject;
+    private int idNum;
 
 
     public float timeSinceLastShot;
 
 
-    public Gun( string n, int dmg, float RPM, bool auto){
+    public Gun( string n, int id, int dmg, float RPM, bool auto){
         name = n;
+        idNum = id;
         damage = dmg;
         rpm =  RPM;
         isAuto = auto;
@@ -33,6 +35,10 @@ public class Gun : MonoBehaviour
     
     public bool GetIsAuto(){
         return isAuto;
+    }
+
+    public int GetID(){
+        return idNum;
     }
 
     public void HideGun(){

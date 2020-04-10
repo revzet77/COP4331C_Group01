@@ -30,7 +30,7 @@ public class GunController : MonoBehaviour
                 manager = GameObject.Find("AI Manager");
                 // todo: have gameobject be actual enemy
                 //todo: have damage type be actual type
-                manager.GetComponent<AIManager>().recieveDamage(2, hit.transform.root.gameObject);
+                manager.GetComponent<AIManager>().recieveDamage(activeGun.GetID(), hit.transform.root.gameObject);
             }
             Debug.DrawRay(start, bulletStart.forward * hit.distance, Color.yellow);
         }
