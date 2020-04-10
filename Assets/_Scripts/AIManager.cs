@@ -114,13 +114,13 @@ public class AIManager : MonoBehaviour
         // destroy all current enemies
         foreach(stupidAI go in stupidList)
         {
-         Destroy(go);
+         Destroy(go.enemy);
         }
         stupidList.Clear();
         
         foreach(smartAI go in smartList)
         {
-         Destroy(go);
+         Destroy(go.enemy);
         }
         smartList.Clear();
     }
@@ -515,7 +515,7 @@ public class stupidAI : MonoBehaviour
         mover = new MovementController(agent);
         id = enemy.AddComponent(typeof(Enemyid)) as Enemyid;
         id.setID(idSet);
-        health = 1;
+        health = 3;
        
     } 
 
