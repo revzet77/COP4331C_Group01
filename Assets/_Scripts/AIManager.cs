@@ -339,6 +339,8 @@ public class AIManager : MonoBehaviour
                 if(Random.Range(0, 120) == 3){
                     Debug.Log("player would be hurt here.... IF I COULD HURT THEM");
                     // todo: decrement play health
+                    PlayerStats stats = GameObject.Find("PlayerController").GetComponent<PlayerStats>();
+                    stats.currentHealth--;
                     // Gus - add animation here
                 }
                  
@@ -374,6 +376,8 @@ public class AIManager : MonoBehaviour
                 if(Random.Range(0, 120) == 3){
                     Debug.Log("player would be hurt here.... IF I COULD HURT THEM");
                     // todo: decrement player health
+                    PlayerStats stats = GameObject.Find("PlayerController").GetComponent<PlayerStats>();
+                    stats.currentHealth--;
                     // Gus - add animation here
                 }
             }
