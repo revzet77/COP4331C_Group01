@@ -182,12 +182,12 @@ public class AIManager : MonoBehaviour
     }
 
     // todo: test
-    public void recieveDamage(int damageType, int pos){
-        Debug.Log("entering recieveDamage, instance id is:" + pos);
+    public void recieveDamage(int damageType, Enemyid enem_id){
+        
         // increment damage counter
+        int pos = enem_id.Id;
         
-        
-        
+        Debug.Log("entering recieveDamage, instance id is:" + pos);
         if(damageType < 3 && damageType >= 0){
             damageCount[damageType]++;
         }
@@ -395,7 +395,7 @@ public class stupidAI : MonoBehaviour
 {
     protected int curStyle;
     public GameObject enemy;
-
+    
     public UnityEngine.AI.NavMeshAgent agent;
     public MovementController mover;
     //-----ADDED BY GUS
@@ -412,6 +412,7 @@ public class stupidAI : MonoBehaviour
         isDead = false;
         // Instantiate at position (0, 0, 0) and zero rotation.
         enemy = Instantiate(myPrefab, spawnLocation.position, Quaternion.identity);
+        enemy.tag = "NPC";
         agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
         agent.speed = 3;
         curStyle = style;
@@ -490,6 +491,7 @@ public class smartAI : stupidAI
         //id = idSet;
         // Instantiate at position (0, 0, 0) and zero rotation.
         enemy = Instantiate(myPrefab, spawnLocation.position, Quaternion.identity);
+        enemy.tag = "NPC";
         agent = enemy.AddComponent(typeof(UnityEngine.AI.NavMeshAgent)) as UnityEngine.AI.NavMeshAgent;
         agent.speed = 3;
         curStyle = style;
