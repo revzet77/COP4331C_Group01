@@ -27,10 +27,18 @@ public class GameManager : MonoBehaviour
         
         Debug.Log("The Game has initiated");
 
-        m_StartWait = new WaitForSeconds(1F);
-        m_EndWait = new WaitForSeconds(1f);
+        m_StartWait = new WaitForSeconds(2F);
+        m_EndWait = new WaitForSeconds(2f);
 
         UI_Man.showMenu(UI_Man.mainMenu);
+    }
+
+    private void Update()
+    {
+        UI_Man.UpdateHealthBar(pStats.currentHealth);
+        UI_Man.updateScore(gameState.score);
+        UI_Man.updateEnemyCount(AI_Manager.enemyCount());
+
     }
 
     public void StartGame()
@@ -85,12 +93,12 @@ public class GameManager : MonoBehaviour
             /* TODO: 
             	- Update score and health when enemies get hit with bullets
             	- Update player's health in PlayerStats when hit
-            */
+            
             UI_Man.UpdateHealthBar(pStats.currentHealth);
             UI_Man.updateScore(gameState.score);
             UI_Man.updateEnemyCount(AI_Manager.enemyCount());
         	//UI_Man.updateWeaponText(player.GetActiveGun());
-
+            */
             yield return null;
         }
         Debug.Log("In WavePlaying coroutine, AFTER while loop");
