@@ -15,6 +15,7 @@ public class AIManager : MonoBehaviour
     public GameObject midPrefab;
     public GameObject longPrefab;
     public Transform playerpos;
+    public GameObject currentenemy;
     /////////////////////////////////////
     public int overallStyle;
     public int [] damageCount;
@@ -181,13 +182,31 @@ public class AIManager : MonoBehaviour
         return maxIndex;
     }
 
-    // todo: test
-    public void recieveDamage(int damageType, Enemyid enem_id){
-        
+    // todo: fix gameobject, currently wont pass right one. As of now it will only kill enemy with id 0
+    public void recieveDamage(int damageType, GameObject enem){
+        Debug.Log("entering recieveDamage");
+        currentenemy = enem;
+        int id = 0;
+        //testing gameobject
+        /*
         // increment damage counter
-        int pos = enem_id.Id;
+        if(enem == null){
+            Debug.Log("entering recieveDamage, enem is null");
+            return;
+        }
+        else{
+            if(enem.GetComponent<Enemyid>() != null){
+                pos = enem.GetComponent<Enemyid>().Id;
+                Debug.Log("id found. it is " + pos);
+            }
+            else{
+                Debug.Log("entering recieveDamage, Enemyid is null");
+                return;
+            }
+        }
         
-        Debug.Log("entering recieveDamage, instance id is:" + pos);
+        */
+        
         if(damageType < 3 && damageType >= 0){
             damageCount[damageType]++;
         }
@@ -199,7 +218,7 @@ public class AIManager : MonoBehaviour
         foreach(stupidAI go in stupidList)
         {
            // Debug.Log(pos + " , " + go.enemy.GetInstanceID());
-            if(go.enemy.GetComponent<Enemyid>().Id == pos){
+            if(go.enemy.GetComponent<Enemyid>().Id == id){
                 Debug.Log("found AI");
                 go.takeDamage();
             }
@@ -208,7 +227,7 @@ public class AIManager : MonoBehaviour
         foreach(smartAI go in smartList)
         {
             //Debug.Log(pos + " , " + go.enemy.GetInstanceID());
-            if(go.enemy.GetComponent<Enemyid>().Id == pos){
+            if(go.enemy.GetComponent<Enemyid>().Id == id){
                 Debug.Log("found AI");
                 go.takeDamage();
             }
@@ -236,11 +255,13 @@ public class AIManager : MonoBehaviour
  
     // removes any enemies who have been set to dead
     protected void removeDead(){
+
         foreach(stupidAI go in stupidList)
         {
             if(go.isDead){
-                Destroy(go);
-                stupidList.Remove(go);
+                
+                Destroy(go.enemy);
+                go.enemy = null;
             }
         }
 
@@ -248,10 +269,63 @@ public class AIManager : MonoBehaviour
         foreach(smartAI go in smartList)
         {
             if(go.isDead){
-                Destroy(go);
-                smartList.Remove(go);
+                
+                Destroy(go.enemy);
+                go.enemy = null;
+                
             }
         }
+
+        for(int i = 0; i < stupidList.Count; i++){
+
+        
+                stupidAI temp = (stupidAI)stupidList[i];
+                if(temp.enemy == null){
+                    stupidList[i] = null;
+                }
+
+
+        }
+
+        for(int i = 0; i < stupidList.Count; i++){
+
+        
+                smartAI temp = (smartAI)smartList[i];
+                if(temp.enemy == null){
+                    smartList[i] = null;
+                }
+
+
+        }
+
+        stupidList.Remove(null);
+        stupidList.Remove(null);
+        stupidList.Remove(null);
+        stupidList.Remove(null);
+        stupidList.Remove(null);
+
+        smartList.Remove(null);
+        smartList.Remove(null);
+        smartList.Remove(null);
+        smartList.Remove(null);
+        smartList.Remove(null);
+
+    }
+
+    public bool isNullstupid(stupidAI s){
+        if (s == null){
+            return true;
+        }
+        
+        return false;
+    }
+
+    public bool isNullsmart(smartAI s){
+        if (s == null){
+            return true;
+        }
+        
+        return false;
     }
 
   
@@ -338,7 +412,7 @@ public class AIManager : MonoBehaviour
             {
                 if(Random.Range(0, 120) == 3){
                     Debug.Log("player would be hurt here.... IF I COULD HURT THEM");
-                    // todo: decrement play health
+                    // decrement play health
                     PlayerStats stats = GameObject.Find("PlayerController").GetComponent<PlayerStats>();
                     stats.currentHealth--;
                     // Gus - add animation here
@@ -375,7 +449,7 @@ public class AIManager : MonoBehaviour
             {
                 if(Random.Range(0, 120) == 3){
                     Debug.Log("player would be hurt here.... IF I COULD HURT THEM");
-                    // todo: decrement player health
+                    //  decrement player health
                     PlayerStats stats = GameObject.Find("PlayerController").GetComponent<PlayerStats>();
                     stats.currentHealth--;
                     // Gus - add animation here
@@ -472,7 +546,7 @@ public class stupidAI : MonoBehaviour
 
     
 
-    // todo: destroy mover/gameobject, override and add in smartAI
+    // sets bool to dead, the next update() clears out dead AI's in removeDead()
     protected void die(){
         isDead = true;
         Debug.Log("enemy died");
