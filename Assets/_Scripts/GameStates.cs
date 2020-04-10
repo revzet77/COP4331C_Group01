@@ -23,7 +23,7 @@ public class GameStates : MonoBehaviour
 
 	public bool isWaveOver(int enemyCount)
 	{ // TODO: check how  many enemies are alive
-		if(enemyCount > 0 || !WaveOver) return false;
+		if(enemyCount > 0 && !WaveOver) return false;
 		else
 		{
 			WaveOver = false;

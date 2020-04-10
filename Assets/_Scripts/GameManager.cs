@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
             GameOver();
             yield break;
         }
-        //gameState.isWaveOver = false;
+        gameState.WaveOver = false;
         
         yield return m_EndWait;
     }
