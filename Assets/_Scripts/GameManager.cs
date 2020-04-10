@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
         
         // TODO: AI_Manager function to clear all active enemies
         AI_Manager.setDead();
+        AI_Manager.killWave();
         
         gameState.resetGame();
         pStats.currentHealth = pStats.maxHealth;
@@ -80,7 +81,7 @@ public class GameManager : MonoBehaviour
         // Keeps game running until player health is 0 OR until all enemies are defeated
         // TODO: check how many enemies are left using gameState.isWavOver() function or some
         // function from AI_Manager that can return a boolean here
-        while(!gameState.isPlayerDead(pStats) && !gameState.isWaveOver())
+        while(!gameState.isPlayerDead(pStats) && !gameState.isWaveOver(AI_Manager.enemyCount()))
         {
             /* TODO: 
             	- Update score and health when enemies get hit with bullets
@@ -100,6 +101,7 @@ public class GameManager : MonoBehaviour
     {
     	Debug.Log("In WaveEnding coroutine");
     	
+        AI_Manager.setDead();
 
     	// If player died or player finished all the waves, sends to game over menu
     	if(gameState.isGameOver(pStats))
@@ -109,6 +111,7 @@ public class GameManager : MonoBehaviour
             yield break;
         }
         //gameState.isWaveOver = false;
+        
         yield return m_EndWait;
     }
     
@@ -118,6 +121,7 @@ public class GameManager : MonoBehaviour
         //gameState.isGameOver = true;
         
         UI_Man.showMenu(UI_Man.gameOverMenu);
+        
         UI_Man.hidePlayerUI();
         UI_Man.DisplayFinalScores(gameState);
         return;
