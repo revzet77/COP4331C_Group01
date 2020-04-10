@@ -188,24 +188,24 @@ public class AIManager : MonoBehaviour
         currentenemy = enem;
         int id = 0;
         //testing gameobject
-        /*
+        
         // increment damage counter
         if(enem == null){
             Debug.Log("entering recieveDamage, enem is null");
-            return;
+            
         }
         else{
             if(enem.GetComponent<Enemyid>() != null){
-                pos = enem.GetComponent<Enemyid>().Id;
-                Debug.Log("id found. it is " + pos);
+                id = enem.GetComponent<Enemyid>().Id;
+                Debug.Log("id found. it is " + id);
             }
             else{
                 Debug.Log("entering recieveDamage, Enemyid is null");
-                return;
+                
             }
         }
         
-        */
+        
         
         if(damageType < 3 && damageType >= 0){
             damageCount[damageType]++;
