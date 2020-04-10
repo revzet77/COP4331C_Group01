@@ -308,7 +308,7 @@ public class AIManager : MonoBehaviour
     }
 
     // if the enemy's path is completed, then attack
-    //todo
+    
     private void checkAttack(){
 
         
@@ -337,7 +337,9 @@ public class AIManager : MonoBehaviour
             if (distance < minMoveDistance)
             {
                 if(Random.Range(0, 120) == 3){
-                    Debug.Log("player would be hurt.... IF I COULD HURT THEM");
+                    Debug.Log("player would be hurt here.... IF I COULD HURT THEM");
+                    // todo: decrement play health
+                    // Gus - add animation here
                 }
                  
             }
@@ -370,7 +372,9 @@ public class AIManager : MonoBehaviour
             if (distance < minMoveDistance)
             {
                 if(Random.Range(0, 120) == 3){
-                    Debug.Log("player would be hurt.... IF I COULD HURT THEM");
+                    Debug.Log("player would be hurt here.... IF I COULD HURT THEM");
+                    // todo: decrement player health
+                    // Gus - add animation here
                 }
             }
             
