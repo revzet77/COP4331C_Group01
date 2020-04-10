@@ -35,9 +35,9 @@ public class PlayerController : MonoBehaviour
         bullet = GameObject.Find("BulletRelease").GetComponent<Transform>();
         velocityY = 0;
         
-        gunList[0] = new Gun( "AK74", 0, 1, 0.1f, true);
-        gunList[1] = new Gun( "M107", 1, 1, 0.0f, false );
-        gunList[2] = new Gun( "Bennelli_M4", 2, 1, 0.3f, true);
+        gunList[1] = new Gun( "AK74", 1, 1, 0.1f, true);
+        gunList[2] = new Gun( "M107", 2, 1, 0.0f, false );
+        gunList[0] = new Gun( "Bennelli_M4", 0, 1, 0.3f, true);
         activeGun = gunList[0];
         
     }

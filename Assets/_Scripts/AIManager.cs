@@ -19,8 +19,8 @@ public class AIManager : MonoBehaviour
     /////////////////////////////////////
     public int overallStyle;
     public int [] damageCount;
-    ArrayList stupidList;
-    ArrayList smartList;
+    public ArrayList stupidList;
+    public ArrayList smartList;
     GameObject [] spawners;
     // tracks if game is still active
     public bool isAlive, killed;
