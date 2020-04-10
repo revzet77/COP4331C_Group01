@@ -28,6 +28,21 @@ public class AIAnimationController : MonoBehaviour
         animator.SetFloat("speed", agent.speed);
     }
 
+    public void TakeDamage()
+    {
+        animator.SetTrigger("damage");
+    }
+
+    public void Attack()
+    {
+        animator.SetTrigger("attack");
+    }
+
+    public void Die()
+    {
+        animator.SetTrigger("death");
+    }
+
     public Animator GetAnimator()
     {
         return animator;

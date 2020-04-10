@@ -416,6 +416,7 @@ public class AIManager : MonoBehaviour
                     PlayerStats stats = GameObject.Find("PlayerController").GetComponent<PlayerStats>();
                     stats.currentHealth--;
                     // Gus - add animation here
+                    go.attack();
                 }
                  
             }
@@ -453,6 +454,7 @@ public class AIManager : MonoBehaviour
                     PlayerStats stats = GameObject.Find("PlayerController").GetComponent<PlayerStats>();
                     stats.currentHealth--;
                     // Gus - add animation here
+                    go.attack();
                 }
             }
             
@@ -542,12 +544,25 @@ public class stupidAI : MonoBehaviour
         if(health <= 0){
             die();
         }
+        // --- ADDED BY GUS
+        // Mayhaps an if statement for a threshold before animation set off to prevent too many animation events 
+        animations.TakeDamage();
+        // ----
     }
 
-    
+    // ----- ADDED BY GUS
+    public void attack()
+    {
+        animations.Attack();
+    }
+    // -----
+
 
     // sets bool to dead, the next update() clears out dead AI's in removeDead()
     protected void die(){
+        //---Added BY GUS
+        animations.Die();
+        //----
         isDead = true;
         Debug.Log("enemy died");
     }
