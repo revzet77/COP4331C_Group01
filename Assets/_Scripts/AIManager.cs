@@ -24,6 +24,7 @@ public class AIManager : MonoBehaviour
     GameObject [] spawners;
     // tracks if game is still active
     public bool isAlive, killed;
+    public int enemyCounter;
 
     // FightStyles: 0: short, 1: mid, 2: long
 
@@ -40,11 +41,13 @@ public class AIManager : MonoBehaviour
         isAlive = false;
         stupidList = new ArrayList();
         smartList = new ArrayList();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(smartList.Count + " , " + stupidList.Count);
         removeDead();
         //setLive();
         //if gm kills the wave
@@ -102,8 +105,8 @@ public class AIManager : MonoBehaviour
     
     //.... by Wallace
     public int enemyCount(){
-        int count = stupidList.Count + smartList.Count;
-        return count;
+        
+        return enemyCounter;
     }
     //....
 
@@ -123,6 +126,7 @@ public class AIManager : MonoBehaviour
          Destroy(go.enemy);
         }
         smartList.Clear();
+        enemyCounter = 0;
     }
 
     
@@ -131,7 +135,7 @@ public class AIManager : MonoBehaviour
         // respawn all enemies
         // currently there are five enemies to spawn at fiver different spawn points
         // stretch goal: fix longprefab
-    
+        enemyCounter = 10;
         for(int i = 0; i < 5; i++){
             // max of range is excluded
             int fightrange = Random.Range(0, 3);
@@ -263,6 +267,7 @@ public class AIManager : MonoBehaviour
                 
                 Destroy(go.enemy);
                 go.enemy = null;
+                enemyCounter--;
             }
         }
 
@@ -273,7 +278,7 @@ public class AIManager : MonoBehaviour
                 
                 Destroy(go.enemy);
                 go.enemy = null;
-                
+                enemyCounter--;
             }
         }
 
@@ -288,7 +293,7 @@ public class AIManager : MonoBehaviour
 
         }
 
-        for(int i = 0; i < stupidList.Count; i++){
+        for(int i = 0; i < smartList.Count; i++){
 
         
                 smartAI temp = (smartAI)smartList[i];
@@ -566,6 +571,7 @@ public class stupidAI : MonoBehaviour
         //----
         isDead = true;
         Debug.Log("enemy died");
+        
     }
 
 
